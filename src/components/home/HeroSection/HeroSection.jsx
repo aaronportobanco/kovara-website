@@ -4,13 +4,13 @@ import React from "react";
 
 export default function HeroSection() {
   return (
-    <section className="flex items-center justify-between gap-8">
+    <section className="flex items-center justify-between gap-8 w-full">
       <div className="flex flex-col w-full max-w-[536px] gap-7">
         <h1 className="text-3xl font-bold text-foreground leading-tight">
           Tu tienda de computación de confianza
         </h1>
 
-        <p className="text-base text-foreground">
+        <p className="text-base text-muted-foreground">
           Descubre las últimas computadoras y accesorios a precios competitivos.
           Productos de calidad, asesoramiento experto y servicio excepcional.
         </p>
@@ -23,7 +23,7 @@ export default function HeroSection() {
 
           <Button
             variant="outline"
-            className="border-foreground text-foreground hover:bg-foreground/10"
+            className="border-foreground text-foreground hover:bg-foreground/10 bg-background"
           >
             Contáctanos
           </Button>
