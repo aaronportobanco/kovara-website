@@ -187,3 +187,26 @@ export const DataProducts = [
     },
   ],
 ];
+
+export const serviceData = [
+  {
+    icon: Laptop,
+    title: "Computadoras",
+    description: "Equipos de alto rendimiento para profesionales y gamers",
+  },
+  {
+    icon: Mouse,
+    title: "Accesorios",
+    description: "Periféricos y complementos de calidad premium",
+  },
+  {
+    icon: Keyboard,
+    title: "Componentes",
+    description: "Piezas de última generación para actualizar tu equipo",
+  },
+  {
+    icon: Headphones,
+    title: "Soporte",
+    description: "Asesoramiento técnico y servicio post-venta",
+  },
+];
