@@ -2,20 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import React from "react";
-import {MoveRight} from "lucide-react";
+import { MoveRight } from "lucide-react";
+import Header from "../layout/Header";
 
 const AboutUs = () => {
   return (
     <section className="flex flex-col items-center gap-12 relative px-4 py-8 md:px-8 lg:px-16 w-full">
-      <header className="flex flex-col items-center justify-center gap-4 w-full text-center">
-        <h2 className="text-slate-50 text-3xl font-bold leading-tight tracking-tight">
-          Sobre Kovara
-        </h2>
-        <p className="text-slate-400 text-base font-medium leading-relaxed">
-          Conoce más sobre nuestra filosofía Institucional
-        </p>
-      </header>
-
+      <Header
+        title={"Quienes Somos?"}
+        subtitle={"Conoce mas acerca de nuestra filosofia institucional"}
+      />
       <div className="flex flex-col lg:flex-row items-center justify-center gap-16 w-full max-w-7xl">
         <article className="flex flex-col justify-center gap-6 max-w-xl text-center lg:text-left">
           <div>
@@ -44,7 +40,7 @@ const AboutUs = () => {
 
           <div className="pt-8">
             <Button aria-label="Conocer más sobre Kovara">
-              <MoveRight className="h-4 w-4" strokeWidth={3}/>
+              <MoveRight strokeWidth={3} />
               Conocer más
             </Button>
           </div>
