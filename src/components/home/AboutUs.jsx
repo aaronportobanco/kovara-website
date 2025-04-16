@@ -9,8 +9,8 @@ const AboutUs = () => {
   return (
     <section className="flex flex-col items-center gap-12 relative px-4 py-8 md:px-8 lg:px-16 w-full">
       <Header
-        title={"Quienes Somos?"}
-        subtitle={"Conoce mas acerca de nuestra filosofia institucional"}
+        title={"¿Quiénes Somos?"}
+        subtitle={"Conoce más acerca de nuestra filosofía institucional"}
       />
       <div className="flex flex-col lg:flex-row items-center justify-center gap-16 w-full max-w-7xl">
         <article className="flex flex-col justify-center gap-6 max-w-xl text-center lg:text-left">
