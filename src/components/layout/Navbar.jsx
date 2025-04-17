@@ -2,9 +2,24 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
-import { ShoppingCart } from "lucide-react";
-import { ArrowDownRight } from "lucide-react";
+import {
+  ShoppingCart,
+  ArrowDownRight,
+  Search,
+  Menu,
+  House,
+  Phone,
+  Boxes,
+  Users,
+} from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
 import { Separator } from "../ui/separator";
@@ -15,8 +30,15 @@ const NavBar = () => {
     <>
       <header className="px-4 py-2.5 flex items-center justify-between relative overflow-hidden">
         <Logo />
-        <NavLinks />
-        <ActionIcons />
+        {/* Mobile menu (hamburger) */}
+        <div className="md:hidden">
+          <MobileMenu />
+        </div>
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center justify-between gap-4 w-full">
+          <NavLinks />
+          <ActionIcons />
+        </div>
       </header>
       <Separator className="bg-foreground/10 mt-1" />
     </>
@@ -42,10 +64,26 @@ const Logo = () => {
 
 // Navigation links component
 const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/about", label: "Sobre Nosotros" },
-  { href: "/products", label: "Productos" },
-  { href: "/contact", label: "Contacto" },
+  {
+    href: "/",
+    label: "Inicio",
+    Icon: <House className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "/about",
+    label: "Sobre Nosotros",
+    Icon: <Users className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "/products",
+    label: "Productos",
+    Icon: <Boxes className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "/contact",
+    label: "Contacto",
+    Icon: <Phone className="mr-2" strokeWidth={3} />,
+  },
 ];
 
 const NavLinks = () => {
@@ -81,7 +119,7 @@ const ActionIcons = () => {
         <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300">
           Buscar
         </span>
-        <Search className="h-4 w-4" strokeWidth={3} />
+        <Search strokeWidth={3} />
       </Button>
       <Link href="/cart-products">
         <Button
@@ -92,10 +130,58 @@ const ActionIcons = () => {
           <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300">
             Ver carrito
           </span>
-          <ShoppingCart className="h-4 w-4" strokeWidth={3} />
+          <ShoppingCart strokeWidth={3} />
         </Button>
       </Link>
     </div>
+  );
+};
+
+// Mobile menu component
+const MobileMenu = () => {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="icon" aria-label="Abrir menú">
+          <Menu />
+        </Button>
+      </SheetTrigger>
+
+      <SheetContent side="left" className="w-64 bg-background">
+        <SheetHeader className="text-start mt-4">
+          <SheetTitle>Menú principal</SheetTitle>
+          <SheetDescription>
+            Explora nuestros productos y servicios
+          </SheetDescription>
+        </SheetHeader>
+
+        <div className="flex flex-col gap-4 mt-6">
+          <Separator className="my-2" />
+          {links.map((link) => (
+            <Link key={link.label} href={link.href}>
+              <Button variant="ghost" className="w-full justify-start">
+                {link.Icon}
+                {link.label}
+              </Button>
+            </Link>
+          ))}
+
+          <Separator className="my-2" />
+
+          <Button variant="ghost" className="justify-start">
+            <Search className="mr-2" strokeWidth={3} />
+            Buscar
+          </Button>
+
+          <Link href="/cart-products">
+            <Button variant="ghost" className="justify-start">
+              <ShoppingCart className="mr-2" strokeWidth={3} />
+              Ver carrito
+            </Button>
+          </Link>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 
