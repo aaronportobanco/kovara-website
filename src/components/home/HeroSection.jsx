@@ -6,9 +6,9 @@ export default function HeroSection() {
   return (
     <section
       aria-label="Promotional message"
-      className="flex items-center justify-between gap-8 w-full"
+      className="flex flex-col lg:flex-row items-center justify-center gap-20 w-full"
     >
-      <div className="flex flex-col w-full max-w-[536px] gap-7">
+      <div className="flex flex-col gap-7">
         <h1 className="text-3xl font-bold text-foreground leading-tight">
           Tu tienda de computación de confianza
         </h1>
@@ -32,7 +32,7 @@ export default function HeroSection() {
           </Button>
         </div>
       </div>
-      <div className="relative w-[536px] h-[356px] bg-[#d9d9d9] rounded-md" />
+      <div className="relative w-full h-[356px] bg-gray-300 rounded-md" />
     </section>
   );
 }
