@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const FeaturedProducts = () => {
   return (
-    <>
+    <section>
       <Header
         title={"Productos más populares"}
         subtitle={"Conoce algunos de nuestros productos más vendidos"}
@@ -25,7 +25,7 @@ const FeaturedProducts = () => {
           <ArrowRight strokeWidth={3} />
         </Button>
       </div>
-    </>
+    </section>
   );
 };
 
