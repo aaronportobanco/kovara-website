@@ -110,7 +110,7 @@ const NavLinks = () => {
 // Action icons component
 const ActionIcons = () => {
   return (
-    <div className="flex items-center gap-2 z-10">
+    <div className="flex items-center z-10">
       <Button
         variant="with-icon"
         aria-label="Buscar"
