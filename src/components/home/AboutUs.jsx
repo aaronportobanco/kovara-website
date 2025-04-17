@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { MoveRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Header from "../layout/Header";
 
 const AboutUs = () => {
@@ -28,7 +28,7 @@ const AboutUs = () => {
           </div>
 
           {/* MISIÓN */}
-          <div >
+          <div>
             <h3 className="text-foreground text-2xl font-bold leading-snug tracking-tight">
               Nuestra Misión
             </h3>
@@ -43,12 +43,12 @@ const AboutUs = () => {
           {/* ACTION BUTTON */}
           <div className="pt-8">
             <Button aria-label="Conocer más sobre Kovara">
-              <MoveRight strokeWidth={3} />
               Conocer más
+              <ArrowRight strokeWidth={3} />
             </Button>
           </div>
         </article>
-        
+
         {/* IMAGE */}
         <figure
           className="w-full max-w-md h-72 bg-gray-300 rounded-md"
