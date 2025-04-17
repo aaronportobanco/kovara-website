@@ -16,10 +16,12 @@ const FeaturedProducts = () => {
           <VerticalCard key={product.id} data={product} />
         ))}
       </section>
-      <Button>
-        <ArrowRight strokeWidth={3}/>
-        Ver más productos
-      </Button>
+      <div className="flex justify-center md:justify-end items-center px-4">
+        <Button>
+          Ver más productos
+          <ArrowRight strokeWidth={3} />
+        </Button>
+      </div>
     </section>
   );
 };
