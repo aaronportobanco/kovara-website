@@ -18,7 +18,7 @@ import Header from "../layout/Header";
 
 const ContactSection = () => {
   return (
-    <section className="w-full px-4 py-12 md:px-8 lg:px-16 flex flex-col items-center gap-12 relative">
+    <section className="w-full px-4 md:px-8 lg:px-16 flex flex-col items-center gap-12 relative">
       <Header
         title="Contáctanos"
         subtitle="Envíanos un mensaje y en breve un miembro de Compuversa estará a tu servicio"
