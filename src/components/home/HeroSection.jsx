@@ -19,9 +19,9 @@ export default function HeroSection() {
         </p>
 
         <div className="flex items-center gap-5">
-          <Button className="gap-2 bg-foreground text-background hover:bg-foreground/90">
-            <ArrowRight className="h-4 w-4" strokeWidth={3} />
-            <span className="font-medium">Ver Productos</span>
+          <Button>
+            <ArrowRight strokeWidth={3} />
+            Ver Productos
           </Button>
 
           <Button
@@ -32,7 +32,6 @@ export default function HeroSection() {
           </Button>
         </div>
       </div>
-
       <div className="relative w-[536px] h-[356px] bg-[#d9d9d9] rounded-md" />
     </section>
   );
