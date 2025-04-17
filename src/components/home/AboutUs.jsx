@@ -14,11 +14,12 @@ const AboutUs = () => {
       />
       <div className="flex flex-col lg:flex-row items-center justify-center gap-16 w-full max-w-7xl">
         <article className="flex flex-col justify-center gap-6 max-w-xl text-center lg:text-left">
+          {/* VISION */}
           <div>
-            <h3 className="text-slate-50 text-2xl font-bold leading-snug tracking-tight">
+            <h3 className="text-foreground text-2xl font-bold leading-snug tracking-tight">
               Nuestra Visión
             </h3>
-            <p className="text-slate-400 text-base leading-relaxed mt-2">
+            <p className="text-muted-foreground text-base leading-relaxed mt-2">
               Ser la tienda líder en soluciones tecnológicas, ofreciendo equipos
               de cómputo y accesorios de alta calidad, con un servicio al
               cliente excepcional y precios competitivos, impulsando la
@@ -26,11 +27,12 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div>
-            <h3 className="text-slate-50 text-2xl font-bold leading-snug tracking-tight">
+          {/* MISIÓN */}
+          <div >
+            <h3 className="text-foreground text-2xl font-bold leading-snug tracking-tight">
               Nuestra Misión
             </h3>
-            <p className="text-slate-400 text-base leading-relaxed mt-2">
+            <p className="text-muted-foreground text-base leading-relaxed mt-2">
               Somos una tienda que brinda a nuestros clientes productos
               informáticos de última generación, garantizando asesoramiento
               personalizado, precios accesibles y un servicio confiable, con el
@@ -38,6 +40,7 @@ const AboutUs = () => {
             </p>
           </div>
 
+          {/* ACTION BUTTON */}
           <div className="pt-8">
             <Button aria-label="Conocer más sobre Kovara">
               <MoveRight strokeWidth={3} />
@@ -45,7 +48,8 @@ const AboutUs = () => {
             </Button>
           </div>
         </article>
-
+        
+        {/* IMAGE */}
         <figure
           className="w-full max-w-md h-72 bg-gray-300 rounded-md"
           aria-hidden="true"
