@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { Montserrat_Alternates } from "next/font/google";
 import NavBar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
