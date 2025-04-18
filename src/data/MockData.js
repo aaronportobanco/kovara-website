@@ -185,3 +185,45 @@ export const DataProducts = [
     ],
   },
 ];
+
+import { Award, Headphones, Truck } from "lucide-react";
+export const DataFeatures = [
+    {
+      Icon: Award,
+      color: "#3B82F6",
+      title: "Premium Quality",
+      description:
+        "We carefully select and test all products to ensure they meet our high standards of quality and performance.",
+    },
+    {
+      Icon: Headphones,
+      color: "#6366F1",
+      title: "Expert Support",
+      description:
+        "Our team of tech specialists is always ready to help with advice, troubleshooting, and recommendations.",
+    },
+    {
+      Icon: Truck,
+      color: "#22C55E",
+      title: "Fast Delivery",
+      description:
+        "We offer next-day delivery on premium products and competitive shipping times on all orders.",
+    },
+  ];
+
+  export const DataChecklist = [
+    {
+      title: "Curated Selection",
+      description:
+        "Every product in our catalog is carefully selected for performance and reliability.",
+    },
+    {
+      title: "Competitive Pricing",
+      description: "We offer the best value without compromising on quality.",
+    },
+    {
+      title: "Extended Warranty",
+      description:
+        "Peace of mind with our extended warranty options on all products.",
+    },
+  ];
