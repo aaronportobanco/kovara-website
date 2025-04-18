@@ -5,7 +5,7 @@ function CheckList() {
   return (
     <section
       aria-label="Propuesta de valor"
-      className="rounded-xl bg-gray-800/30 flex flex-col md:flex-row items-center px-4 md:px-8 lg:px-16 py-16 w-full"
+      className="rounded-xl bg-gray-800/30 flex flex-col md:flex-row items-center p-5 md:px-8 lg:p-16 w-full"
     >
       <div className="md:w-1/2 mb-10 md:mb-0 pr-0 md:pr-8">
         <h2 className="text-lg md:text-2xl font-heading font-bold mb-6">
