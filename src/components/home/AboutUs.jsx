@@ -45,9 +45,15 @@ const AboutUs = () => {
 
           {/* ACTION BUTTON */}
           <div className="pt-8">
-            <Button aria-label="Conocer más sobre Kovara">
+            <Button
+              className="group rounded-full"
+              aria-label="Conocer más sobre Kovara"
+            >
               Conocer más
-              <ArrowRight strokeWidth={3} />
+              <ArrowRight
+                strokeWidth={3}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
             </Button>
           </div>
         </article>
