@@ -15,12 +15,12 @@ import { Button } from "../ui/button";
 export const VerticalCard = ({ data }) => {
   const { nombre, descripcion, precio, stock } = data;
   return (
-    <Card className="w-full max-w-sm flex flex-col justify-between rounded-[10px] border-foreground border bg-background text-white">
+    <Card className="w-full max-w-sm flex flex-col justify-between rounded-[10px] border-foreground border bg-background">
       {/* Imagen */}
       <div className="w-full h-[200px] sm:h-[150px] md:h-[200px] bg-[#d9d9d9] rounded-[5px]" />
       
       {/* Contenido del Card */}
-      <div className="p-4">
+      <CardContent className="p-4">
         {/* Título y Stock */}
         <div className="flex justify-between items-center mt-4 gap-2">
           <CardTitle className="text-base text-foreground sm:text-lg font-semibold">
@@ -40,11 +40,11 @@ export const VerticalCard = ({ data }) => {
         </CardDescription>
 
         {/* Precio */}
-        <CardContent className="p-0 mt-4">
+        <div className="p-0 mt-4">
           <h4 className="text-lg md:text-lg font-bold text-foreground">
             ${precio.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
           </h4>
-        </CardContent>
+        </div>
 
         {/* Botones */}
         <CardFooter className="p-0 mt-3 flex flex-col sm:flex-row justify-between gap-2">
@@ -63,7 +63,7 @@ export const VerticalCard = ({ data }) => {
             </div>
           </Button>
         </CardFooter>
-      </div>
+      </CardContent>
     </Card>
   );
 };
