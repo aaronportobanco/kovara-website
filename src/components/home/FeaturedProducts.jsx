@@ -20,9 +20,12 @@ const FeaturedProducts = () => {
         ))}
       </section>
       <div className="group flex justify-center md:justify-end items-center px-4">
-        <Button className="rounded-full transition-transform duration-300 group-hover:translate-x-1">
+        <Button className="rounded-full ">
           Ver más productos
-          <ArrowRight strokeWidth={3} />
+          <ArrowRight
+            strokeWidth={3}
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          />
         </Button>
       </div>
     </section>
