@@ -19,7 +19,10 @@ export default function HeroSection() {
         </p>
 
         <div className="flex items-center gap-5">
-          <Button className="group font-medium text-foreground bg-blue-600 hover:bg-blue-700 rounded-full">
+          <Button
+            variant="outline"
+            className="group font-medium text-foreground bg-blue-600 hover:bg-blue-700 rounded-full"
+          >
             Ver Productos
             <ArrowRight
               strokeWidth={3}
@@ -27,12 +30,7 @@ export default function HeroSection() {
             />
           </Button>
 
-          <Button
-            variant="outline"
-            className="border-foreground text-foreground hover:bg-foreground/10 bg-background rounded-full"
-          >
-            Contáctanos
-          </Button>
+          <Button className="rounded-full">Contáctanos</Button>
         </div>
       </div>
       {/* SVG usando el componente Image */}
