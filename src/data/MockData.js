@@ -61,7 +61,7 @@ export const DataProducts = [
     nombre: "Headphones",
     precio: 915.6075,
     stock: 2,
-    descripcion: "Auriculares cómodos para uso diario.",
+    descripcion: "Auriculares cómodos para uso diario incluyen cancelación de ruido.",
     especificaciones: [
       "Conexión: Jack 3.5mm",
       "Diseño: Diadema ajustable",
