@@ -60,8 +60,11 @@ const ContactSection = () => {
               rows={4}
             />
 
-            <div className="w-full flex justify-end">
-              <Button type="button" className="flex items-center gap-2">
+            <div className="group w-full flex justify-end">
+              <Button
+                type="button"
+                className="rounded-full transition-transform duration-300 group-hover:translate-x-1"
+              >
                 Enviar Mensaje
                 <ChevronRight strokeWidth={3} />
               </Button>
@@ -77,17 +80,17 @@ const ContactSection = () => {
         <div className="flex-1 bg-slate-800 p-6 md:p-8 rounded-2xl space-y-8 shadow-md">
           <div className="space-y-6">
             <ContactItem
-              icon={<Phone />}
+              icon={<Phone className="h-5 w-5 text-[#3B82F6]" />}
               label="Teléfono"
               value="+505 5848-4317"
             />
             <ContactItem
-              icon={<MapPin />}
+              icon={<MapPin className="h-5 w-5 text-[#3B82F6]" />}
               label="Dirección"
               value="De Donde fue la Sandak del Iván, 2Cuadras Arriba, 3Andenes al Sur"
             />
             <ContactItem
-              icon={<Mail />}
+              icon={<Mail className="h-5 w-5 text-[#3B82F6]" />}
               label="Email"
               value="kovara@gmail.com"
             />
@@ -97,9 +100,9 @@ const ContactSection = () => {
             <p className="text-sm font-semibold mb-3">Mantente Conectado en:</p>
             <div className="flex gap-3">
               {[
-                { icon: <Facebook />, name: "Facebook" },
-                { icon: <Instagram />, name: "Instagram" },
-                { icon: <Twitter />, name: "Twitter" },
+                { icon: <Facebook className="h-5 w-5 text-[#F8FAFC]" />, name: "Facebook" },
+                { icon: <Instagram className="h-5 w-5 text-[#F8FAFC]" />, name: "Instagram" },
+                { icon: <Twitter className="h-5 w-5 text-[#F8FAFC]" />, name: "Twitter" },
               ].map((social, index) => (
                 <SocialIcon
                   key={index}
@@ -119,7 +122,7 @@ const ContactSection = () => {
 // This component is used to display contact information with an icon, label, and value
 const ContactItem = ({ icon, label, value }) => (
   <div className="flex items-start gap-3">
-    <div className="mt-1 text-primary">{icon}</div>
+    <div className="bg-[#3B82F6]/20 p-3 rounded-lg mr-2">{icon}</div>
     <div>
       <p className="text-sm font-semibold">{label}</p>
       <p className="text-sm text-muted-foreground">{value}</p>
@@ -130,13 +133,15 @@ const ContactItem = ({ icon, label, value }) => (
 // SocialIcon Component
 // This component is used to display social media icons with a hover effect
 const SocialIcon = ({ icon, label }) => (
-  <div
-    className="p-2 rounded-md bg-[#334155] hover:bg-[#475569] cursor-pointer transition"
+  <Button
+    variant="secondary"
+    size="icon"
+    className="bg-gray-700 hover:bg-gray-700 rounded-lg"
     aria-label={`Enlace a ${label}`}
     title={label}
   >
     {icon}
-  </div>
+  </Button>
 );
 
 // FormField Component
