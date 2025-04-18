@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import React from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
     <section
       aria-label="Promotional message"
-      className="flex flex-col lg:flex-row items-center justify-center gap-20 w-full"
+      className="flex flex-col lg:flex-row items-center justify-center gap-20 w-full "
     >
       <div className="flex flex-col gap-7">
         <h1 className="text-3xl font-bold text-foreground leading-tight">
@@ -19,20 +19,24 @@ export default function HeroSection() {
         </p>
 
         <div className="flex items-center gap-5">
-          <Button>
-            <ArrowRight strokeWidth={3} />
+          <Button className="group font-medium text-foreground bg-blue-600 hover:bg-blue-700 rounded-full">
             Ver Productos
+            <ArrowRight
+              strokeWidth={3}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Button>
 
           <Button
             variant="outline"
-            className="border-foreground text-foreground hover:bg-foreground/10 bg-background"
+            className="border-foreground text-foreground hover:bg-foreground/10 bg-background rounded-full"
           >
             Contáctanos
           </Button>
         </div>
       </div>
-      <div className="relative w-full h-[356px] bg-gray-300 rounded-md" />
+      {/* SVG usando el componente Image */}
+      <div className="bg-gray-400 relative w-full h-[356px] rounded-xl"></div>
     </section>
   );
 }
