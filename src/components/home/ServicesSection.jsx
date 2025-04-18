@@ -6,7 +6,7 @@ function ServicesSection() {
   return (
     <section
       aria-label="services-section"
-      className="flex flex-col items-center gap-12 relative px-4 md:px-8 lg:px-16 w-full "
+      className="rounded-xl bg-gray-800/30 flex flex-col items-center gap-12 relative p-5 md:px-8 lg:p-16 w-full "
     >
       <Header
         title="Lo que ofrecemos"
