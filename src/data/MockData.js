@@ -4,8 +4,7 @@ export const DataProducts = [
     nombre: "Mouse alámbrico",
     precio: 366.243,
     stock: 3,
-    descripcion:
-      "Mouse con cable USB, diseño ergonómico para uso prolongado.",
+    descripcion: "Mouse con cable USB, diseño ergonómico para uso prolongado.",
     especificaciones: [
       "Resolución: 1000 DPI",
       "Conexión: USB",
@@ -19,8 +18,7 @@ export const DataProducts = [
     nombre: "Mouse inalámbrico",
     precio: 549.3645,
     stock: 2,
-    descripcion:
-      "Mouse inalámbrico de alta precisión para trabajo y estudio.",
+    descripcion: "Mouse inalámbrico de alta precisión para trabajo y estudio.",
     especificaciones: [
       "Conexión: Receptor USB inalámbrico",
       "Alimentación: Batería AA",
@@ -175,7 +173,8 @@ export const DataProducts = [
     nombre: "Portátil Lenovo Ideapad 5 (gama media)",
     precio: 25637.01,
     stock: 2,
-    descripcion: "Laptop Lenovo Ideapad de gama media, ideal para productividad.",
+    descripcion:
+      "Laptop Lenovo Ideapad de gama media, ideal para productividad.",
     especificaciones: [
       "Procesador: AMD Ryzen 5",
       "Memoria RAM: 8GB DDR4",
@@ -188,42 +187,42 @@ export const DataProducts = [
 
 import { Award, Headphones, Truck } from "lucide-react";
 export const DataFeatures = [
-    {
-      Icon: Award,
-      color: "#3B82F6",
-      title: "Premium Quality",
-      description:
-        "We carefully select and test all products to ensure they meet our high standards of quality and performance.",
-    },
-    {
-      Icon: Headphones,
-      color: "#6366F1",
-      title: "Expert Support",
-      description:
-        "Our team of tech specialists is always ready to help with advice, troubleshooting, and recommendations.",
-    },
-    {
-      Icon: Truck,
-      color: "#22C55E",
-      title: "Fast Delivery",
-      description:
-        "We offer next-day delivery on premium products and competitive shipping times on all orders.",
-    },
-  ];
+  {
+    Icon: Award,
+    color: "#3B82F6",
+    title: "Premium Quality",
+    description:
+      "We carefully select and test all products to ensure they meet our high standards of quality and performance.",
+  },
+  {
+    Icon: Truck,
+    color: "#22C55E",
+    title: "Fast Delivery",
+    description:
+      "We offer next-day delivery on premium products and competitive shipping times on all orders.",
+  },
+  {
+    Icon: Headphones,
+    color: "#6366F1",
+    title: "Expert Support",
+    description:
+      "Our team of tech specialists is always ready to help with advice, troubleshooting, and recommendations.",
+  },
+];
 
-  export const DataChecklist = [
-    {
-      title: "Curated Selection",
-      description:
-        "Every product in our catalog is carefully selected for performance and reliability.",
-    },
-    {
-      title: "Competitive Pricing",
-      description: "We offer the best value without compromising on quality.",
-    },
-    {
-      title: "Extended Warranty",
-      description:
-        "Peace of mind with our extended warranty options on all products.",
-    },
-  ];
+export const DataChecklist = [
+  {
+    title: "Curated Selection",
+    description:
+      "Every product in our catalog is carefully selected for performance and reliability.",
+  },
+  {
+    title: "Competitive Pricing",
+    description: "We offer the best value without compromising on quality.",
+  },
+  {
+    title: "Extended Warranty",
+    description:
+      "Peace of mind with our extended warranty options on all products.",
+  },
+];
