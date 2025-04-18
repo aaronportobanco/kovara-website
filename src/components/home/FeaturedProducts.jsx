@@ -19,8 +19,8 @@ const FeaturedProducts = () => {
           <VerticalCard key={product.id} data={product} />
         ))}
       </section>
-      <div className="flex justify-center md:justify-end items-center px-4">
-        <Button>
+      <div className="group flex justify-center md:justify-end items-center px-4">
+        <Button className="rounded-full transition-transform duration-300 group-hover:translate-x-1">
           Ver más productos
           <ArrowRight strokeWidth={3} />
         </Button>
