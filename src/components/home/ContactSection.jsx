@@ -61,12 +61,12 @@ const ContactSection = () => {
             />
 
             <div className="group w-full flex justify-end">
-              <Button
-                type="button"
-                className="rounded-full transition-transform duration-300 group-hover:translate-x-1"
-              >
+              <Button type="button" className="rounded-full">
                 Enviar Mensaje
-                <ChevronRight strokeWidth={3} />
+                <ChevronRight
+                  strokeWidth={3}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
               </Button>
             </div>
           </form>
@@ -100,9 +100,18 @@ const ContactSection = () => {
             <p className="text-sm font-semibold mb-3">Mantente Conectado en:</p>
             <div className="flex gap-3">
               {[
-                { icon: <Facebook className="h-5 w-5 text-[#F8FAFC]" />, name: "Facebook" },
-                { icon: <Instagram className="h-5 w-5 text-[#F8FAFC]" />, name: "Instagram" },
-                { icon: <Twitter className="h-5 w-5 text-[#F8FAFC]" />, name: "Twitter" },
+                {
+                  icon: <Facebook className="h-5 w-5 text-[#F8FAFC]" />,
+                  name: "Facebook",
+                },
+                {
+                  icon: <Instagram className="h-5 w-5 text-[#F8FAFC]" />,
+                  name: "Instagram",
+                },
+                {
+                  icon: <Twitter className="h-5 w-5 text-[#F8FAFC]" />,
+                  name: "Twitter",
+                },
               ].map((social, index) => (
                 <SocialIcon
                   key={index}
