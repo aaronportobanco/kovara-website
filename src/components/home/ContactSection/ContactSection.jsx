@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import Header from "../../layout/Header";
 
-
 // ContactSection Component
 // This component is used to create a contact section with a form and contact information
 const ContactSection = () => {
@@ -25,7 +24,7 @@ const ContactSection = () => {
     <section
       id="contact"
       aria-label="Contact section"
-      className="w-full px-4 md:px-8 lg:px-16 flex flex-col items-center gap-12 relative"
+      className="rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16 w-full lg:px-16 flex flex-col items-center gap-12 relative"
     >
       <Header
         title="Contáctanos"
@@ -43,7 +42,6 @@ const ContactSection = () => {
     </section>
   );
 };
-
 
 // ContactForm Component
 // This component is used to create a contact form with fields for name, email, subject, and message
@@ -94,7 +92,6 @@ const ContactForm = () => {
   );
 };
 
-
 // ContactInfo Component
 // This component is used to display contact information such as phone, address, and email
 const ContactInfo = () => {
@@ -122,7 +119,6 @@ const ContactInfo = () => {
   );
 };
 
-
 // SocialIcons Component
 // This component is used to display social media icons with a hover effect
 const SocialIcons = () => {
@@ -145,7 +141,6 @@ const SocialIcons = () => {
   );
 };
 
-
 // ContactItem Component
 // This component is used to display contact information with an icon, label, and value
 const ContactItem = ({ icon, label, value }) => (
@@ -157,7 +152,6 @@ const ContactItem = ({ icon, label, value }) => (
     </div>
   </div>
 );
-
 
 // SocialIcon Component
 // This component is used to display social media icons with a hover effect
@@ -172,7 +166,6 @@ const SocialIcon = ({ icon, label }) => (
     {icon}
   </Button>
 );
-
 
 // FormField Component
 // This component is used to create a form field with a label and an input or textarea
