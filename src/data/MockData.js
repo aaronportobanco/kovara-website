@@ -76,7 +76,7 @@ export const DataProducts = [
       "Compatibilidad: Dispositivos con Bluetooth",
       "Almohadillas suaves para mayor comodidad",
     ],
-    imagen: "/images/products/Headphones-Sony-WH-CH520/imagen-1.webp",
+    imagen: "/images/products/Headphones-Sony-WH-CH510/imagen-1.webp",
     alt: "Audífonos Sony WH-CH510",
   },
   {
@@ -217,39 +217,66 @@ export const DataFeatures = [
   {
     Icon: Award,
     color: "#3B82F6",
-    title: "Premium Quality",
+    title: "Calidad Premium",
     description:
-      "We carefully select and test all products to ensure they meet our high standards of quality and performance.",
+      "Seleccionamos y probamos cuidadosamente todos los productos para garantizar que cumplan con nuestros altos estándares de calidad y rendimiento.",
   },
   {
     Icon: Truck,
     color: "#22C55E",
-    title: "Fast Delivery",
+    title: "Entrega Rápida",
     description:
-      "We offer next-day delivery on premium products and competitive shipping times on all orders.",
+      "Ofrecemos entrega al día siguiente en productos premium y tiempos de envío competitivos en todos los pedidos.",
   },
   {
     Icon: Headphones,
     color: "#6366F1",
-    title: "Expert Support",
+    title: "Soporte Experto",
     description:
-      "Our team of tech specialists is always ready to help with advice, troubleshooting, and recommendations.",
+      "Nuestro equipo de especialistas en tecnología siempre está listo para ayudar con asesoramiento, solución de problemas y recomendaciones.",
   },
 ];
 
 export const DataChecklist = [
   {
-    title: "Curated Selection",
+    title: "Selección Curada",
     description:
-      "Every product in our catalog is carefully selected for performance and reliability.",
+      "Cada producto en nuestro catálogo es cuidadosamente seleccionado por su rendimiento y confiabilidad.",
   },
   {
-    title: "Competitive Pricing",
-    description: "We offer the best value without compromising on quality.",
+    title: "Precios Competitivos",
+    description: "Ofrecemos el mejor valor sin comprometer la calidad.",
   },
   {
-    title: "Extended Warranty",
+    title: "Garantía Extendida",
     description:
-      "Peace of mind with our extended warranty options on all products.",
+      "Tranquilidad con nuestras opciones de garantía extendida en todos los productos.",
+  },
+];
+
+export const DataTestimonials = [
+  {
+    name: "Esther Howard",
+    role: "Software Developer",
+    image: "/images/avatars/avatar-1.png",
+    text: "Estoy encantada con el servicio de Kovara. El equipo fue muy atento y los productos llegaron justo a tiempo. ¡Súper recomendados! Además, la calidad de los productos superó mis expectativas.",
+  },
+  {
+    name: "Darlene Robertson",
+    role: "Diseñadora UX",
+    image: "/images/avatars/avatar-3.png",
+    text: "Me sorprendió la calidad de atención. Además, su catálogo es muy variado y encontré justo lo que necesitaba. Definitivamente recomendaré Kovara a mis colegas.",
+  },
+  {
+    name: "Albert Flores",
+    role: "Administrador de sistemas",
+    image: "/images/avatars/avatar-1.png",
+    text: "Excelente experiencia de compra. Todo el proceso fue rápido y sin complicaciones. Kovara se ha ganado mi confianza. Estoy seguro de que volveré a comprar pronto.",
+  },
+  {
+    name: "Jane Cooper",
+    role: "Ingeniera de datos",
+    image: "/images/avatars/avatar-2.png",
+    text: "¡Los precios y la calidad de los equipos son increíbles! Sin duda, volveré a comprar pronto. Además, el soporte técnico fue muy útil y resolvió todas mis dudas.",
   },
 ];
