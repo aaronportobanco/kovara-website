@@ -23,6 +23,7 @@ import Header from "../../layout/Header";
 const ContactSection = () => {
   return (
     <section
+      id="contact"
       aria-label="Contact section"
       className="w-full px-4 md:px-8 lg:px-16 flex flex-col items-center gap-12 relative"
     >
@@ -185,13 +186,13 @@ const FormField = ({ id, label, placeholder, isTextarea, rows = 3 }) => (
         id={id}
         placeholder={placeholder}
         rows={rows}
-        className="border border-gray-700 hover:border-primary transition-colors"
+        className="border border-gray-600 hover:border-[#3B82F6] transition-colors"
       />
     ) : (
       <Input
         id={id}
         placeholder={placeholder}
-        className="border border-gray-700 hover:border-primary transition-colors"
+        className="border border-gray-600 hover:border-[#3B82F6] transition-colors"
       />
     )}
   </div>

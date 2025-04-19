@@ -5,6 +5,7 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section
+      id="home"
       aria-label="Promotional message"
       className="flex flex-col lg:flex-row items-center justify-center gap-20 w-full "
     >

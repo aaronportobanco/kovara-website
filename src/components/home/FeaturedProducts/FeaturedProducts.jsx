@@ -23,6 +23,7 @@ const FeaturedProducts = () => {
 
   return (
     <section
+      id="featured-products"
       aria-label="Productos destacados"
       className="rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16 w-full"
     >

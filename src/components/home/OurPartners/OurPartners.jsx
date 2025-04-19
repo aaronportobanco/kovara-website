@@ -12,6 +12,7 @@ const partnerLogos = [
 export default function OurPartners() {
   return (
     <section
+      id="partners"
       aria-label="Socios claves"
       className="flex flex-col items-center justify-center gap-7"
     >

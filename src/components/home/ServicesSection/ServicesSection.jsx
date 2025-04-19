@@ -5,6 +5,7 @@ import Header from "../../layout/Header";
 function ServicesSection() {
   return (
     <section
+      id="services"
       aria-label="services-section"
       className="rounded-xl bg-gray-800/30 flex flex-col items-center gap-12 relative p-5 md:px-8 lg:p-16 w-full "
     >

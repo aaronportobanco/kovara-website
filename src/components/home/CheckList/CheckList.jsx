@@ -4,6 +4,7 @@ import { Check } from "lucide-react";
 function CheckList() {
   return (
     <section
+      id="checklist"
       aria-label="Propuesta de valor"
       className="rounded-xl bg-gray-800/30 flex flex-col md:flex-row items-center p-5 md:px-8 lg:p-16 w-full"
     >

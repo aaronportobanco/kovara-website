@@ -8,6 +8,7 @@ import Header from "../../layout/Header";
 const AboutUs = () => {
   return (
     <section
+      id="about"
       aria-label="Sobre nosotros section"
       className="flex flex-col items-center gap-12 relative px-4 md:px-8 lg:px-16 w-full"
     >
