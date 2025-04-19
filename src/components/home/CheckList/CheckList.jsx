@@ -4,18 +4,27 @@ import { Check } from "lucide-react";
 function CheckList() {
   return (
     <section
-      id="checklist"
       aria-label="Propuesta de valor"
-      className="rounded-xl bg-gray-800/30 flex flex-col md:flex-row items-center p-5 md:px-8 lg:p-16 w-full"
+      id="checklist"
+      className="flex flex-col md:flex-row items-center p-5 md:px-8 lg:p-16 w-full"
     >
-      <div className="md:w-1/2 mb-10 md:mb-0 pr-0 md:pr-8">
+      {/* Image Section */}
+      <div className="md:w-1/2 relative mb-10 md:mb-0 pr-0 md:pr-8">
+        <img
+          src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=600&q=80"
+          alt="Modern Workspace"
+          className="rounded-lg shadow-xl"
+        />
+      </div>
+
+      <div className="md:w-1/2">
         <h2 className="text-xl md:text-2xl font-heading font-bold mb-6">
-          The Ultimate Computing Experience
+          La Experiencia Informática Definitiva
         </h2>
         <p className="text-sm text-muted-foreground mb-6">
-          At Kovara, we believe that the right hardware can transform your
-          digital experience. Whether you're a professional, creator, or gamer,
-          we have the tools you need to excel.
+          En Kovara, creemos que el hardware adecuado puede transformar tu
+          experiencia digital. Ya seas un profesional, creador o gamer, tenemos
+          las herramientas que necesitas para sobresalir.
         </p>
 
         <div className="gap-8 flex flex-col">
@@ -23,16 +32,6 @@ function CheckList() {
             <ChecklistItem key={index} {...item} />
           ))}
         </div>
-      </div>
-
-      {/* Image Section */}
-      <div className="md:w-1/2 relative">
-        <img
-          src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=600&q=80"
-          alt="Modern Workspace"
-          className="rounded-lg shadow-xl"
-        />
-        <YearsBadge />
       </div>
     </section>
   );
