@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Eye, ShoppingCart } from "lucide-react";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -9,18 +10,30 @@ import {
   CardTitle,
   CardDescription,
 } from "../ui/card";
+import { Separator } from "../ui/separator";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 
 export const VerticalCard = ({ data }) => {
-  const { nombre, descripcion, precio, stock } = data;
+  const { nombre, descripcion, precio, stock, imagen, alt } = data;
   return (
     <Card className="w-full max-w-sm flex flex-col justify-between rounded-[10px] border-foreground border bg-background">
       {/* Imagen */}
-      <div className="w-full h-[200px] sm:h-[150px] md:h-[200px] bg-[#d9d9d9] rounded-[5px]" />
-      
+      {/* Unified height for consistent layout across devices */}
+      <div className="w-full h-[250px] p-2 rounded-[5px] overflow-hidden flex justify-center items-center">
+        <Image
+          src={imagen}
+          alt={alt}
+          width={350}
+          height={200}
+          className="object-cover rounded-[5px]"
+        />
+      </div>
+
+      <Separator className="bg-gray-700"/>
+
       {/* Contenido del Card */}
-      <CardContent className="p-4">
+      <CardContent className="px-4">
         {/* Título y Stock */}
         <div className="flex justify-between items-center mt-4 gap-2">
           <CardTitle className="text-base text-foreground sm:text-lg font-semibold">
@@ -42,14 +55,14 @@ export const VerticalCard = ({ data }) => {
         {/* Precio */}
         <div className="p-0 mt-4">
           <h4 className="text-lg md:text-lg font-bold text-foreground">
-            ${precio.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
+            C${precio.toLocaleString("es-NI", { minimumFractionDigits: 2 })}
           </h4>
         </div>
 
         {/* Botones */}
         <CardFooter className="p-0 mt-3 flex flex-col sm:flex-row justify-between gap-2">
           <Button className="w-full sm:flex-1 gap-2">
-            <ShoppingCart className="w-5 h-5" />
+            <ShoppingCart strokeWidth={3} />
             Añadir al Carrito
           </Button>
           <Button
