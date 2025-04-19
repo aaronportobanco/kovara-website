@@ -17,6 +17,9 @@ import {
 } from "lucide-react";
 import Header from "../../layout/Header";
 
+
+// ContactSection Component
+// This component is used to create a contact section with a form and contact information
 const ContactSection = () => {
   return (
     <section
@@ -29,108 +32,118 @@ const ContactSection = () => {
       />
 
       <div className="max-w-7xl mx-auto flex items-center flex-col md:flex-row gap-10">
-        {/* Formulario */}
-        <div className="flex-1 space-y-8">
-          <div className="space-y-2">
-            <h2 className="text-xl font-bold">Envía un Mensaje</h2>
-            <p className="text-sm text-muted-foreground">
-              Provee tu información de contacto para que un miembro de nuestro
-              equipo te asesore personalmente
-            </p>
-          </div>
-
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormField
-                id="nombre"
-                label="Nombre"
-                placeholder="Escribe un nombre y un apellido"
-              />
-              <FormField
-                id="email"
-                label="Email"
-                placeholder="e.g.: example@gmail.com"
-              />
-            </div>
-            <FormField id="asunto" label="Asunto" placeholder="Asunto" />
-            <FormField
-              id="mensaje"
-              label="Mensaje"
-              placeholder="Escribe tu Mensaje Aquí"
-              isTextarea
-              rows={4}
-            />
-
-            <div className="group w-full flex justify-end">
-              <Button type="button" className="rounded-full">
-                Enviar Mensaje
-                <ChevronRight
-                  strokeWidth={3}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Button>
-            </div>
-          </form>
-        </div>
-
+        <ContactForm />
         <Separator
           orientation="vertical"
           className="hidden md:block h-[400px] w-px bg-gray-700"
         />
-        {/* Información de contacto */}
-        <div className="flex-1 bg-slate-800 p-6 md:p-8 rounded-2xl space-y-8 shadow-md">
-          <div className="space-y-6">
-            <ContactItem
-              icon={<Phone className="h-5 w-5 text-[#3B82F6]" />}
-              label="Teléfono"
-              value="+505 5848-4317"
-            />
-            <ContactItem
-              icon={<MapPin className="h-5 w-5 text-[#3B82F6]" />}
-              label="Dirección"
-              value="De Donde fue la Sandak del Iván, 2Cuadras Arriba, 3Andenes al Sur"
-            />
-            <ContactItem
-              icon={<Mail className="h-5 w-5 text-[#3B82F6]" />}
-              label="Email"
-              value="soporte@kovara.com"
-            />
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold mb-3">Mantente Conectado en:</p>
-            <div className="flex gap-3">
-              {[
-                {
-                  icon: <Facebook />,
-                  name: "Facebook",
-                },
-                {
-                  icon: <Instagram />,
-                  name: "Instagram",
-                },
-                {
-                  icon: <Twitter />,
-                  name: "Twitter",
-                },
-                {
-                  icon: <Linkedin />,
-                  name: "Twitter",
-                },
-              ].map((social, index) => (
-                <SocialIcon
-                  key={index}
-                  icon={social.icon}
-                  label={social.name}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+        <ContactInfo />
       </div>
     </section>
   );
 };
+
+
+// ContactForm Component
+// This component is used to create a contact form with fields for name, email, subject, and message
+const ContactForm = () => {
+  return (
+    <div className="flex-1 space-y-8">
+      <div className="space-y-2">
+        <h2 className="text-xl font-bold">Envía un Mensaje</h2>
+        <p className="text-sm text-muted-foreground">
+          Provee tu información de contacto para que un miembro de nuestro
+          equipo te asesore personalmente
+        </p>
+      </div>
+
+      <form className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <FormField
+            id="nombre"
+            label="Nombre"
+            placeholder="Escribe un nombre y un apellido"
+          />
+          <FormField
+            id="email"
+            label="Email"
+            placeholder="e.g.: example@gmail.com"
+          />
+        </div>
+        <FormField id="asunto" label="Asunto" placeholder="Asunto" />
+        <FormField
+          id="mensaje"
+          label="Mensaje"
+          placeholder="Escribe tu Mensaje Aquí"
+          isTextarea
+          rows={4}
+        />
+
+        <div className="group w-full flex justify-end">
+          <Button type="button" className="rounded-full">
+            Enviar Mensaje
+            <ChevronRight
+              strokeWidth={3}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+
+// ContactInfo Component
+// This component is used to display contact information such as phone, address, and email
+const ContactInfo = () => {
+  return (
+    <div className="flex-1 bg-slate-800 p-6 md:p-8 rounded-2xl space-y-8 shadow-md">
+      <div className="space-y-6">
+        <ContactItem
+          icon={<Phone className="h-5 w-5 text-[#3B82F6]" />}
+          label="Teléfono"
+          value="+505 5848-4317"
+        />
+        <ContactItem
+          icon={<MapPin className="h-5 w-5 text-[#3B82F6]" />}
+          label="Dirección"
+          value="De Donde fue la Sandak del Iván, 2Cuadras Arriba, 3Andenes al Sur"
+        />
+        <ContactItem
+          icon={<Mail className="h-5 w-5 text-[#3B82F6]" />}
+          label="Email"
+          value="soporte@kovara.com"
+        />
+      </div>
+      <SocialIcons />
+    </div>
+  );
+};
+
+
+// SocialIcons Component
+// This component is used to display social media icons with a hover effect
+const SocialIcons = () => {
+  const socials = [
+    { icon: <Facebook />, name: "Facebook" },
+    { icon: <Instagram />, name: "Instagram" },
+    { icon: <Twitter />, name: "Twitter" },
+    { icon: <Linkedin />, name: "LinkedIn" },
+  ];
+
+  return (
+    <div>
+      <p className="text-sm font-semibold mb-3">Mantente Conectado en:</p>
+      <div className="flex gap-3">
+        {socials.map((social, index) => (
+          <SocialIcon key={index} icon={social.icon} label={social.name} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 
 // ContactItem Component
 // This component is used to display contact information with an icon, label, and value
@@ -143,6 +156,7 @@ const ContactItem = ({ icon, label, value }) => (
     </div>
   </div>
 );
+
 
 // SocialIcon Component
 // This component is used to display social media icons with a hover effect
@@ -157,6 +171,7 @@ const SocialIcon = ({ icon, label }) => (
     {icon}
   </Button>
 );
+
 
 // FormField Component
 // This component is used to create a form field with a label and an input or textarea
