@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
+import { scrollToSection } from "@/lib/scroll-utils"
 import { Separator } from "../ui/separator";
 
 // Main Navbar component
@@ -62,6 +63,12 @@ const Logo = () => {
   );
 };
 
+const handleNavClick = (e, href) => {
+  e.preventDefault();
+  const sectionId = href.startsWith("#") ? href.substring(1) : href;
+  scrollToSection(sectionId);
+}
+
 // Navigation links component
 const links = [
   {
@@ -70,17 +77,17 @@ const links = [
     Icon: <House className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "/about",
+    href: "#about",
     label: "Sobre Nosotros",
     Icon: <Users className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "/products",
+    href: "#featured-products",
     label: "Productos",
     Icon: <Boxes className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "/contact",
+    href: "#contact",
     label: "Contacto",
     Icon: <Phone className="mr-2" strokeWidth={3} />,
   },
@@ -96,7 +103,9 @@ const NavLinks = () => {
         <Link key={link.label} href={link.href}>
           <Button
             variant="link"
-            className="font-medium group hover:bg-foreground/10 px-4 py-2 flex items-center gap-2 transition-all duration-300"
+            aria-label={link.label}
+            onClick={(e) => handleNavClick(e, link.href)}
+            className="hover:text-[#3B82F6] font-medium group px-4 py-2 flex items-center gap-2 transition-all duration-300"
           >
             {link.label}
             <ArrowDownRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
@@ -114,7 +123,7 @@ const ActionIcons = () => {
       <Button
         variant="with-icon"
         aria-label="Buscar"
-        className="group hover:bg-foreground/10 px-4 py-2 flex items-center gap-2 transition-all duration-300"
+        className="group hover:text-[#3B82F6] hover:bg-foreground/10 px-4 py-2 flex items-center gap-2 transition-all duration-300"
       >
         <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300">
           Buscar
@@ -125,7 +134,7 @@ const ActionIcons = () => {
         <Button
           variant="icon"
           aria-label="Carrito de compras"
-          className="group hover:bg-foreground/10 px-4 py-2 flex items-center gap-2 transition-all duration-300"
+          className="group hover:text-[#3B82F6] hover:bg-foreground/10 px-4 py-2 flex items-center gap-2 transition-all duration-300"
         >
           <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300">
             Ver carrito
