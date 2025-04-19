@@ -33,7 +33,7 @@ const AboutUs = () => {
           alt="Decoración abstracta"
           width={1000}
           height={1000}
-          className="absolute -rotate-6 left-[-40px] bottom-[-190px] z-0 opacity-40 animate-pulse"
+          className="absolute -rotate-6 left-[-40px] bottom-[-190px] z-0 opacity-30"
         />
 
         {/* Imagen principal */}
