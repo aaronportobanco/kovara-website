@@ -1,4 +1,5 @@
 import { DataChecklist } from "@/data/MockData";
+import Image from "next/image";
 import { Check } from "lucide-react";
 
 function CheckList() {
@@ -6,31 +7,54 @@ function CheckList() {
     <section
       aria-label="Propuesta de valor"
       id="checklist"
-      className="flex flex-col md:flex-row items-center p-5 md:px-8 lg:p-16 w-full"
+      className="py-10 px-4 md:px-8 lg:px-16 relative"
     >
-      {/* Image Section */}
-      <div className="md:w-1/2 relative mb-10 md:mb-0 pr-0 md:pr-8">
-        <img
-          src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=600&q=80"
-          alt="Modern Workspace"
-          className="rounded-lg shadow-xl"
-        />
-      </div>
+      {/* Imagen decorativa posicionada cerca del texto */}
+      <Image
+        src="/assets/bg-4.webp"
+        alt="Decoración abstracta"
+        width={650}
+        height={650}
+        className="absolute -rotate-6 left-[-10px] top-[70px] z-0 opacity-10"
+      />
 
-      <div className="md:w-1/2">
-        <h2 className="text-xl md:text-2xl font-heading font-bold mb-6">
-          La Experiencia Informática Definitiva
-        </h2>
-        <p className="text-sm text-muted-foreground mb-6">
-          En Kovara, creemos que el hardware adecuado puede transformar tu
-          experiencia digital. Ya seas un profesional, creador o gamer, tenemos
-          las herramientas que necesitas para sobresalir.
-        </p>
+      <Image
+        src="/assets/bg-8.webp"
+        alt="Decoración abstracta"
+        width={900}
+        height={900}
+        className="absolute -rotate-6 right-[20px] top-[70px] z-0 opacity-10 blur-sm"
+      />
 
-        <div className="gap-8 flex flex-col">
-          {DataChecklist.map((item, index) => (
-            <ChecklistItem key={index} {...item} />
-          ))}
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative">
+        {/* Imagen principal */}
+        <div className="relative flex items-center justify-center z-10">
+          <Image
+            priority
+            src="/assets/checklist-main.webp"
+            alt="Imagen ilustrativa de la propuesta de valor"
+            width={500}
+            height={500}
+            className="relative z-10"
+          />
+        </div>
+
+        {/* Contenido textual */}
+        <div className="z-10">
+          <h2 className="text-xl md:text-2xl font-heading font-bold mb-6">
+            La Experiencia Informática Definitiva
+          </h2>
+          <p className="text-sm text-muted-foreground mb-6">
+            En Kovara, creemos que el hardware adecuado puede transformar tu
+            experiencia digital. Ya seas un profesional, creador o gamer,
+            tenemos las herramientas que necesitas para sobresalir.
+          </p>
+
+          <div className="gap-8 flex flex-col">
+            {DataChecklist.map((item, index) => (
+              <ChecklistItem key={index} {...item} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -46,17 +70,6 @@ function ChecklistItem({ title, description }) {
       <div>
         <h4 className="font-semibold">{title}</h4>
         <p className="text-sm text-gray-300">{description}</p>
-      </div>
-    </div>
-  );
-}
-
-function YearsBadge() {
-  return (
-    <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-[#3B82F6] to-[#6366F1] p-3 rounded-lg shadow-lg">
-      <div className="flex items-center space-x-3">
-        <div className="text-3xl font-bold">10+</div>
-        <div className="text-sm">Years of Excellence in Tech</div>
       </div>
     </div>
   );
