@@ -11,36 +11,27 @@ const AboutUs = () => {
     <section
       id="about"
       aria-label="Sección Sobre Nosotros"
-      className="py-10 px-4 md:px-8 lg:px-16"
+      className="rounded-xl bg-gray-800/30 py-10 px-4 md:px-8 lg:px-16"
     >
       <Header
         title="¿Quiénes Somos?"
         subtitle="Conoce más acerca de nuestra filosofía institucional"
       />
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative">
-        
         {/* Imagen decorativa posicionada cerca del texto */}
         <Image
-          src="/assets/bg-aboutus.webp"
+          src="/assets/bg-4.webp"
           alt="Decoración abstracta"
-          width={650}
-          height={650}
-          className="absolute -rotate-6 left-[-90px] top-[-70px] z-0 opacity-40 animate-pulse"
-        />
-
-        <Image
-          src="/assets/icons-aboutus.webp"
-          alt="Decoración abstracta"
-          width={1000}
-          height={1000}
-          className="absolute -rotate-6 left-[-40px] bottom-[-190px] z-0 opacity-30"
+          width={700}
+          height={700}
+          className="absolute -rotate-6 left-[-70px] top-[40px] z-0 opacity-10"
         />
 
         {/* Imagen principal */}
         <div className="relative flex items-center justify-center z-10">
           <Image
             priority
-            src="/assets/about-us.webp"
+            src="/assets/about-us-main.webp"
             alt="Ilustración sobre nosotros"
             width={800}
             height={800}
