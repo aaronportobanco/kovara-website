@@ -88,7 +88,7 @@ function FooterBrand() {
       <Link href="/" className="flex items-center mb-6">
         <div className="mr-2">
           <Image
-            src="/assets/logo/logo.webp"
+            src="/images/logo/logo.webp"
             alt="Logo de Kovara"
             width={18}
             height={27}

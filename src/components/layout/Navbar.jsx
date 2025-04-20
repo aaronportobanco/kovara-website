@@ -36,7 +36,7 @@ const NavBar = () => {
           <MobileMenu />
         </div>
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center justify-between gap-4 w-full">
+        <div className="hidden md:flex w-full">
           <NavLinks />
           <ActionIcons />
         </div>
@@ -51,7 +51,7 @@ const Logo = () => {
   return (
     <div className="flex items-center gap-2 z-10">
       <Image
-        src="/assets/logo/logo.webp"
+        src="/images/logo/logo.webp"
         alt="Logo de Kovara"
         width={18}
         height={27}
