@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
   Mail,
   MapPin,
@@ -24,8 +25,16 @@ const ContactSection = () => {
     <section
       id="contact"
       aria-label="Contact section"
-      className="rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16 w-full lg:px-16 flex flex-col items-center gap-12 relative"
+      className="rounded-xl p-5 md:px-8 lg:p-16 w-full lg:px-16 flex flex-col items-center gap-12 relative"
     >
+      {/* Imagen decorativa posicionada libremente */}
+      <Image
+        src="/assets/bg-9.webp"
+        alt="Decoración abstracta"
+        width={700}
+        height={700}
+        className="absolute rotate-6 left-[120px] top-[40px] z-0 opacity-10 scale-x-[-1] filter blur-sm"
+      />
       <Header
         title="Contáctanos"
         subtitle="Envíanos un mensaje y en breve un miembro de Compuversa estará a tu servicio"
@@ -47,7 +56,7 @@ const ContactSection = () => {
 // This component is used to create a contact form with fields for name, email, subject, and message
 const ContactForm = () => {
   return (
-    <div className="flex-1 space-y-8">
+    <div className="flex-1 space-y-8 z-10">
       <div className="space-y-2">
         <h2 className="text-xl font-bold">Envía un Mensaje</h2>
         <p className="text-sm text-muted-foreground">
@@ -79,7 +88,7 @@ const ContactForm = () => {
         />
 
         <div className="group w-full flex justify-end">
-          <Button type="button" className="rounded-full">
+          <Button type="button" className="rounded-full z-10">
             Enviar Mensaje
             <ChevronRight
               strokeWidth={3}
@@ -96,7 +105,7 @@ const ContactForm = () => {
 // This component is used to display contact information such as phone, address, and email
 const ContactInfo = () => {
   return (
-    <div className="flex-1 bg-slate-800 p-6 md:p-8 rounded-2xl space-y-8 shadow-md">
+    <div className="flex-1 bg-slate-800 p-6 md:p-8 rounded-2xl space-y-8 shadow-md z-10">
       <div className="space-y-6">
         <ContactItem
           icon={<Phone className="h-5 w-5 text-[#3B82F6]" />}
@@ -159,7 +168,7 @@ const SocialIcon = ({ icon, label }) => (
   <Button
     variant="secondary"
     size="icon"
-    className="bg-gray-700 hover:bg-gray-600 rounded-lg"
+    className="bg-gray-700 hover:bg-gray-600 rounded-lg z-10"
     aria-label={`Enlace a ${label}`}
     title={label}
   >
@@ -179,13 +188,13 @@ const FormField = ({ id, label, placeholder, isTextarea, rows = 3 }) => (
         id={id}
         placeholder={placeholder}
         rows={rows}
-        className="border border-gray-600 hover:border-[#3B82F6] transition-colors"
+        className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
       />
     ) : (
       <Input
         id={id}
         placeholder={placeholder}
-        className="border border-gray-600 hover:border-[#3B82F6] transition-colors"
+        className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
       />
     )}
   </div>
