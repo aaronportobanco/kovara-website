@@ -25,7 +25,7 @@ const FeaturedProducts = () => {
     <section
       id="featured-products"
       aria-label="Productos destacados"
-      className="rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16 w-full"
+      className="rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16 w-full relative"
     >
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 md:gap-20 items-center">
         {/* LEFT SECTION */}

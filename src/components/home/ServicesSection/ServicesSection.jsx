@@ -1,4 +1,5 @@
 import { DataFeatures } from "@/data/MockData";
+import Image from "next/image";
 import FeatureCard from "./FeatureCard";
 import Header from "../../layout/Header";
 
@@ -7,11 +8,18 @@ function ServicesSection() {
     <section
       id="services"
       aria-label="services-section"
-      className="rounded-xl bg-gray-800/30 flex flex-col items-center gap-12 relative p-5 md:px-8 lg:p-16 w-full "
+      className="flex flex-col items-center gap-12 relative p-5 md:px-8 lg:p-10 w-full"
     >
+      <Image
+        src="/assets/bg-8.webp"
+        alt="Decoración abstracta"
+        width={900}
+        height={900}
+        className="absolute rotate-6 left-[60px] top-[-90px] z-0 opacity-10 filter blur-sm"
+      />
       <Header
-        title="Lo que ofrecemos"
-        subtitle="Descubre todos nuestros servicios"
+        title="Servicios que Marcan la Diferencia"
+        subtitle="Calidad Premium, Entrega Rápida y Soporte Experto: Todo lo que necesitas para una experiencia excepcional"
       />
 
       {/* Features Section */}

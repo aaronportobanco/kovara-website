@@ -7,9 +7,26 @@ export default function HeroSection() {
     <section
       id="home"
       aria-label="Promotional message"
-      className="flex flex-col lg:flex-row items-center justify-center gap-20 w-full "
+      className="flex flex-col lg:flex-row items-center justify-center gap-20 w-full relative"
     >
-      <div className="flex flex-col gap-7">
+      {/* Imagen decorativa posicionada en el fondo */}
+      <Image
+        src="/assets/bg-9.webp"
+        alt="Decoración abstracta"
+        width={650}
+        height={650}
+        className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 filter blur-sm"
+      />
+
+      <Image
+        src="/assets/bg-4.webp"
+        alt="Decoración abstracta"
+        width={650}
+        height={650}
+        className="absolute rotate-6 right-[-50px] top-[40px] z-0 opacity-10 filter"
+      />
+
+      <div className="flex flex-col gap-7 z-10">
         <h1 className="text-3xl font-bold text-foreground leading-tight">
           Tu tienda de computación de confianza
         </h1>
@@ -34,8 +51,18 @@ export default function HeroSection() {
           <Button className="rounded-full">Contáctanos</Button>
         </div>
       </div>
-      {/* SVG usando el componente Image */}
-      <div className="bg-gray-400 relative w-full h-[356px] rounded-xl"></div>
+
+      {/* Imagen principal */}
+      <div className="relative flex items-center justify-center z-10">
+        <Image
+          priority
+          src="/assets/hero-main.webp"
+          alt="Ilustración principal"
+          width={950}
+          height={800}
+          className="relative z-10"
+        />
+      </div>
     </section>
   );
 }
