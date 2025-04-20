@@ -12,7 +12,7 @@ export const DataProducts = [
       "Diseño: Ergonómico",
       "Plug and Play",
     ],
-    imagen: "/images/products/Mouse-Dell-MS3220/imagen-1.avif",
+    imagen: "/images/products/Mouse-Dell-MS3220/imagen-1.webp",
     alt: "Mouse Dell MS3220",
   },
   {
@@ -28,7 +28,7 @@ export const DataProducts = [
       "Diseño: Compacto y portátil",
       "Plug and Play",
     ],
-    imagen: "/images/products/Mouse-Dell-WM126/imagen-1.avif",
+    imagen: "/images/products/Mouse-Dell-WM126/imagen-1.webp",
     alt: "Mouse Dell WM126",
   },
   {
@@ -60,12 +60,12 @@ export const DataProducts = [
       "Micrófono integrado",
       "Diseño: Over-ear con almohadillas cómodas",
     ],
-    imagen: "/images/products/Headphones-Anker-Life-Q20/imagen-1.png",
+    imagen: "/images/products/Headphones-Anker-Life-Q20/imagen-1.webp",
     alt: "Audífonos Anker LifeQ20",
   },
   {
     id: 5,
-    nombre: "Audífonos Sony WH-CH510",
+    nombre: "Audífonos Sony WH-CH520",
     precio: 915.61,
     stock: 2,
     descripcion: "Auriculares inalámbricos ligeros con sonido estéreo.",
@@ -76,8 +76,8 @@ export const DataProducts = [
       "Compatibilidad: Dispositivos con Bluetooth",
       "Almohadillas suaves para mayor comodidad",
     ],
-    imagen: "/images/products/Headphones-Sony-WH-CH510/imagen-1.webp",
-    alt: "Audífonos Sony WH-CH510",
+    imagen: "/images/products/Headphones-Sony-WH-CH520/imagen-1.webp",
+    alt: "Audífonos Sony WH-CH520",
   },
   {
     id: 6,
@@ -108,7 +108,7 @@ export const DataProducts = [
       "Compatibilidad: Modelos específicos de laptops",
       "Certificaciones de seguridad",
     ],
-    imagen: "/images/products/Cargador-Dell-65WATTS/imagen-1.png",
+    imagen: "/images/products/Cargador-Dell-65WATTS/imagen-1.webp",
     alt: "Cargador Dell 65W",
   },
   {
@@ -140,7 +140,7 @@ export const DataProducts = [
       "Pantalla: 15.6” Full HD",
       "Sistema operativo: Windows 11",
     ],
-    imagen: "/images/products/Laptop-Dell-Inspiron-3520/imagen-1.png",
+    imagen: "/images/products/Laptop-Dell-Inspiron-3520/imagen-1.webp",
     alt: "Laptop Dell Inspiron 3520",
   },
   {
@@ -156,7 +156,7 @@ export const DataProducts = [
       "Pantalla: 14” Full HD",
       "Sistema operativo: Windows 11 Pro",
     ],
-    imagen: "/images/products/Laptop-Lenovo-Ideapad(82XF001TUS)/imagen-1.avif",
+    imagen: "/images/products/Laptop-Lenovo-Ideapad(82XF001TUS)/imagen-1.webp",
     alt: "Laptop Lenovo Ideapad (82XF001TUS)",
   },
   {
@@ -175,7 +175,7 @@ export const DataProducts = [
       "Ajustes ergonómicos: Inclinación, giro, pivote y altura ajustable",
       "Tecnologías: Antirreflejo, HP Eye Ease, sin parpadeo",
     ],
-    imagen: "/images/products/Monitor-HP-E27-G5/imagen-1.avif",
+    imagen: "/images/products/Monitor-HP-E27-G5/imagen-1.webp",
     alt: "Monitor HP E27 G5",
   },
   {
@@ -191,7 +191,7 @@ export const DataProducts = [
       "Pantalla: 15.6” HD",
       "Sistema operativo: Windows 10 Home",
     ],
-    imagen: "/images/products/Laptop-HP-EP0145/imagen-1.png",
+    imagen: "/images/products/Laptop-HP-EP0145/imagen-1.webp",
     alt: "Laptop HP EP0145",
   },
   {
@@ -207,7 +207,7 @@ export const DataProducts = [
       "Pantalla: 14” Full HD",
       "Sistema operativo: Windows 11",
     ],
-    imagen: "/images/products/Laptop-Lenovo-Ideapad-5/imagen-1.avif",
+    imagen: "/images/products/Laptop-Lenovo-Ideapad-5/imagen-1.webp",
     alt: "Laptop Lenovo Ideapad 5",
   },
 ];
