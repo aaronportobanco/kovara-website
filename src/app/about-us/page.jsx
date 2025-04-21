@@ -11,6 +11,11 @@ const AboutUsPage = () => {
           <h2>Card Title</h2>
           <p>This is a card component.</p>
         </Card>
+
+        <Card>
+          <h2>Card Title</h2>
+          <p>This is a card component.</p>
+        </Card>
       
       <p>Hola Mundo</p>
     </div>
