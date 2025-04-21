@@ -57,8 +57,8 @@ export const storeInfo = [
 // This component is responsible for rendering the footer of the website.
 function Footer() {
   return (
-    <footer className="bg-gray-800/50 mt-[100px] py-8">
-      <div className="container max-w-[1200px] mx-auto px-4 lg:px-8">
+    <footer className="bg-gray-800/50 mt-[150px] p-5 md:p-10">
+      <div className="container max-w-[1200px] m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <FooterBrand />
           <FooterLinks />
