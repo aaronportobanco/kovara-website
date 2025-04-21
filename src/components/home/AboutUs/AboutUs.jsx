@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 import Header from "../../layout/Header";
 
@@ -65,13 +66,15 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="pt-4">
-              <Button className="rounded-full group">
-                Conocer más
-                <ArrowRight
-                  strokeWidth={2.5}
-                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Button>
+              <Link href="/about-us">
+                <Button className="rounded-full group">
+                  Conocer más
+                  <ArrowRight
+                    strokeWidth={2.5}
+                    className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
