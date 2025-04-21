@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -37,16 +38,18 @@ export default function HeroSection() {
         </p>
 
         <div className="flex items-center gap-5">
-          <Button
-            variant="outline"
-            className="group font-medium text-foreground bg-blue-600 hover:bg-blue-700 rounded-full"
-          >
-            Ver Productos
-            <ArrowRight
-              strokeWidth={3}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </Button>
+          <Link href="/products">
+            <Button
+              variant="outline"
+              className="group font-medium text-foreground bg-blue-600 hover:bg-blue-700 rounded-full"
+            >
+              Ver Productos
+              <ArrowRight
+                strokeWidth={3}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Button>
+          </Link>
 
           <Button className="rounded-full">Contáctanos</Button>
         </div>
