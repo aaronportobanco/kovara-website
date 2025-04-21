@@ -3,7 +3,7 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
-import { VerticalCard } from "../../products/VerticalCard";
+import VerticalCard from "@/components/products/VerticalCard";
 import Link from "next/link";
 import { DataProducts } from "@/data/MockData";
 import { Button } from "@/components/ui/button";
