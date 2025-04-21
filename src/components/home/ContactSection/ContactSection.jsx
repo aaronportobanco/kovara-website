@@ -44,7 +44,7 @@ const ContactSection = () => {
         <ContactForm />
         <Separator
           orientation="vertical"
-          className="hidden md:block h-[400px] w-px bg-gray-700"
+          className="hidden md:block h-[400px] bg-gray-700"
         />
         <ContactInfo />
       </div>
