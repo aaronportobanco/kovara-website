@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Filter } from "lucide-react";
 
 // --------------------------------------------------------------------
-// Componente FilterGroup: maneja el cambio de filtro para cada grupo.
+/// Componente FilterGroup: maneja el cambio de filtro para cada grupo.
 // --------------------------------------------------------------------
 const FilterGroup = ({ title, options, type, filters, setFilters }) => {
   // Manejo de cambio de filtro
