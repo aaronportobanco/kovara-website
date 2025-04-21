@@ -14,6 +14,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Mouse-Dell-MS3220/imagen-1.webp",
     alt: "Mouse Dell MS3220",
+    marca: "Dell",
+    categoria: "Accesorios",
   },
   {
     id: 2,
@@ -30,6 +32,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Mouse-Dell-WM126/imagen-1.webp",
     alt: "Mouse Dell WM126",
+    marca: "Dell",
+    categoria: "Accesorios",
   },
   {
     id: 3,
@@ -46,6 +50,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Teclado-Logitech-MX-Mechanical/imagen-1.webp",
     alt: "Teclado Logitech MX Mechanical",
+    marca: "Logitech",
+    categoria: "Accesorios",
   },
   {
     id: 4,
@@ -62,6 +68,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Headphones-Anker-Life-Q20/imagen-1.webp",
     alt: "Audífonos Anker LifeQ20",
+    marca: "Anker",
+    categoria: "Audífonos",
   },
   {
     id: 5,
@@ -78,6 +86,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Headphones-Sony-WH-CH520/imagen-1.webp",
     alt: "Audífonos Sony WH-CH520",
+    marca: "Sony",
+    categoria: "Audífonos",
   },
   {
     id: 6,
@@ -94,6 +104,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Headphones-Logitech-H390/imagen-1.webp",
     alt: "Audífono Logitech H390",
+    marca: "Logitech",
+    categoria: "Audífonos",
   },
   {
     id: 7,
@@ -110,6 +122,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Cargador-Dell-65WATTS/imagen-1.webp",
     alt: "Cargador Dell 65W",
+    marca: "Dell",
+    categoria: "Accesorios",
   },
   {
     id: 8,
@@ -126,6 +140,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Monitor-Lenovo-G27/imagen-1.webp",
     alt: "Monitor Lenovo G27",
+    marca: "Lenovo",
+    categoria: "Monitores",
   },
   {
     id: 9,
@@ -142,6 +158,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Laptop-Dell-Inspiron-3520/imagen-1.webp",
     alt: "Laptop Dell Inspiron 3520",
+    marca: "Dell",
+    categoria: "Laptops",
   },
   {
     id: 10,
@@ -158,6 +176,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Laptop-Lenovo-Ideapad(82XF001TUS)/imagen-1.webp",
     alt: "Laptop Lenovo Ideapad (82XF001TUS)",
+    marca: "Lenovo",
+    categoria: "Laptops",
   },
   {
     id: 11,
@@ -177,6 +197,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Monitor-HP-E27-G5/imagen-1.webp",
     alt: "Monitor HP E27 G5",
+    marca: "HP",
+    categoria: "Monitores",
   },
   {
     id: 12,
@@ -193,6 +215,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Laptop-HP-EP0145/imagen-1.webp",
     alt: "Laptop HP EP0145",
+    marca: "HP",
+    categoria: "Laptops",
   },
   {
     id: 13,
@@ -209,6 +233,8 @@ export const DataProducts = [
     ],
     imagen: "/images/products/Laptop-Lenovo-Ideapad-5/imagen-1.webp",
     alt: "Laptop Lenovo Ideapad 5",
+    marca: "Lenovo",
+    categoria: "Laptops",
   },
 ];
 
