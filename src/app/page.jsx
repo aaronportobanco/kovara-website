@@ -1,9 +1,21 @@
 import HeroSection from "@/components/home/HeroSection/HeroSection";
+import AboutUs from "@/components/home/AboutUs/AboutUs";
+import FeaturedProducts from "@/components/home/FeaturedProducts/FeaturedProducts";
+import ContactSection from "@/components/home/ContactSection/ContactSection";
+import ServicesSection from "@/components/home/ServicesSection/ServicesSection";
+import CheckList from "@/components/home/CheckList/CheckList";
+import CustomersTestimonials from "@/components/home/CustomersTestimonials/CustomersTestimonials";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center gap-[160px] max-w-[1440px] w-full px-6 py-5 mx-auto">
+    <main className="flex flex-col items-center gap-[180px] w-full p-5 md:p-10">
       <HeroSection />
+      <AboutUs />
+      <ServicesSection /> 
+      <FeaturedProducts />
+      <CheckList />
+      <CustomersTestimonials />
+      <ContactSection />
     </main>
   );
 }
