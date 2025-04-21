@@ -16,7 +16,7 @@ export default function HeroSection() {
         alt="Decoración abstracta"
         width={650}
         height={650}
-        className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 filter blur-sm"
+        className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 blur-sm"
       />
 
       <Image
@@ -24,7 +24,7 @@ export default function HeroSection() {
         alt="Decoración abstracta"
         width={650}
         height={650}
-        className="absolute rotate-6 right-[-50px] top-[40px] z-0 opacity-10 filter"
+        className="absolute rotate-6 right-[-50px] top-[40px] z-0 opacity-10"
       />
 
       <div className="flex flex-col gap-7 z-10">
