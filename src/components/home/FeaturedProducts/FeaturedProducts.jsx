@@ -2,8 +2,6 @@
 
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-
-import VerticalCard from "@/components/products/VerticalCard";
 import Link from "next/link";
 import { DataProducts } from "@/data/MockData";
 import { Button } from "@/components/ui/button";
@@ -15,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import CardVertical from "@/app/products/components/CardVertical";
 
 // Autoplay plugin for Embla Carousel
 const FeaturedProducts = () => {
@@ -69,7 +68,7 @@ const FeaturedProducts = () => {
                   key={product.id}
                   className="basis-full md:basis-1/2"
                 >
-                  <VerticalCard data={product} />
+                  <CardVertical data={product} />
                 </CarouselItem>
               ))}
             </CarouselContent>
