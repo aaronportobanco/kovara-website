@@ -78,7 +78,7 @@ const CustomersTestimonials = () => {
                     key={index}
                     className="px-2 basis-full sm:px-4 md:basis-2/3 lg:basis-1/3"
                   >
-                    <Card className="relative p-6 min-h-[380px] sm:min-h-[420px] lg:h-[370px] rounded-2xl shadow-xl bg-slate-800 flex flex-col justify-between">
+                    <Card className="bg-slate-800 relative p-6 min-h-[380px] sm:min-h-[420px] lg:h-[370px] rounded-2xl shadow-xl flex flex-col justify-between">
                       <Quote
                         width={30}
                         height={30}
@@ -87,7 +87,7 @@ const CustomersTestimonials = () => {
 
                       {/* Contenido principal */}
                       <CardContent className="p-5 flex-grow">
-                        <blockquote className="text-sm sm:text-base text-muted-foreground leading-relaxed text-left">
+                        <blockquote className="text-sm sm:text-base text-gray-300 leading-relaxed text-left">
                           {testimonial.text}
                         </blockquote>
                       </CardContent>

@@ -11,7 +11,7 @@ const AboutUs = () => {
     <section
       id="about"
       aria-label="Sección Sobre Nosotros"
-      className="rounded-xl bg-gray-800/30 py-10 px-4 md:px-8 lg:px-16"
+      className="rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16"
     >
       <Header
         title="¿Quiénes Somos?"

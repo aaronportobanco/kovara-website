@@ -25,7 +25,7 @@ const ContactSection = () => {
     <section
       id="contact"
       aria-label="Contact section"
-      className="rounded-xl p-5 md:px-8 lg:p-16 w-full lg:px-16 flex flex-col items-center gap-12 relative"
+      className="p-5 md:px-8 lg:p-16 w-full flex flex-col items-center gap-12 relative"
     >
       {/* Imagen decorativa posicionada libremente */}
       <Image
@@ -105,7 +105,7 @@ const ContactForm = () => {
 // This component is used to display contact information such as phone, address, and email
 const ContactInfo = () => {
   return (
-    <div className="flex-1 bg-slate-800 p-6 md:p-8 rounded-2xl space-y-8 shadow-md z-10">
+    <div className="flex-1 bg-slate-800/50 p-6 md:p-8 rounded-2xl space-y-8 shadow-md z-10">
       <div className="space-y-6">
         <ContactItem
           icon={<Phone className="h-5 w-5 text-[#3B82F6]" />}

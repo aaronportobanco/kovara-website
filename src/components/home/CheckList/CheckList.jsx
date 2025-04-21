@@ -7,7 +7,7 @@ function CheckList() {
     <section
       aria-label="Propuesta de valor"
       id="checklist"
-      className="py-10 px-4 md:px-8 lg:px-16 relative"
+      className="p-5 md:px-8 lg:p-16 w-full relative"
     >
       {/* Imagen decorativa posicionada cerca del texto */}
       <Image
@@ -41,7 +41,7 @@ function CheckList() {
 
         {/* Contenido textual */}
         <div className="z-10">
-          <h2 className="text-xl md:text-2xl font-heading font-bold mb-6">
+          <h2 className="text-xl md:text-3xl font-heading font-bold mb-6">
             La Experiencia Informática Definitiva
           </h2>
           <p className="text-sm text-muted-foreground mb-6">

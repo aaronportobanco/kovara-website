@@ -4,6 +4,7 @@ import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { VerticalCard } from "../../products/VerticalCard";
+import Link from "next/link";
 import { DataProducts } from "@/data/MockData";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -38,13 +39,15 @@ const FeaturedProducts = () => {
             populares.
           </p>
           <div className="w-full">
-            <Button className="rounded-full group w-full">
-              Más productos
-              <ArrowRight
-                strokeWidth={3}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Button>
+            <Link href="/products" className="w-full">
+              <Button className="rounded-full group w-full">
+                Más productos
+                <ArrowRight
+                  strokeWidth={3}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Button>
+            </Link>
           </div>
         </div>
 

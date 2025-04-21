@@ -29,7 +29,7 @@ import { Separator } from "../ui/separator";
 const NavBar = () => {
   return (
     <>
-      <header className="px-4 py-2.5 flex items-center justify-between relative overflow-hidden">
+      <nav className="p-4 flex items-center justify-between relative overflow-hidden">
         <Logo />
         {/* Mobile menu (hamburger) */}
         <div className="md:hidden">
@@ -40,7 +40,7 @@ const NavBar = () => {
           <NavLinks />
           <ActionIcons />
         </div>
-      </header>
+      </nav>
       <Separator className="bg-foreground/10 mt-1" />
     </>
   );
@@ -49,7 +49,7 @@ const NavBar = () => {
 // Logo component
 const Logo = () => {
   return (
-    <div className="flex items-center gap-2 z-10">
+    <div className="flex items-center gap-3 z-10">
       <Image
         src="/images/logo/logo.webp"
         alt="Logo de Kovara"
@@ -95,8 +95,8 @@ const links = [
 
 const NavLinks = () => {
   return (
-    <nav
-      className="flex items-center gap-2.5 w-full justify-center z-10"
+    <div
+      className="flex items-center gap-3 w-full justify-center z-10"
       aria-label="Main navigation"
     >
       {links.map((link) => (
@@ -105,14 +105,14 @@ const NavLinks = () => {
             variant="link"
             aria-label={link.label}
             onClick={(e) => handleNavClick(e, link.href)}
-            className="hover:text-[#3B82F6] font-medium group px-4 py-2 flex items-center gap-2 transition-all duration-300"
+            className="hover:text-[#3B82F6] font-medium group flex items-center gap-2 transition-all duration-300"
           >
             {link.label}
             <ArrowDownRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
           </Button>
         </Link>
       ))}
-    </nav>
+    </div>
   );
 };
 
@@ -123,7 +123,7 @@ const ActionIcons = () => {
       <Button
         variant="with-icon"
         aria-label="Buscar"
-        className="group hover:text-[#3B82F6] hover:bg-foreground/10 px-4 py-2 flex items-center gap-2 transition-all duration-300"
+        className="group hover:text-[#3B82F6] hover:bg-foreground/10 flex items-center gap-1 transition-all duration-300"
       >
         <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300">
           Buscar
@@ -134,7 +134,7 @@ const ActionIcons = () => {
         <Button
           variant="icon"
           aria-label="Carrito de compras"
-          className="group hover:text-[#3B82F6] hover:bg-foreground/10 px-4 py-2 flex items-center gap-2 transition-all duration-300"
+          className="group hover:text-[#3B82F6] hover:bg-foreground/10 flex items-center gap-2 transition-all duration-300"
         >
           <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300">
             Ver carrito

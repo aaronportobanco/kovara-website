@@ -8,7 +8,7 @@ function ServicesSection() {
     <section
       id="services"
       aria-label="services-section"
-      className="flex flex-col items-center gap-12 relative p-5 md:px-8 lg:p-10 w-full"
+      className="flex flex-col items-center gap-12 relative p-5 md:px-8 lg:p-16 w-full"
     >
       <Image
         src="/assets/bg-8.webp"
