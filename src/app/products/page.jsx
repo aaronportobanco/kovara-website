@@ -59,7 +59,7 @@ export default function ProductsPage() {
 	);
 
 	return (
-		<section className="flex flex-col p-6 md:px-6 gap-10 md:gap-14 text-foreground bg-background">
+		<section className="flex flex-col p-6 md:px-6 gap-8 md:gap-11 text-foreground bg-background">
 			{/* Breadcrumb y encabezado */}
 			<BreadcrumbComp page={"Productos"} />
 			<div>
@@ -124,7 +124,7 @@ export default function ProductsPage() {
 					</div>
 
 					{/* Información de paginación */}
-					<p className="text-sm text-muted-foreground">
+					<p className="text-sm text-muted-foreground pt-4">
 						Mostrando {paginatedProducts.length} de {DataProducts.length} productos
 					</p>
 
