@@ -4,6 +4,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
+const defaultValues = {
+  category: "Todas las categorías",
+  availability: null,
+  brand: null,
+};
+
 // --------------------------------------------------------------------
 // Componente para los filtros de productos
 // --------------------------------------------------------------------
@@ -12,9 +18,10 @@ const Filters = ({ filters, setFilters }) => {
   // Manejo de cambio de filtro: Permite deseleccionar al hacer clic de nuevo.
   // --------------------------------------------------------------------
   const handleFilterChange = (type, value) => {
+    const newValue = type === "brand" && value === "Todas las marcas" ? null : value;
     setFilters((prev) => ({
       ...prev,
-      [type]: prev[type] === value ? null : value,
+      [type]: prev[type] === newValue ? defaultValues[type] : newValue,
     }));
   };
 
@@ -67,17 +74,23 @@ const Filters = ({ filters, setFilters }) => {
         <div>
           <h4 className="font-medium mb-2">Marcas</h4>
           <div className="space-y-2 text-sm text-muted-foreground">
-            {["Sony", "Dell", "Logitech", "HP", "Lenovo", "Anker"].map(
-              (marca, i) => (
-                <Label key={i} className="flex items-center gap-2">
-                  <Checkbox
-                    checked={filters.brand === marca}
-                    onCheckedChange={() => handleFilterChange("brand", marca)}
-                  />
-                  {marca}
-                </Label>
-              )
-            )}
+            {[
+              "Todas las marcas",
+              "Sony",
+              "Dell",
+              "Logitech",
+              "HP",
+              "Lenovo",
+              "Anker",
+            ].map((marca, i) => (
+              <Label key={i} className="flex items-center gap-2">
+                <Checkbox
+                  checked={filters.brand === (marca === "Todas las marcas" ? null : marca)}
+                  onCheckedChange={() => handleFilterChange("brand", marca)}
+                />
+                {marca}
+              </Label>
+            ))}
           </div>
         </div>
       </div>

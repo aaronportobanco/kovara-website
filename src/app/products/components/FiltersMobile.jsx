@@ -18,15 +18,22 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Filter } from "lucide-react";
 
+const defaultValues = {
+  category: "Todas las categorías",
+  availability: null,
+  brand: null,
+};
+
 // --------------------------------------------------------------------
 /// Componente FilterGroup: maneja el cambio de filtro para cada grupo.
 // --------------------------------------------------------------------
 const FilterGroup = ({ title, options, type, filters, setFilters }) => {
-  // Manejo de cambio de filtro
+  // Actualizamos la función para asignar null cuando se seleccione "Todas las marcas"
   const handleFilterChange = (value) => {
+    const newValue = type === "brand" && value === "Todas las marcas" ? null : value;
     setFilters((prev) => ({
       ...prev,
-      [type]: value === "Todas las categorías" ? "Todas las categorías" : value,
+      [type]: prev[type] === newValue ? defaultValues[type] : newValue,
     }));
   };
   return (
@@ -40,7 +47,7 @@ const FilterGroup = ({ title, options, type, filters, setFilters }) => {
               className="flex items-center gap-2 text-sm text-muted-foreground"
             >
               <Checkbox
-                checked={filters[type] === item}
+                checked={filters[type] === (type === "brand" && item === "Todas las marcas" ? null : item)}
                 onCheckedChange={() => handleFilterChange(item)}
               />
               {item}
@@ -92,7 +99,15 @@ const FiltersMobile = ({ filters, setFilters }) => {
             {/* Grupo de Filtro: Marcas */}
             <FilterGroup
               title="Marcas"
-              options={["Sony", "Dell", "Logitech", "HP", "Lenovo", "Anker"]}
+              options={[
+                "Todas las marcas",
+                "Sony",
+                "Dell",
+                "Logitech",
+                "HP",
+                "Lenovo",
+                "Anker",
+              ]}
               type="brand"
               filters={filters}
               setFilters={setFilters}
