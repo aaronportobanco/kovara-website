@@ -16,141 +16,148 @@ import PageSizeSelector from "./components/PageSizeSelector";
 import Pagination from "./components/Pagination";
 
 export default function ProductsPage() {
-	// Estados de vista, página y filtros
-	const [view, setView] = useState("grid");
-	const [currentPage, setCurrentPage] = useState(1);
-	const [pageSize, setPageSize] = useState(9);
-	const [filters, setFilters] = useState({
-		category: "Todas las categorías",
-		availability: null,
-		brand: null,
-	});
+  // Estados de vista, página y filtros
+  const [view, setView] = useState("grid");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(9);
+  const [filters, setFilters] = useState({
+    category: "Todas las categorías",
+    availability: null,
+    brand: null,
+  });
 
-	// --------------------------------------------------------------------
-	// Función para actualizar filtros y reiniciar la paginación
-	// --------------------------------------------------------------------
-	const handleFilterChange = (newFilters) => {
-		setFilters(newFilters);
-		setCurrentPage(1);
-	};
+  // --------------------------------------------------------------------
+  // Función para actualizar filtros y reiniciar la paginación
+  // --------------------------------------------------------------------
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+    setCurrentPage(1);
+  };
 
-	// --------------------------------------------------------------------
-	// Filtrado de productos según filtros aplicados
-	// --------------------------------------------------------------------
-	const filteredProducts = DataProducts.filter((product) => {
-		const matchesCategory =
-			filters.category === "Todas las categorías" ||
-			product.categoria === filters.category;
-		const matchesAvailability =
-			!filters.availability ||
-			(filters.availability === "inStock" && product.stock > 0);
-		const matchesBrand = !filters.brand || product.marca === filters.brand;
+  // --------------------------------------------------------------------
+  // Filtrado de productos según filtros aplicados
+  // --------------------------------------------------------------------
+  const filteredProducts = DataProducts.filter((product) => {
+    const matchesCategory =
+      filters.category === "Todas las categorías" ||
+      product.categoria === filters.category;
+    const matchesAvailability =
+      !filters.availability ||
+      (filters.availability === "inStock" && product.stock > 0);
+    const matchesBrand = !filters.brand || product.marca === filters.brand;
 
-		return matchesCategory && matchesAvailability && matchesBrand;
-	});
+    return matchesCategory && matchesAvailability && matchesBrand;
+  });
 
-	// --------------------------------------------------------------------
-	// Cálculo y selección de productos para la página actual (paginación)
-	// --------------------------------------------------------------------
-	const totalPages = Math.ceil(filteredProducts.length / pageSize);
-	const paginatedProducts = filteredProducts.slice(
-		(currentPage - 1) * pageSize,
-		currentPage * pageSize
-	);
+  // --------------------------------------------------------------------
+  // Cálculo y selección de productos para la página actual (paginación)
+  // --------------------------------------------------------------------
+  const totalPages = Math.ceil(filteredProducts.length / pageSize);
+  const paginatedProducts = filteredProducts.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
 
-	return (
-		<section className="flex flex-col p-6 md:px-6 gap-8 md:gap-11 text-foreground bg-background">
-			{/* Breadcrumb y encabezado */}
-			<BreadcrumbComp page={"Productos"} />
-			<div>
-				<h2 className="text-foreground text-3xl font-bold leading-tight tracking-tight">
-					Productos Destacados
-				</h2>
-				<p className="text-muted-foreground text-base font-medium leading-relaxed">
-					Explora todo lo que tenemos para ti
-				</p>
-			</div>
+  return (
+    <section className="flex flex-col p-6 md:px-6 gap-8 md:gap-11 text-foreground bg-background">
+      {/* Breadcrumb y encabezado */}
+      <BreadcrumbComp page={"Productos"} />
+      <div>
+        <h2 className="text-foreground text-3xl font-bold leading-tight tracking-tight">
+          Productos Destacados
+        </h2>
+        <p className="text-muted-foreground text-base font-medium leading-relaxed">
+          Explora todo lo que tenemos para ti
+        </p>
+      </div>
 
-			<div className="flex flex-col md:flex-row gap-1 md:gap-8">
-				{/* Filtros para escritorio */}
-				<Filters filters={filters} setFilters={handleFilterChange} />
-				<div>
-					<Separator orientation="vertical" className="hidden md:block bg-gray-700" />
-				</div>
-				<div className="flex-1 flex flex-col gap-4">
-					{/* Barra de búsqueda y controles de vista */}
-					<div className="flex flex-col gap-4 md:flex-row md:items-center justify-between">
-						<div className="flex items-center gap-2">
-							<Input
-								placeholder="Buscar productos..."
-								className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
-							/>
-							{/* Filtros responsivos */}
-							<div className="md:hidden">
-								<FiltersMobile filters={filters} setFilters={handleFilterChange} />
-							</div>
-						</div>
-						<div className="flex flex-row-reverse md:flex-row items-center gap-2">
-							<ToggleGroup
-								type="single"
-								value={view}
-								onValueChange={(val) => {
-									if (val) {
-										// Al cambiar la vista se reinicia la paginación
-										setCurrentPage(1);
-										setView(val);
-									}
-								}}
-							>
-								<ToggleGroupItem value="grid" aria-label="Vista de cuadrícula">
-									<Grid />
-								</ToggleGroupItem>
-								<ToggleGroupItem value="list" aria-label="Vista de lista">
-									<List />
-								</ToggleGroupItem>
-							</ToggleGroup>
+      <div className="flex flex-col md:flex-row gap-1 md:gap-8">
+        {/* Filtros para escritorio */}
+        <Filters filters={filters} setFilters={handleFilterChange} />
+        <div>
+          <Separator
+            orientation="vertical"
+            className="hidden md:block bg-gray-700"
+          />
+        </div>
+        <div className="flex-1 flex flex-col gap-4">
+          {/* Barra de búsqueda y controles de vista */}
+          <div className="flex flex-col gap-4 md:flex-row md:items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Input
+                placeholder="Buscar productos..."
+                className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
+              />
+              {/* Filtros responsivos */}
+              <div className="md:hidden">
+                <FiltersMobile
+                  filters={filters}
+                  setFilters={handleFilterChange}
+                />
+              </div>
+            </div>
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2">
+              <ToggleGroup
+                type="single"
+                value={view}
+                onValueChange={(val) => {
+                  if (val) {
+                    // Al cambiar la vista se reinicia la paginación
+                    setCurrentPage(1);
+                    setView(val);
+                  }
+                }}
+              >
+                <ToggleGroupItem value="grid" aria-label="Vista de cuadrícula">
+                  <Grid />
+                </ToggleGroupItem>
+                <ToggleGroupItem value="list" aria-label="Vista de lista">
+                  <List />
+                </ToggleGroupItem>
+              </ToggleGroup>
 
-							<Button variant="outline" className="border border-gray-400">
-								Destacados
-							</Button>
-							<PageSizeSelector
-								value={pageSize}
-								onChange={(val) => {
-									setCurrentPage(1);
-									setPageSize(val);
-								}}
-							/>
-						</div>
-					</div>
+              <Button variant="outline" className="border border-gray-400">
+                Destacados
+              </Button>
+              <PageSizeSelector
+                value={pageSize}
+                onChange={(val) => {
+                  setCurrentPage(1);
+                  setPageSize(val);
+                }}
+              />
+            </div>
+          </div>
 
-					{/* Información de paginación */}
-					<p className="text-sm text-muted-foreground pt-4">
-						Mostrando {paginatedProducts.length} de {DataProducts.length} productos
-					</p>
+          {/* Información de paginación */}
+          <p className="text-sm text-muted-foreground pt-4">
+            Mostrando {paginatedProducts.length} de {DataProducts.length}{" "}
+            productos
+          </p>
 
-					{/* Renderizado de productos */}
-					{view === "grid" ? (
-						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-							{paginatedProducts.map((product) => (
-								<CardVertical key={product.id} data={product} />
-							))}
-						</div>
-					) : (
-						<div className="flex flex-col gap-6">
-							{paginatedProducts.map((product) => (
-								<CardHorizontal key={product.id} data={product} />
-							))}
-						</div>
-					)}
+          {/* Renderizado de productos */}
+          {view === "grid" ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {paginatedProducts.map((product) => (
+                <CardVertical key={product.id} data={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col gap-6">
+              {paginatedProducts.map((product) => (
+                <CardHorizontal key={product.id} data={product} />
+              ))}
+            </div>
+          )}
 
-					{/* Componente de paginación */}
-					<Pagination
-						currentPage={currentPage}
-						totalPages={totalPages}
-						onPageChange={setCurrentPage}
-					/>
-				</div>
-			</div>
-		</section>
-	);
+          {/* Componente de paginación */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        </div>
+      </div>
+    </section>
+  );
 }
