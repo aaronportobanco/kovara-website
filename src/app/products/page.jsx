@@ -108,11 +108,19 @@ export default function ProductsPage() {
                   }
                 }}
               >
-                <ToggleGroupItem value="grid" aria-label="Vista de cuadrícula">
-                  <Grid />
+                <ToggleGroupItem
+                  value="grid"
+                  aria-label="Vista de cuadrícula"
+                  className="data-[state=on]:bg-foreground group"
+                >
+                  <Grid className="text-foreground group-data-[state=on]:text-background" />
                 </ToggleGroupItem>
-                <ToggleGroupItem value="list" aria-label="Vista de lista">
-                  <List />
+                <ToggleGroupItem
+                  value="list"
+                  aria-label="Vista de lista"
+                  className="data-[state=on]:bg-foreground group"
+                >
+                  <List className="text-foreground group-data-[state=on]:text-background" />
                 </ToggleGroupItem>
               </ToggleGroup>
 
