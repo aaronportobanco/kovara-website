@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCart } from "../context/cart-context";
 import Link from "next/link";
 
@@ -40,7 +40,10 @@ const Checkout = () => {
       </div>
 
       <div className="flex flex-col py-3 gap-2">
-        <Button className="w-full">Proceder al Pago</Button>
+        <Button className="w-full">
+          Proceder al Pago
+          <ArrowRight />
+        </Button>
         <Link href="/products">
           <Button variant="outline" className="w-full gap-2">
             <ArrowLeft />
