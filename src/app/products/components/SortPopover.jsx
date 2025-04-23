@@ -22,9 +22,9 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="w-full md:w-auto border border-gray-400">
+        <Button variant="outline" className="w-full md:w-36 border border-gray-400">
           {getLabel()}
-          <ChevronDown className="ml-2 w-4 h-4" />
+          <ChevronDown />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0 w-56">
