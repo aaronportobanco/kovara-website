@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Eye, ShoppingCart } from "lucide-react";
+import { Eye, ShoppingCart, Check } from "lucide-react";
+import { useCart } from "@/app/cart-products/context/cart-context";
 import {
   Card,
   CardContent,
@@ -19,7 +19,17 @@ import CardDetails from "./CardDetails";
 const CardHorizontal = ({ data }) => {
   const { nombre, descripcion, precio, stock, imagen, alt, especificaciones } =
     data;
-  const [open, setOpen] = useState(false);
+  const { cart, addToCart } = useCart(); // Hook para añadir al carrito
+  const [isAdding, setIsAdding] = useState(false);
+  const inCart = cart.some((item) => item.id === data.id);
+
+  const handleAddToCart = () => {
+    setIsAdding(true);
+    setTimeout(() => {
+      addToCart(data, 1);
+      setIsAdding(false);
+    }, 500);
+  };
 
   return (
     <Card className="bg-background w-full flex flex-col md:flex-row items-stretch gap-6 p-4 border border-foreground rounded-lg">
@@ -78,9 +88,26 @@ const CardHorizontal = ({ data }) => {
           </h4>
 
           <div className="flex gap-2 w-full sm:w-auto">
-            <Button className="w-full sm:w-auto gap-2">
-              <ShoppingCart strokeWidth={3} />
-              Añadir
+            <Button
+              className="w-full sm:w-auto gap-2"
+              onClick={handleAddToCart}
+            >
+              {isAdding ? (
+                <span className="flex items-center">
+                  <ShoppingCart className="mr-2 h-4 w-4 animate-bounce" />
+                  Añadiendo...
+                </span>
+              ) : inCart ? (
+                <span className="flex items-center">
+                  <Check className="mr-2 h-4 w-4" />
+                  En el carrito
+                </span>
+              ) : (
+                <span className="flex items-center">
+                  <ShoppingCart className="mr-2 h-4 w-4" />
+                  Añadir al Carrito
+                </span>
+              )}
             </Button>
             <Button
               variant="outline"
