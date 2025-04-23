@@ -5,9 +5,22 @@ import { Trash2, Minus, Plus } from "lucide-react";
 import { Card, CardTitle, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import { useCart } from "../context/cart-context";
 
 const PageItem = ({ data }) => {
-  const { nombre, descripcion, precio, imagen, alt } = data;
+  const { removeFromCart, updateQuantity } = useCart();
+  const { nombre, descripcion, precio, imagen, alt, id } = data;
+  const quantity = data.quantity || 1;
+
+  const handleIncrease = () => {
+    updateQuantity(id, quantity + 1);
+  };
+
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      updateQuantity(id, quantity - 1);
+    }
+  };
 
   return (
     <Card className="border border-foreground bg-background w-full flex flex-col md:flex-row gap-4 p-4 rounded-lg">
@@ -50,17 +63,28 @@ const PageItem = ({ data }) => {
           <Button
             variant="outline"
             className="flex items-center gap-2 text-destructive border-destructive hover:bg-destructive hover:text-white transition"
+            onClick={() => removeFromCart(id)}
           >
             <Trash2 className="w-4 h-4" />
             Eliminar
           </Button>
 
           <div className="flex items-center border border-gray-400 rounded-md px-3 py-1 w-fit">
-            <Button variant="ghost" size="icon" className="h-6 w-6 p-0">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-6 w-6 p-0"
+              onClick={handleDecrease}
+            >
               <Minus className="w-4 h-4" />
             </Button>
-            <span className="mx-2 text-sm font-medium">1</span>
-            <Button variant="ghost" size="icon" className="h-6 w-6 p-0">
+            <span className="mx-2 text-sm font-medium">{quantity}</span>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-6 w-6 p-0"
+              onClick={handleIncrease}
+            >
               <Plus className="w-4 h-4" />
             </Button>
           </div>
