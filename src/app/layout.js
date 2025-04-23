@@ -9,14 +9,17 @@ export const metadata = {
   description: "Descubre lo ultimo en tecnología en nuestra tienda",
 };
 
-const montserrat = Montserrat_Alternates({ subsets: ["latin"], weight: ["400", "700"] });
+const montserrat = Montserrat_Alternates({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
       <body className={montserrat.className}>
         <NavBar />
-        <main className="pt-16">
+        <main className="pt-16 flex flex-col items-center gap-[180px] w-full p-5 md:p-10">
           {children}
         </main>
         <Footer />
