@@ -1,16 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ShoppingCart,
   ArrowDownRight,
   Search,
   Menu,
-  House,
-  Phone,
-  Boxes,
-  Users,
 } from "lucide-react";
 import {
   Sheet,
@@ -22,14 +18,39 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
-import { scrollToSection } from "@/lib/scroll-utils"
+import { Datalinks } from "@/data/MockData";
+import { scrollToSection } from "@/lib/scroll-utils";;
 import { Separator } from "../ui/separator";
 
 // Main Navbar component
 const NavBar = () => {
+  // Estado para controlar la visibilidad y para almacenar el último scroll
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (window.scrollY > lastScrollY) {
+        // Scrolling down; ocultamos el navbar
+        setShow(false);
+      } else {
+        // Scrolling up; mostramos el navbar
+        setShow(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
+
   return (
     <>
-      <nav className="p-4 flex items-center justify-between relative overflow-hidden">
+      <nav
+        className={`fixed top-0 left-0 right-0 p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${
+          show ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <Logo />
         {/* Mobile menu (hamburger) */}
         <div className="md:hidden">
@@ -43,7 +64,7 @@ const NavBar = () => {
       </nav>
       <Separator className="bg-foreground/10 mt-1" />
     </>
-  );
+  );;
 };
 
 // Logo component
@@ -67,31 +88,8 @@ const handleNavClick = (e, href) => {
   e.preventDefault();
   const sectionId = href.startsWith("#") ? href.substring(1) : href;
   scrollToSection(sectionId);
-}
+};
 
-// Navigation links component
-const links = [
-  {
-    href: "/",
-    label: "Inicio",
-    Icon: <House className="mr-2" strokeWidth={3} />,
-  },
-  {
-    href: "#about",
-    label: "Sobre Nosotros",
-    Icon: <Users className="mr-2" strokeWidth={3} />,
-  },
-  {
-    href: "#featured-products",
-    label: "Productos",
-    Icon: <Boxes className="mr-2" strokeWidth={3} />,
-  },
-  {
-    href: "#contact",
-    label: "Contacto",
-    Icon: <Phone className="mr-2" strokeWidth={3} />,
-  },
-];
 
 const NavLinks = () => {
   return (
@@ -99,7 +97,7 @@ const NavLinks = () => {
       className="flex items-center gap-3 w-full justify-center z-10"
       aria-label="Main navigation"
     >
-      {links.map((link) => (
+      {Datalinks.map((link) => (
         <Link key={link.label} href={link.href}>
           <Button
             variant="link"
@@ -166,7 +164,7 @@ const MobileMenu = () => {
 
         <div className="flex flex-col gap-4 mt-6">
           <Separator className="my-2" />
-          {links.map((link) => (
+          {Datalinks.map((link) => (
             <Link key={link.label} href={link.href}>
               <Button variant="ghost" className="w-full justify-start">
                 {link.Icon}
