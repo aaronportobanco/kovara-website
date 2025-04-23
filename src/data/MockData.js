@@ -267,7 +267,6 @@ export const DataFeatures = [
   },
 ];
 
-
 // Data for the checklist section
 // This data is used to populate the checklist items on the homepage and other sections of the website.
 export const DataChecklist = [
@@ -286,7 +285,6 @@ export const DataChecklist = [
       "Tranquilidad con nuestras opciones de garantía extendida en todos los productos.",
   },
 ];
-
 
 // Testimonials data for the testimonials section
 // This data is used to populate the testimonials cards on the homepage and other sections of the website.
@@ -317,14 +315,12 @@ export const DataTestimonials = [
   },
 ];
 
-
-
 // Navigation links component for navbar
 // This data is used to populate the navigation links in the navbar component.
 import { House, Users, Boxes, Phone } from "lucide-react";
 export const Datalinks = [
   {
-    href: "/",
+    href: "#home",
     label: "Inicio",
     Icon: <House className="mr-2" strokeWidth={3} />,
   },
@@ -344,3 +340,5 @@ export const Datalinks = [
     Icon: <Phone className="mr-2" strokeWidth={3} />,
   },
 ];
+
+export const DataAbout = [{}];
