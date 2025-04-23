@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 // Custom Components
-import PDFViewer from "./components/ViewPDF";
+import ManualMarca from './components/ViewPDF';
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
 import MisionVision from "./components/MisionVisionSection";
 import Valores from "./components/ValorSection";
@@ -15,8 +15,7 @@ import Canva from "./components/CanvaSection";
 
 // Main Page
 const AboutUsPage = () => {
-  const [activeGroup, setActiveGroup] = useState("Reglamentos"); // Útil para ReglamentosNormativas
-
+  
   return (
     <main className="flex flex-col items-center gap-6 px-8 py-5 bg-slate-900">
       <BreadcrumbComp page="Sobre nosotros" />
@@ -44,7 +43,7 @@ const AboutUsPage = () => {
         <Valores />
         <Politica />
         <Section title="Manual de marca">
-          <PDFViewer />
+          <ManualMarca />
         </Section>
         <Canva />
         <ReglamentosNormativas />

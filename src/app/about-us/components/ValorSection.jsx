@@ -43,13 +43,13 @@ const Valores = () => {
 }
 
 const CardItem = ({ icon, title, children }) => (
-  <Card className="bg-gray-400 border border-slate-600">
+  <Card className="bg-slate-300 border border-slate-600">
     <CardContent className="p-5 space-y-4">
       <div className="flex items-center gap-3">
         <div className="bg-slate-700 p-2 rounded-full">{icon}</div>
-        <h3 className="text-lg text-black font-semibold">{title}</h3>
+        <h3 className="text-lg text-slate-800 font-semibold">{title}</h3>
       </div>
-      <p className="text-sm text-black">{children}</p>
+      <p className="text-sm text-slate-900">{children}</p>
     </CardContent>
   </Card>
 );

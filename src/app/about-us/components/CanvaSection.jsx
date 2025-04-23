@@ -1,6 +1,8 @@
 "use client";
 
+
 import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -11,7 +13,6 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 
 const canvasData = [
-  
   {
     label: "SOCIOS CLAVES",
     content: [
@@ -94,25 +95,35 @@ const canvasData = [
 ];
 
 export default function Canva() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: false })
+  );
+
   return (
     <section className="w-full max-w-6xl mx-auto py-12 px-6 bg-[#0f172a] rounded-xl">
       <h2 className="text-3xl font-bold text-center text-white mb-10">
         Modelo de Negocio: <span className="text-sky-400">KOVARA</span>
       </h2>
 
-      <Carousel className="w-full">
+      <Carousel
+        opts={{ loop: true }}
+        plugins={[plugin.current]}
+        className="w-full"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
+      >
         <CarouselContent className="flex gap-6">
           {canvasData.map((item, index) => (
             <CarouselItem
               key={index}
               className="md:basis-1/2 lg:basis-1/3 flex-shrink-0"
             >
-              <Card className="min-h-[28rem] bg-slate-900 text-white shadow-xl rounded-2xl border border-slate-700">
-                <CardContent className="p-6 flex flex-col items-start justify-start h-full">
-                  <h3 className="text-lg font-semibold text-sky-400 uppercase mb-4">
+              <Card className="min-h-[28rem] bg-slate-900 text-white shadow-xl rounded-2xl border border-slate-700 flex items-center justify-center">
+                <CardContent className="p-6 flex flex-col items-center justify-start h-full overflow-y-auto max-h-[22rem] scrollbar-custom">
+                  <h3 className="text-lg font-semibold text-sky-400 uppercase mb-4 text-center">
                     {item.label}
                   </h3>
-                  <ul className="list-disc list-inside text-sm space-y-2 text-slate-300">
+                  <ul className="list-disc list-inside text-sm space-y-2 text-slate-300 text-center">
                     {item.content.map((text, idx) => (
                       <li key={idx}>{text}</li>
                     ))}
@@ -128,4 +139,3 @@ export default function Canva() {
     </section>
   );
 }
-

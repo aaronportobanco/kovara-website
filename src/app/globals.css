@@ -95,3 +95,20 @@ a {
     @apply bg-background text-foreground m-0 p-0 box-border;
   }
 }
+
+/* Estilo personalizado para el scrollbar */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #38bdf8; /* Color del thumb */
+  border-radius: 10px;
+  border: 2px solid #1e293b; /* Color del borde del thumb */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background-color: #1e293b; /* Color de fondo del track */
+  border-radius: 10px;
+}
+
