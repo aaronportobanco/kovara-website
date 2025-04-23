@@ -9,13 +9,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 // Custom Components
-import PDFViewer from "./public/ViewPDF";
+import PDFViewer from "./components/ViewPDF";
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
-import MisionVision from "./Section/MisionVisionSection";
-import Valores from "./Section/ValorSection";
-import Politica from "./Section/PoliticasSection";
-import ReglamentosNormativas from "./Section/ReglamentosNormativasSection";
-import Canva from "./Section/CanvaSection";
+import MisionVision from "./components/MisionVisionSection";
+import Valores from "./components/ValorSection";
+import Politica from "./components/PoliticasSection";
+import ReglamentosNormativas from "./components/ReglamentosNormativasSection";
+import Canva from "./components/CanvaSection";
 
 // Main Page
 const AboutUsPage = () => {
