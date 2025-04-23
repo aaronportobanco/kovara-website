@@ -1,3 +1,6 @@
+import React from 'react';
+import { Card } from '@/components/ui/card';
+
 "use client";
 
 import React, { useState } from "react";
