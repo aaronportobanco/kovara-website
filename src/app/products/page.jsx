@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
 import { Grid, List } from "lucide-react";
@@ -14,7 +13,7 @@ import Filters from "./components/Filters";
 import FiltersMobile from "./components/FiltersMobile";
 import PageSizeSelector from "./components/PageSizeSelector";
 import Pagination from "./components/Pagination";
-import { sortProducts } from "@/utils/sortProducts";
+import { sortProducts } from "./utils/sortProducts";
 import SortPopover from "./components/SortPopover";
 
 export default function ProductsPage() {
