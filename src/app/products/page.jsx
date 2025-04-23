@@ -116,7 +116,7 @@ export default function ProductsPage() {
                   }}
                 />
               </div>
-              <div className="order-2 md:order-1 self-start">
+              <div className="order-2 md:order-1 self-end">
                 <ToggleGroup
                   type="single"
                   value={view}
