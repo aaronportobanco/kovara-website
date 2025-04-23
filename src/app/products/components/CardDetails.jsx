@@ -10,13 +10,26 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Check } from "lucide-react";
+import { useCart } from "@/app/cart-products/context/cart-context";
+import { useState } from "react";
 
 const CardDetails = ({ open, onOpenChange, product }) => {
   if (!product) return null;
 
   const { nombre, descripcion, especificaciones, precio, stock, imagen, alt } =
     product;
+  const { cart, addToCart } = useCart(); // Hook para añadir al carrito y obtener el carrito
+  const [isAdding, setIsAdding] = useState(false);
+  const inCart = cart.some((item) => item.id === product.id); // Determinar si el producto ya está en el carrito
+
+  const handleAddToCart = () => {
+    setIsAdding(true);
+    setTimeout(() => {
+      addToCart(product, 1);
+      setIsAdding(false);
+    }, 500);
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -83,9 +96,26 @@ const CardDetails = ({ open, onOpenChange, product }) => {
                 </p>
               </div>
 
-              <Button className="w-full md:w-auto gap-2">
-                <ShoppingCart strokeWidth={2.5} />
-                Añadir al carrito
+              <Button
+                className="w-full md:w-auto gap-2"
+                onClick={handleAddToCart}
+              >
+                {isAdding ? (
+                  <span className="flex items-center">
+                    <ShoppingCart className="mr-2 h-4 w-4 animate-bounce" />
+                    Añadiendo...
+                  </span>
+                ) : inCart ? (
+                  <span className="flex items-center">
+                    <Check className="mr-2 h-4 w-4" />
+                    En el carrito
+                  </span>
+                ) : (
+                  <span className="flex items-center">
+                    <ShoppingCart className="mr-2 h-4 w-4" />
+                    Añadir al Carrito
+                  </span>
+                )}
               </Button>
             </div>
           </div>
