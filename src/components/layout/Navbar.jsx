@@ -16,8 +16,8 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
-import Image from "next/image";
 import Link from "next/link";
+import Logo from "./Logo";
 import { Datalinks } from "@/data/MockData";
 import { scrollToSection } from "@/lib/scroll-utils";;
 import { Separator } from "../ui/separator";
@@ -47,7 +47,7 @@ const NavBar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${
+        className={`border border-b fixed top-0 left-0 right-0 p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${
           show ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -67,29 +67,12 @@ const NavBar = () => {
   );;
 };
 
-// Logo component
-const Logo = () => {
-  return (
-    <div className="flex items-center gap-3 z-10">
-      <Image
-        src="/images/logo/logo.webp"
-        alt="Logo de Kovara"
-        width={18}
-        height={27}
-      />
-      <span className="text-foreground text-base font-bold leading-7 tracking-[-0.08px]">
-        Kovara
-      </span>
-    </div>
-  );
-};
 
 const handleNavClick = (e, href) => {
   e.preventDefault();
   const sectionId = href.startsWith("#") ? href.substring(1) : href;
   scrollToSection(sectionId);
 };
-
 
 const NavLinks = () => {
   return (
@@ -172,8 +155,6 @@ const MobileMenu = () => {
               </Button>
             </Link>
           ))}
-
-          <Separator className="my-2" />
 
           <Button variant="ghost" className="justify-start">
             <Search className="mr-2" strokeWidth={3} />
