@@ -49,7 +49,7 @@ const PageItem = ({ data }) => {
         <div className="flex justify-between items-start flex-wrap gap-2">
           <CardTitle className="text-lg font-semibold">{nombre}</CardTitle>
           <p className="text-lg font-bold">
-            ${precio.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+            C${precio.toLocaleString("en-US", { minimumFractionDigits: 2 })}
           </p>
         </div>
 
