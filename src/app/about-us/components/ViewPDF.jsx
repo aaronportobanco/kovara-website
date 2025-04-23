@@ -1,7 +1,5 @@
 "use client";
 
-{/* Imports */}
-
 import React from 'react';
 
 const ManualMarca = () => {
@@ -12,7 +10,6 @@ const ManualMarca = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Manual de Marca</h2>
 
-      {/* Imagen de portada */}
       <div className="w-full max-w-md shadow-lg rounded-xl overflow-hidden mb-8">
         <img
           src={portadaUrl}
@@ -21,7 +18,6 @@ const ManualMarca = () => {
         />
       </div>
 
-      {/* Botones */}
       <div className="flex gap-4">
         <button
           onClick={() => window.open(pdfUrl, '_blank')}

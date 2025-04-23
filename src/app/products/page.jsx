@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
 import { Grid, List } from "lucide-react";
@@ -14,9 +13,11 @@ import Filters from "./components/Filters";
 import FiltersMobile from "./components/FiltersMobile";
 import PageSizeSelector from "./components/PageSizeSelector";
 import Pagination from "./components/Pagination";
+import { sortProducts } from "./utils/sortProducts";
+import SortPopover from "./components/SortPopover";
 
 export default function ProductsPage() {
-  // Estados de vista, página y filtros
+  // Estados de vista, página, filtros y ordenamiento
   const [view, setView] = useState("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(9);
@@ -25,6 +26,7 @@ export default function ProductsPage() {
     availability: null,
     brand: null,
   });
+  const [sortBy, setSortBy] = useState("destacados");
 
   // --------------------------------------------------------------------
   // Función para actualizar filtros y reiniciar la paginación
@@ -50,10 +52,14 @@ export default function ProductsPage() {
   });
 
   // --------------------------------------------------------------------
+  // Ordenamiento usando el helper
+  const sortedProducts = sortProducts(filteredProducts, sortBy);
+
+  // --------------------------------------------------------------------
   // Cálculo y selección de productos para la página actual (paginación)
   // --------------------------------------------------------------------
-  const totalPages = Math.ceil(filteredProducts.length / pageSize);
-  const paginatedProducts = filteredProducts.slice(
+  const totalPages = Math.ceil(sortedProducts.length / pageSize);
+  const paginatedProducts = sortedProducts.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -81,14 +87,13 @@ export default function ProductsPage() {
           />
         </div>
         <div className="flex-1 flex flex-col gap-4">
-          {/* Barra de búsqueda y controles de vista */}
+          {/* Barra de búsqueda y controles */}
           <div className="flex flex-col gap-4 md:flex-row md:items-center justify-between">
             <div className="flex items-center gap-2">
               <Input
                 placeholder="Buscar productos..."
                 className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
               />
-              {/* Filtros responsivos */}
               <div className="md:hidden">
                 <FiltersMobile
                   filters={filters}
@@ -96,36 +101,48 @@ export default function ProductsPage() {
                 />
               </div>
             </div>
-            <div className="flex flex-row-reverse md:flex-row items-center gap-2">
-              <ToggleGroup
-                type="single"
-                value={view}
-                onValueChange={(val) => {
-                  if (val) {
-                    // Al cambiar la vista se reinicia la paginación
+            <div className="flex flex-col md:flex-row items-center gap-2">
+              <div className="order-1 md:order-2 flex flex-row items-center gap-2 w-full md:w-auto">
+                <SortPopover
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  setCurrentPage={setCurrentPage}
+                />
+                <PageSizeSelector
+                  value={pageSize}
+                  onChange={(val) => {
                     setCurrentPage(1);
-                    setView(val);
-                  }
-                }}
-              >
-                <ToggleGroupItem value="grid" aria-label="Vista de cuadrícula">
-                  <Grid />
-                </ToggleGroupItem>
-                <ToggleGroupItem value="list" aria-label="Vista de lista">
-                  <List />
-                </ToggleGroupItem>
-              </ToggleGroup>
-
-              <Button variant="outline" className="border border-gray-400">
-                Destacados
-              </Button>
-              <PageSizeSelector
-                value={pageSize}
-                onChange={(val) => {
-                  setCurrentPage(1);
-                  setPageSize(val);
-                }}
-              />
+                    setPageSize(val);
+                  }}
+                />
+              </div>
+              <div className="order-2 md:order-1 self-end pt-2">
+                <ToggleGroup
+                  type="single"
+                  value={view}
+                  onValueChange={(val) => {
+                    if (val) {
+                      setCurrentPage(1);
+                      setView(val);
+                    }
+                  }}
+                >
+                  <ToggleGroupItem
+                    value="grid"
+                    aria-label="Vista de cuadrícula"
+                    className="data-[state=on]:bg-foreground group"
+                  >
+                    <Grid className="text-foreground group-data-[state=on]:text-background" />
+                  </ToggleGroupItem>
+                  <ToggleGroupItem
+                    value="list"
+                    aria-label="Vista de lista"
+                    className="data-[state=on]:bg-foreground group"
+                  >
+                    <List className="text-foreground group-data-[state=on]:text-background" />
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
             </div>
           </div>
 

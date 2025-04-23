@@ -3,7 +3,7 @@ export function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
   if (element) {
     // Offset for the fixed header
-    const headerOffset = 30;
+    const headerOffset = 10;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 

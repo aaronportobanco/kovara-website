@@ -1,3 +1,5 @@
+// Mock data for the products section
+// This data is used to populate the product cards on the homepage and other sections of the website.
 export const DataProducts = [
   {
     id: 1,
@@ -16,6 +18,7 @@ export const DataProducts = [
     alt: "Mouse Dell MS3220",
     marca: "Dell",
     categoria: "Accesorios",
+    destacado: false,
   },
   {
     id: 2,
@@ -34,6 +37,7 @@ export const DataProducts = [
     alt: "Mouse Dell WM126",
     marca: "Dell",
     categoria: "Accesorios",
+    destacado: true,
   },
   {
     id: 3,
@@ -52,6 +56,7 @@ export const DataProducts = [
     alt: "Teclado Logitech MX Mechanical",
     marca: "Logitech",
     categoria: "Accesorios",
+    destacado: false,
   },
   {
     id: 4,
@@ -70,6 +75,7 @@ export const DataProducts = [
     alt: "Audífonos Anker LifeQ20",
     marca: "Anker",
     categoria: "Audífonos",
+    destacado: true,
   },
   {
     id: 5,
@@ -88,6 +94,7 @@ export const DataProducts = [
     alt: "Audífonos Sony WH-CH520",
     marca: "Sony",
     categoria: "Audífonos",
+    destacado: false,
   },
   {
     id: 6,
@@ -106,6 +113,7 @@ export const DataProducts = [
     alt: "Audífono Logitech H390",
     marca: "Logitech",
     categoria: "Audífonos",
+    destacado: true,
   },
   {
     id: 7,
@@ -124,6 +132,7 @@ export const DataProducts = [
     alt: "Cargador Dell 65W",
     marca: "Dell",
     categoria: "Accesorios",
+    destacado: false,
   },
   {
     id: 8,
@@ -142,6 +151,7 @@ export const DataProducts = [
     alt: "Monitor Lenovo G27",
     marca: "Lenovo",
     categoria: "Monitores",
+    destacado: true,
   },
   {
     id: 9,
@@ -160,6 +170,7 @@ export const DataProducts = [
     alt: "Laptop Dell Inspiron 3520",
     marca: "Dell",
     categoria: "Laptops",
+    destacado: false,
   },
   {
     id: 10,
@@ -178,6 +189,7 @@ export const DataProducts = [
     alt: "Laptop Lenovo Ideapad (82XF001TUS)",
     marca: "Lenovo",
     categoria: "Laptops",
+    destacado: true,
   },
   {
     id: 11,
@@ -199,6 +211,7 @@ export const DataProducts = [
     alt: "Monitor HP E27 G5",
     marca: "HP",
     categoria: "Monitores",
+    destacado: false,
   },
   {
     id: 12,
@@ -217,6 +230,7 @@ export const DataProducts = [
     alt: "Laptop HP EP0145",
     marca: "HP",
     categoria: "Laptops",
+    destacado: true,
   },
   {
     id: 13,
@@ -235,9 +249,12 @@ export const DataProducts = [
     alt: "Laptop Lenovo Ideapad 5",
     marca: "Lenovo",
     categoria: "Laptops",
+    destacado: false,
   },
 ];
 
+// Data for the services section
+// This data is used to populate the services cards on the homepage and other sections of the website.
 import { Award, Headphones, Truck } from "lucide-react";
 export const DataFeatures = [
   {
@@ -263,6 +280,8 @@ export const DataFeatures = [
   },
 ];
 
+// Data for the checklist section
+// This data is used to populate the checklist items on the homepage and other sections of the website.
 export const DataChecklist = [
   {
     title: "Selección Curada",
@@ -280,6 +299,8 @@ export const DataChecklist = [
   },
 ];
 
+// Testimonials data for the testimonials section
+// This data is used to populate the testimonials cards on the homepage and other sections of the website.
 export const DataTestimonials = [
   {
     name: "Esther Howard",
@@ -306,3 +327,31 @@ export const DataTestimonials = [
     text: "¡Los precios y la calidad de los equipos son increíbles! Sin duda, volveré a comprar pronto. Además, el soporte técnico fue muy útil y resolvió todas mis dudas.",
   },
 ];
+
+// Navigation links component for navbar
+// This data is used to populate the navigation links in the navbar component.
+import { House, Users, Boxes, Phone } from "lucide-react";
+export const Datalinks = [
+  {
+    href: "#home",
+    label: "Inicio",
+    Icon: <House className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "#about",
+    label: "Sobre Nosotros",
+    Icon: <Users className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "#featured-products",
+    label: "Productos",
+    Icon: <Boxes className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "#contact",
+    label: "Contacto",
+    Icon: <Phone className="mr-2" strokeWidth={3} />,
+  },
+];
+
+export const DataAbout = [{}];

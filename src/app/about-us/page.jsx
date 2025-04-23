@@ -1,24 +1,17 @@
-import React from 'react';
-import { Card } from '@/components/ui/card';
-
 "use client";
 
-import React, { useState } from "react";
-
-// UI Components
+import React from 'react';
 import { Button } from "@/components/ui/button";
-
-// Icons
 import { ArrowRight } from "lucide-react";
 
 // Custom Components
-import ManualMarca from "./Section/ViewPDF";
+import ManualMarca from './components/ViewPDF';
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
-import MisionVision from "./Section/MisionVisionSection";
-import Valores from "./Section/ValorSection";
-import Politica from "./Section/PoliticasSection";
-import ReglamentosNormativas from "./Section/ReglamentosNormativasSection";
-import Canva from "./Section/CanvaSection";
+import MisionVision from "./components/MisionVisionSection";
+import Valores from "./components/ValorSection";
+import Politica from "./components/PoliticasSection";
+import ReglamentosNormativas from "./components/ReglamentosNormativasSection";
+import Canva from "./components/CanvaSection";
 
 // Main Page
 const AboutUsPage = () => {
@@ -46,25 +39,13 @@ const AboutUsPage = () => {
 
       {/* Contenido */}
       <section className="flex flex-col gap-20 w-full">
-
-        {/* Misión y Visión */}
         <MisionVision />
-
-        {/* Valores */}
         <Valores />
-
-        {/* Políticas internas */}
         <Politica />
-
-        {/* Visor de PDF */}
         <Section title="Manual de marca">
           <ManualMarca />
         </Section>
-
-        {/* Modelo Canvas */}
         <Canva />
-
-        {/* Reglamentos y normativas */}
         <ReglamentosNormativas />
       </section>
     </main>
