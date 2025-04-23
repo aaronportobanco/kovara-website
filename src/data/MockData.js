@@ -1,3 +1,5 @@
+// Mock data for the products section
+// This data is used to populate the product cards on the homepage and other sections of the website.
 export const DataProducts = [
   {
     id: 1,
@@ -238,6 +240,8 @@ export const DataProducts = [
   },
 ];
 
+// Data for the services section
+// This data is used to populate the services cards on the homepage and other sections of the website.
 import { Award, Headphones, Truck } from "lucide-react";
 export const DataFeatures = [
   {
@@ -263,6 +267,9 @@ export const DataFeatures = [
   },
 ];
 
+
+// Data for the checklist section
+// This data is used to populate the checklist items on the homepage and other sections of the website.
 export const DataChecklist = [
   {
     title: "Selección Curada",
@@ -280,6 +287,9 @@ export const DataChecklist = [
   },
 ];
 
+
+// Testimonials data for the testimonials section
+// This data is used to populate the testimonials cards on the homepage and other sections of the website.
 export const DataTestimonials = [
   {
     name: "Esther Howard",
@@ -304,5 +314,33 @@ export const DataTestimonials = [
     role: "Ingeniera de datos",
     image: "/images/avatars/avatar-2.png",
     text: "¡Los precios y la calidad de los equipos son increíbles! Sin duda, volveré a comprar pronto. Además, el soporte técnico fue muy útil y resolvió todas mis dudas.",
+  },
+];
+
+
+
+// Navigation links component for navbar
+// This data is used to populate the navigation links in the navbar component.
+import { House, Users, Boxes, Phone } from "lucide-react";
+export const Datalinks = [
+  {
+    href: "/",
+    label: "Inicio",
+    Icon: <House className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "#about",
+    label: "Sobre Nosotros",
+    Icon: <Users className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "#featured-products",
+    label: "Productos",
+    Icon: <Boxes className="mr-2" strokeWidth={3} />,
+  },
+  {
+    href: "#contact",
+    label: "Contacto",
+    Icon: <Phone className="mr-2" strokeWidth={3} />,
   },
 ];
