@@ -26,6 +26,7 @@ const CardHorizontal = ({ data }) => {
       {/* Sección: Imagen */}
       <div className="w-full md:w-[250px] flex justify-center items-center overflow-hidden rounded-md">
         <Image
+          priority
           src={imagen}
           alt={alt}
           width={250}
