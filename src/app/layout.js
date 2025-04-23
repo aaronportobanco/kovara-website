@@ -16,7 +16,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body className={montserrat.className}>
         <NavBar />
-        {children}
+        <main className="pt-16">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
