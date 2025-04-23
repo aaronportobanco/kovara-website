@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import Image from "next/image";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import Logo from "./Logo";
 
 export const socialLinks = [
   { icon: <Facebook />, href: "#" },
@@ -52,7 +52,6 @@ export const storeInfo = [
   },
 ];
 
-
 // Main Footer Component
 // This component is responsible for rendering the footer of the website.
 function Footer() {
@@ -79,24 +78,13 @@ function Footer() {
   );
 }
 
-
 // FooterBrand Component
 // This component displays the brand logo and a brief description of the store.
 function FooterBrand() {
   return (
     <div>
       <Link href="/" className="flex items-center mb-6">
-        <div className="mr-2">
-          <Image
-            src="/images/logo/logo.webp"
-            alt="Logo de Kovara"
-            width={18}
-            height={27}
-          />
-        </div>
-        <span className="text-xl font-heading font-bold text-[#F8FAFC]">
-          KOVARA
-        </span>
+        <Logo />
       </Link>
       <p className="text-gray-300 mb-6">
         Tu tienda de computación de confianza. Productos de calidad,
@@ -106,7 +94,6 @@ function FooterBrand() {
     </div>
   );
 }
-
 
 // SocialLinks Component
 // This component displays the social media links of the store.
@@ -125,7 +112,6 @@ function SocialLinks() {
     </div>
   );
 }
-
 
 // FooterLinks Component
 // This component displays the quick access links of the store.
@@ -149,7 +135,6 @@ function FooterLinks() {
   );
 }
 
-
 // FooterSupport Component
 // This component displays the support links of the store.
 function FooterSupport() {
@@ -171,7 +156,6 @@ function FooterSupport() {
     </div>
   );
 }
-
 
 // FooterStoreInfo Component
 // This component displays the store information such as address, phone, email, and working hours.
