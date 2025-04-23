@@ -3,8 +3,15 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft } from "lucide-react";
+import { useCart } from "../context/cart-context";
 
-const Checkout = ({ subtotal, impuestos, envio = "Gratis", total }) => {
+const Checkout = () => {
+  const { clearCart, getCartTotal, getCartItemsCount } = useCart();
+
+  const subtotal = getCartTotal();
+  const impuestos = subtotal * 0.16; // 16% de impuestos
+  const total = subtotal + impuestos;
+
   return (
     <div className="w-full h-fit max-w-sm rounded-lg border border-foreground p-5 bg-background space-y-4">
       <h3 className="text-lg font-semibold">Resumen del pedido</h3>
@@ -20,7 +27,7 @@ const Checkout = ({ subtotal, impuestos, envio = "Gratis", total }) => {
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Envío</span>
-          <span className="font-medium">{envio}</span>
+          <span className="font-medium">Gratis</span>
         </div>
       </div>
 
@@ -33,10 +40,18 @@ const Checkout = ({ subtotal, impuestos, envio = "Gratis", total }) => {
 
       <div className="space-y-2 pt-2">
         <Button className="w-full">Proceder al Pago</Button>
-        <Button variant="outline" className="w-full gap-2">
+        <Button
+          variant="outline"
+          className="w-full gap-2"
+          onClick={clearCart}
+        >
           <ArrowLeft className="w-4 h-4" />
-          Continuar Comprando
+          Vaciar Carrito
         </Button>
+      </div>
+
+      <div className="text-sm text-muted-foreground pt-2">
+        Total de productos: {getCartItemsCount()}
       </div>
     </div>
   );
