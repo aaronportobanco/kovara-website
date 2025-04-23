@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { ArrowLeft } from "lucide-react";
 import { useCart } from "../context/cart-context";
 import Link from "next/link";
 
@@ -38,10 +39,11 @@ const Checkout = () => {
         <span>${total.toFixed(2)}</span>
       </div>
 
-      <div className="space-y-2 pt-2">
+      <div className="flex flex-col py-3 gap-2">
         <Button className="w-full">Proceder al Pago</Button>
-        <Link href="/productos">
+        <Link href="/products">
           <Button variant="outline" className="w-full gap-2">
+            <ArrowLeft />
             Seguir comprando
           </Button>
         </Link>
