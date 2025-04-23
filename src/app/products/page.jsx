@@ -88,7 +88,7 @@ export default function ProductsPage() {
         </div>
         <div className="flex-1 flex flex-col gap-4">
           {/* Barra de búsqueda y controles */}
-          <div className="flex flex-col gap-4 md:flex-row md:items-center justify-between">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center justify-between">
             <div className="flex items-center gap-2">
               <Input
                 placeholder="Buscar productos..."
@@ -101,13 +101,12 @@ export default function ProductsPage() {
                 />
               </div>
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-2">
-              <div className="order-1 md:order-2 flex flex-row items-center gap-2 w-full md:w-auto">
-                <SortPopover
-                  sortBy={sortBy}
-                  setSortBy={setSortBy}
-                  setCurrentPage={setCurrentPage}
-                />
+            <div className="flex flex-col md:flex-row items-center gap-3">
+              {/* SortPopover se muestra primero en móvil */}
+              <div className="order-1 md:order-1 w-full">
+                <SortPopover sortBy={sortBy} setSortBy={setSortBy} setCurrentPage={setCurrentPage} />
+              </div>
+              <div className="order-2 md:order-2 flex flex-row items-center gap-2 w-full md:w-auto">
                 <PageSizeSelector
                   value={pageSize}
                   onChange={(val) => {
@@ -115,8 +114,6 @@ export default function ProductsPage() {
                     setPageSize(val);
                   }}
                 />
-              </div>
-              <div className="order-2 md:order-1 self-end pt-2">
                 <ToggleGroup
                   type="single"
                   value={view}
