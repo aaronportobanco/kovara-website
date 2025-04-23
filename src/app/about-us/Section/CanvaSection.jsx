@@ -93,7 +93,7 @@ const canvasData = [
   },
 ];
 
-export default function CanvaCarousel() {
+export default function Canva() {
   return (
     <section className="w-full max-w-6xl mx-auto py-12 px-6 bg-[#0f172a] rounded-xl">
       <h2 className="text-3xl font-bold text-center text-white mb-10">
