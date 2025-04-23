@@ -1,5 +1,5 @@
-import { Inter } from "next/font/google";
 import { Montserrat_Alternates } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import NavBar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
@@ -19,8 +19,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body className={montserrat.className}>
         <NavBar />
-        <main className="pt-16 flex flex-col items-center gap-[180px] w-full p-5 md:p-10">
+        <main className="pt-16">
           {children}
+          <Analytics />
         </main>
         <Footer />
       </body>

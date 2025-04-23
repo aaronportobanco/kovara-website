@@ -8,7 +8,7 @@ import CustomersTestimonials from "@/components/home/CustomersTestimonials/Custo
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col items-center gap-[180px] w-full p-5 md:p-10">
       <HeroSection />
       <AboutUs />
       <ServicesSection />
@@ -16,6 +16,6 @@ export default function Home() {
       <CheckList />
       <CustomersTestimonials />
       <ContactSection />
-    </>
+    </div>
   );
 }
