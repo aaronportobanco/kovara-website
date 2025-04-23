@@ -21,6 +21,8 @@ const CardHorizontal = ({ data }) => {
     data;
   const { cart, addToCart } = useCart(); // Hook para añadir al carrito
   const [isAdding, setIsAdding] = useState(false);
+  // Added state for modal open control
+  const [open, setOpen] = useState(false);
   const inCart = cart.some((item) => item.id === data.id);
 
   const handleAddToCart = () => {
