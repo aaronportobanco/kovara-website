@@ -21,7 +21,7 @@ export default function PageSizeSelector({ value, onChange }) {
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="w-36 justify-between border border-gray-400"
+          className="w-full md:w-36 justify-between border border-gray-400"
         >
           {value} por página
           <ChevronDown />

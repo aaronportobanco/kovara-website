@@ -87,14 +87,13 @@ export default function ProductsPage() {
           />
         </div>
         <div className="flex-1 flex flex-col gap-4">
-          {/* Barra de búsqueda y controles de vista */}
+          {/* Barra de búsqueda y controles */}
           <div className="flex flex-col gap-4 md:flex-row md:items-center justify-between">
             <div className="flex items-center gap-2">
               <Input
                 placeholder="Buscar productos..."
                 className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
               />
-              {/* Filtros responsivos */}
               <div className="md:hidden">
                 <FiltersMobile
                   filters={filters}
@@ -102,41 +101,48 @@ export default function ProductsPage() {
                 />
               </div>
             </div>
-            <div className="flex flex-row-reverse md:flex-row items-center gap-2">
-              <ToggleGroup
-                type="single"
-                value={view}
-                onValueChange={(val) => {
-                  if (val) {
-                    // Al cambiar la vista se reinicia la paginación
+            <div className="flex flex-col md:flex-row items-center gap-2">
+              <div className="order-1 md:order-2 flex flex-row items-center gap-2 w-full md:w-auto">
+                <SortPopover
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  setCurrentPage={setCurrentPage}
+                />
+                <PageSizeSelector
+                  value={pageSize}
+                  onChange={(val) => {
                     setCurrentPage(1);
-                    setView(val);
-                  }
-                }}
-              >
-                <ToggleGroupItem
-                  value="grid"
-                  aria-label="Vista de cuadrícula"
-                  className="data-[state=on]:bg-foreground group"
+                    setPageSize(val);
+                  }}
+                />
+              </div>
+              <div className="order-2 md:order-1 self-start">
+                <ToggleGroup
+                  type="single"
+                  value={view}
+                  onValueChange={(val) => {
+                    if (val) {
+                      setCurrentPage(1);
+                      setView(val);
+                    }
+                  }}
                 >
-                  <Grid className="text-foreground group-data-[state=on]:text-background" />
-                </ToggleGroupItem>
-                <ToggleGroupItem
-                  value="list"
-                  aria-label="Vista de lista"
-                  className="data-[state=on]:bg-foreground group"
-                >
-                  <List className="text-foreground group-data-[state=on]:text-background" />
-                </ToggleGroupItem>
-              </ToggleGroup>
-              <SortPopover sortBy={sortBy} setSortBy={setSortBy} setCurrentPage={setCurrentPage} />
-              <PageSizeSelector
-                value={pageSize}
-                onChange={(val) => {
-                  setCurrentPage(1);
-                  setPageSize(val);
-                }}
-              />
+                  <ToggleGroupItem
+                    value="grid"
+                    aria-label="Vista de cuadrícula"
+                    className="data-[state=on]:bg-foreground group"
+                  >
+                    <Grid className="text-foreground group-data-[state=on]:text-background" />
+                  </ToggleGroupItem>
+                  <ToggleGroupItem
+                    value="list"
+                    aria-label="Vista de lista"
+                    className="data-[state=on]:bg-foreground group"
+                  >
+                    <List className="text-foreground group-data-[state=on]:text-background" />
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
             </div>
           </div>
 
