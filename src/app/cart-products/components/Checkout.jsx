@@ -2,8 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft } from "lucide-react";
 import { useCart } from "../context/cart-context";
+import Link from "next/link";
 
 const Checkout = () => {
   const { clearCart, getCartTotal, getCartItemsCount } = useCart();
@@ -40,14 +40,11 @@ const Checkout = () => {
 
       <div className="space-y-2 pt-2">
         <Button className="w-full">Proceder al Pago</Button>
-        <Button
-          variant="outline"
-          className="w-full gap-2"
-          onClick={clearCart}
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Vaciar Carrito
-        </Button>
+        <Link href="/productos">
+          <Button variant="outline" className="w-full gap-2">
+            Seguir comprando
+          </Button>
+        </Link>
       </div>
 
       <div className="text-sm text-muted-foreground pt-2">
