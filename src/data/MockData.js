@@ -18,6 +18,7 @@ export const DataProducts = [
     alt: "Mouse Dell MS3220",
     marca: "Dell",
     categoria: "Accesorios",
+    destacado: false,
   },
   {
     id: 2,
@@ -36,6 +37,7 @@ export const DataProducts = [
     alt: "Mouse Dell WM126",
     marca: "Dell",
     categoria: "Accesorios",
+    destacado: true,
   },
   {
     id: 3,
@@ -54,6 +56,7 @@ export const DataProducts = [
     alt: "Teclado Logitech MX Mechanical",
     marca: "Logitech",
     categoria: "Accesorios",
+    destacado: false,
   },
   {
     id: 4,
@@ -72,6 +75,7 @@ export const DataProducts = [
     alt: "Audífonos Anker LifeQ20",
     marca: "Anker",
     categoria: "Audífonos",
+    destacado: true,
   },
   {
     id: 5,
@@ -90,6 +94,7 @@ export const DataProducts = [
     alt: "Audífonos Sony WH-CH520",
     marca: "Sony",
     categoria: "Audífonos",
+    destacado: false,
   },
   {
     id: 6,
@@ -108,6 +113,7 @@ export const DataProducts = [
     alt: "Audífono Logitech H390",
     marca: "Logitech",
     categoria: "Audífonos",
+    destacado: true,
   },
   {
     id: 7,
@@ -126,6 +132,7 @@ export const DataProducts = [
     alt: "Cargador Dell 65W",
     marca: "Dell",
     categoria: "Accesorios",
+    destacado: false,
   },
   {
     id: 8,
@@ -144,6 +151,7 @@ export const DataProducts = [
     alt: "Monitor Lenovo G27",
     marca: "Lenovo",
     categoria: "Monitores",
+    destacado: true,
   },
   {
     id: 9,
@@ -162,6 +170,7 @@ export const DataProducts = [
     alt: "Laptop Dell Inspiron 3520",
     marca: "Dell",
     categoria: "Laptops",
+    destacado: false,
   },
   {
     id: 10,
@@ -180,6 +189,7 @@ export const DataProducts = [
     alt: "Laptop Lenovo Ideapad (82XF001TUS)",
     marca: "Lenovo",
     categoria: "Laptops",
+    destacado: true,
   },
   {
     id: 11,
@@ -201,6 +211,7 @@ export const DataProducts = [
     alt: "Monitor HP E27 G5",
     marca: "HP",
     categoria: "Monitores",
+    destacado: false,
   },
   {
     id: 12,
@@ -219,6 +230,7 @@ export const DataProducts = [
     alt: "Laptop HP EP0145",
     marca: "HP",
     categoria: "Laptops",
+    destacado: true,
   },
   {
     id: 13,
@@ -237,6 +249,7 @@ export const DataProducts = [
     alt: "Laptop Lenovo Ideapad 5",
     marca: "Lenovo",
     categoria: "Laptops",
+    destacado: false,
   },
 ];
 
