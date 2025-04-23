@@ -12,7 +12,7 @@ import {
 const MisionVision = () => {
     return (
 
-        <Section>
+        <Section title="Nuestra Misión y Visión">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <CardItem icon={<Zap />} title="Misión">
                 Somos una tienda que brinda a nuestros clientes productos informáticos de última generación,

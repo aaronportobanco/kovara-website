@@ -20,7 +20,6 @@ import Canva from "./Section/CanvaSection";
 // Main Page
 const AboutUsPage = () => {
   const [activeGroup, setActiveGroup] = useState("Reglamentos"); // Útil para ReglamentosNormativas
-  const [numPages, setNumPages] = useState(null);
 
   return (
     <main className="flex flex-col items-center gap-6 px-8 py-5 bg-slate-900">
