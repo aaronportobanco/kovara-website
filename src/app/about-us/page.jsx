@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
-// UI Components
 import { Button } from "@/components/ui/button";
-
-// Icons
 import { ArrowRight } from "lucide-react";
 
 // Custom Components
@@ -44,25 +40,13 @@ const AboutUsPage = () => {
 
       {/* Contenido */}
       <section className="flex flex-col gap-20 w-full">
-
-        {/* Misión y Visión */}
         <MisionVision />
-
-        {/* Valores */}
         <Valores />
-
-        {/* Políticas internas */}
         <Politica />
-
-        {/* Visor de PDF */}
         <Section title="Manual de marca">
           <PDFViewer />
         </Section>
-
-        {/* Modelo Canvas */}
         <Canva />
-
-        {/* Reglamentos y normativas */}
         <ReglamentosNormativas />
       </section>
     </main>
