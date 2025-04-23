@@ -14,9 +14,11 @@ import Filters from "./components/Filters";
 import FiltersMobile from "./components/FiltersMobile";
 import PageSizeSelector from "./components/PageSizeSelector";
 import Pagination from "./components/Pagination";
+import { sortProducts } from "@/utils/sortProducts";
+import SortPopover from "./components/SortPopover";
 
 export default function ProductsPage() {
-  // Estados de vista, página y filtros
+  // Estados de vista, página, filtros y ordenamiento
   const [view, setView] = useState("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(9);
@@ -25,6 +27,7 @@ export default function ProductsPage() {
     availability: null,
     brand: null,
   });
+  const [sortBy, setSortBy] = useState("destacados");
 
   // --------------------------------------------------------------------
   // Función para actualizar filtros y reiniciar la paginación
@@ -50,10 +53,14 @@ export default function ProductsPage() {
   });
 
   // --------------------------------------------------------------------
+  // Ordenamiento usando el helper
+  const sortedProducts = sortProducts(filteredProducts, sortBy);
+
+  // --------------------------------------------------------------------
   // Cálculo y selección de productos para la página actual (paginación)
   // --------------------------------------------------------------------
-  const totalPages = Math.ceil(filteredProducts.length / pageSize);
-  const paginatedProducts = filteredProducts.slice(
+  const totalPages = Math.ceil(sortedProducts.length / pageSize);
+  const paginatedProducts = sortedProducts.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -123,10 +130,7 @@ export default function ProductsPage() {
                   <List className="text-foreground group-data-[state=on]:text-background" />
                 </ToggleGroupItem>
               </ToggleGroup>
-
-              <Button variant="outline" className="border border-gray-400">
-                Destacados
-              </Button>
+              <SortPopover sortBy={sortBy} setSortBy={setSortBy} setCurrentPage={setCurrentPage} />
               <PageSizeSelector
                 value={pageSize}
                 onChange={(val) => {
