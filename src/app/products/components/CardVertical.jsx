@@ -12,7 +12,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui//badge";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import CardDetails from "./CardDetails";
 
@@ -22,8 +22,7 @@ const CardVertical = ({ data }) => {
 
   return (
       <Card className="w-full max-w-sm flex flex-col justify-between rounded-[10px] border-foreground border bg-background">
-        {/* Imagen */}
-        {/* Unified height for consistent layout across devices */}
+        {/* Sección: Imagen */}
         <div className="w-full h-[250px] p-4 md:p-1 rounded-md overflow-hidden flex justify-center items-center">
           <Image
             src={imagen}
@@ -36,9 +35,8 @@ const CardVertical = ({ data }) => {
 
         <Separator className="bg-gray-700" />
 
-        {/* Contenido del Card */}
+        {/* Sección: Contenido (título, descripción, precio) */}
         <CardContent className="px-4">
-          {/* Título y Stock */}
           <div className="flex justify-between items-center mt-4 gap-2">
             <CardTitle className="text-base text-foreground sm:text-lg font-semibold">
               {nombre}
@@ -51,19 +49,17 @@ const CardVertical = ({ data }) => {
             </Badge>
           </div>
 
-          {/* Descripción */}
           <CardDescription className="text-sm text-muted-foreground mt-2">
             {descripcion}
           </CardDescription>
 
-          {/* Precio */}
           <div className="p-0 mt-4">
             <h4 className="text-lg md:text-lg font-bold text-foreground">
               C${precio.toLocaleString("es-NI", { minimumFractionDigits: 2 })}
             </h4>
           </div>
 
-          {/* Botones */}
+          {/* Sección: Botones */}
           <CardFooter className="p-0 mt-3 flex flex-col sm:flex-row justify-between gap-2">
             <Button className="w-full sm:flex-1 gap-2">
               <ShoppingCart strokeWidth={3} />
@@ -82,7 +78,7 @@ const CardVertical = ({ data }) => {
             </Button>
           </CardFooter>
         </CardContent>
-        {/* Modal */}
+        {/* Sección: Modal de detalles */}
         <CardDetails open={open} onOpenChange={setOpen} product={data} />
       </Card>
   );

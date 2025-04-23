@@ -30,7 +30,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
         </DialogHeader>
 
         <div className="flex flex-col md:flex-row gap-6 mt-4">
-          {/* Imagen */}
+          {/* Sección: Imagen */}
           <div className="w-full md:w-[300px] flex justify-center items-center">
             <Image
               src={imagen}
@@ -41,13 +41,13 @@ const CardDetails = ({ open, onOpenChange, product }) => {
             />
           </div>
 
-          {/* Separador */}
+          {/* Separador vertical */}
           <Separator
             orientation="vertical"
             className="hidden md:block bg-gray-700"
           />
 
-          {/* Contenido */}
+          {/* Sección: Contenido del modal */}
           <div className="flex-1 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2">
               <h4 className="font-semibold text-sm sm:text-base">
@@ -71,6 +71,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
 
             <Separator className="bg-gray-700" />
 
+            {/* Sección: Precio y acción */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-2">
               <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 <h4 className="font-semibold text-sm sm:text-base">Precio:</h4>

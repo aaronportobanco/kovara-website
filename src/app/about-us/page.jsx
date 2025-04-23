@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 // Custom Components
-import PDFViewer from "./public/ViewPDF";
+import ManualMarca from "./Section/ViewPDF";
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
 import MisionVision from "./Section/MisionVisionSection";
 import Valores from "./Section/ValorSection";
@@ -19,8 +19,7 @@ import Canva from "./Section/CanvaSection";
 
 // Main Page
 const AboutUsPage = () => {
-  const [activeGroup, setActiveGroup] = useState("Reglamentos"); // Útil para ReglamentosNormativas
-
+  
   return (
     <main className="flex flex-col items-center gap-6 px-8 py-5 bg-slate-900">
       <BreadcrumbComp page="Sobre nosotros" />
@@ -56,7 +55,7 @@ const AboutUsPage = () => {
 
         {/* Visor de PDF */}
         <Section title="Manual de marca">
-          <PDFViewer />
+          <ManualMarca />
         </Section>
 
         {/* Modelo Canvas */}

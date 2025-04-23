@@ -23,7 +23,7 @@ const CardHorizontal = ({ data }) => {
 
   return (
     <Card className="bg-background w-full flex flex-col md:flex-row items-stretch gap-6 p-4 border border-foreground rounded-lg">
-      {/* Imagen */}
+      {/* Sección: Imagen */}
       <div className="w-full md:w-[250px] flex justify-center items-center overflow-hidden rounded-md">
         <Image
           src={imagen}
@@ -42,9 +42,8 @@ const CardHorizontal = ({ data }) => {
         />
       </div>
 
-      {/* Contenido */}
+      {/* Sección: Contenido */}
       <div className="flex flex-col justify-between flex-1 gap-5">
-        {/* Título y Stock */}
         <div className="flex justify-between items-start flex-wrap gap-4">
           <div className="flex-1">
             <CardTitle className="text-base text-foreground sm:text-lg font-semibold">
@@ -62,7 +61,7 @@ const CardHorizontal = ({ data }) => {
           </Badge>
         </div>
 
-        {/* Lista de especificaciones */}
+        {/* Sección: Lista de especificaciones */}
         <CardContent className="flex-1 py-0 px-0">
           <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
             {especificaciones.map((item, index) => (
@@ -71,7 +70,7 @@ const CardHorizontal = ({ data }) => {
           </ul>
         </CardContent>
 
-        {/* Precio y botones */}
+        {/* Sección: Precio y botones */}
         <CardFooter className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 px-0 py-0">
           <h4 className="text-lg md:text-lg font-bold text-foreground">
             C${precio.toLocaleString("es-NI", { minimumFractionDigits: 2 })}
@@ -94,6 +93,7 @@ const CardHorizontal = ({ data }) => {
           </div>
         </CardFooter>
       </div>
+      {/* Sección: Modal de detalles */}
       <CardDetails open={open} onOpenChange={setOpen} product={data} />
     </Card>
   );
