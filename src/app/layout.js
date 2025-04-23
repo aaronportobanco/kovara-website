@@ -1,5 +1,6 @@
 import { Montserrat_Alternates } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { CartProvider } from "./cart-products/context/cart-context";
 import NavBar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         <NavBar />
         <main className="pt-16">
-          {children}
+          <CartProvider>
+            {children}
+          </CartProvider>
           <Analytics />
         </main>
         <Footer />
