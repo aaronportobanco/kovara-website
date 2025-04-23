@@ -1,5 +1,7 @@
 "use client";
 
+{/* Imports */}
+
 import React from 'react';
 
 const ManualMarca = () => {
