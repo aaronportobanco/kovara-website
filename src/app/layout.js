@@ -8,6 +8,16 @@ import "./globals.css";
 export const metadata = {
   title: "Kovara",
   description: "Descubre lo ultimo en tecnología en nuestra tienda",
+  icons: [
+    {
+      url: "/favicon-dark.ico",
+      media: "(prefers-color-scheme: light)",
+    },
+    {
+      url: "/favicon-light.ico",
+      media: "(prefers-color-scheme: dark)",
+    },
+  ],
 };
 
 const montserrat = Montserrat_Alternates({
@@ -21,9 +31,7 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         <NavBar />
         <main className="pt-16">
-          <CartProvider>
-            {children}
-          </CartProvider>
+          <CartProvider>{children}</CartProvider>
           <Analytics />
         </main>
         <Footer />
