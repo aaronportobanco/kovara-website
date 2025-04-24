@@ -348,7 +348,7 @@ export const Datalinks = [
     Icon: <Boxes className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "/",
+    href: "#contact",
     label: "Contacto",
     Icon: <Phone className="mr-2" strokeWidth={3} />,
   },

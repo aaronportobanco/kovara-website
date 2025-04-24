@@ -1,8 +1,10 @@
+"use client";
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
 import { Datalinks } from "@/data/MockData"; // added import
+import { scrollToSection } from "@/lib/scroll-utils"; // added import
 
 export const socialLinks = [
   { icon: <Facebook />, href: "#" },
@@ -113,16 +115,27 @@ function FooterLinks() {
     <div>
       <h4 className="text-lg font-heading font-semibold mb-6">Acceso Rápido</h4>
       <ul className="space-y-3">
-        {Datalinks.map((link) => (
-          <li key={link.label}>
-            <Link
-              href={link.href}
-              className="text-gray-300 hover:text-[#3B82F6] transition-colors"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
+        {Datalinks.map((link) =>
+          link.label === "Contacto" ? (
+            <li key={link.label}>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-gray-300 hover:text-[#3B82F6] transition-colors"
+              >
+                {link.label}
+              </button>
+            </li>
+          ) : (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="text-gray-300 hover:text-[#3B82F6] transition-colors"
+              >
+                {link.label}
+              </Link>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
