@@ -333,23 +333,23 @@ export const DataTestimonials = [
 import { House, Users, Boxes, Phone } from "lucide-react";
 export const Datalinks = [
   {
-    href: "#home",
+    href: "/", 
     label: "Inicio",
     Icon: <House className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "#about",
+    href: "/about-us",
     label: "Sobre Nosotros",
     Icon: <Users className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "#featured-products",
+    href: "/products", 
     label: "Productos",
     Icon: <Boxes className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "#contact",
-    label: "Contacto",
+    href: "/cart-products",
+    label: "Carrito de compras",
     Icon: <Phone className="mr-2" strokeWidth={3} />,
   },
 ];

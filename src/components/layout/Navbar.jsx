@@ -19,8 +19,8 @@ import {
 import Link from "next/link";
 import Logo from "./Logo";
 import { Datalinks } from "@/data/MockData";
-import { scrollToSection } from "@/lib/scroll-utils";;
 import { Separator } from "../ui/separator";
+import { scrollToSection } from "@/lib/scroll-utils";
 
 // Main Navbar component
 const NavBar = () => {
@@ -68,31 +68,45 @@ const NavBar = () => {
 };
 
 
-const handleNavClick = (e, href) => {
-  e.preventDefault();
-  const sectionId = href.startsWith("#") ? href.substring(1) : href;
-  scrollToSection(sectionId);
-};
-
 const NavLinks = () => {
   return (
-    <div
-      className="flex items-center gap-3 w-full justify-center z-10"
-      aria-label="Main navigation"
-    >
-      {Datalinks.map((link) => (
-        <Link key={link.label} href={link.href}>
-          <Button
-            variant="link"
-            aria-label={link.label}
-            onClick={(e) => handleNavClick(e, link.href)}
-            className="hover:text-[#3B82F6] font-medium group flex items-center gap-2 transition-all duration-300"
-          >
-            {link.label}
-            <ArrowDownRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
-          </Button>
-        </Link>
-      ))}
+    <div className="flex items-center gap-3 w-full justify-center z-10" aria-label="Main navigation">
+      {Datalinks.map((link) => {
+        if (link.label === "Contacto") {
+          return (
+            <a
+              key={link.label}
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("contact");
+              }}
+            >
+              <Button
+                variant="link"
+                aria-label={link.label}
+                className="hover:text-[#3B82F6] font-medium group flex items-center gap-2 transition-all duration-300"
+              >
+                {link.label}
+                <ArrowDownRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
+              </Button>
+            </a>
+          );
+        } else {
+          return (
+            <Link key={link.label} href={link.href}>
+              <Button
+                variant="link"
+                aria-label={link.label}
+                className="hover:text-[#3B82F6] font-medium group flex items-center gap-2 transition-all duration-300"
+              >
+                {link.label}
+                <ArrowDownRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
+              </Button>
+            </Link>
+          );
+        }
+      })}
     </div>
   );
 };

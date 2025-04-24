@@ -2,20 +2,13 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
+import { Datalinks } from "@/data/MockData"; // added import
 
 export const socialLinks = [
   { icon: <Facebook />, href: "#" },
   { icon: <Twitter />, href: "#" },
   { icon: <Instagram />, href: "#" },
   { icon: <Linkedin />, href: "#" },
-];
-
-export const quickLinks = [
-  { label: "Inicio", id: "home" },
-  { label: "Productos", id: "products" },
-  { label: "Sobre Kovara", id: "about" },
-  { label: "Contacto", id: "contact" },
-  { label: "Carrito", href: "#" },
 ];
 
 export const supportLinks = [
@@ -120,14 +113,14 @@ function FooterLinks() {
     <div>
       <h4 className="text-lg font-heading font-semibold mb-6">Acceso Rápido</h4>
       <ul className="space-y-3">
-        {quickLinks.map((link, id) => (
-          <li key={id}>
-            <a
-              href={link.href || `#${link.id}`}
+        {Datalinks.map((link) => (
+          <li key={link.label}>
+            <Link
+              href={link.href}
               className="text-gray-300 hover:text-[#3B82F6] transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
