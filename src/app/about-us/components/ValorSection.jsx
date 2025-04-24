@@ -5,7 +5,7 @@ import {
   Card, CardContent
 } from "@/components/ui/card";
 import {
-   Laptop, Star, Brain, HeartHandshake, Timer, User2
+   Star, Brain, HeartHandshake, Timer, User2
 } from "lucide-react";
 
 const Valores = () => {
@@ -43,13 +43,13 @@ const Valores = () => {
 }
 
 const CardItem = ({ icon, title, children }) => (
-  <Card className="bg-slate-300 border border-slate-600">
+  <Card className="bg-slate-600 border border-slate-600">
     <CardContent className="p-5 space-y-4">
       <div className="flex items-center gap-3">
         <div className="bg-slate-700 p-2 rounded-full">{icon}</div>
-        <h3 className="text-lg text-slate-800 font-semibold">{title}</h3>
+        <h3 className="text-lg text-slate-200 font-semibold">{title}</h3>
       </div>
-      <p className="text-sm text-slate-900">{children}</p>
+      <p className="text-sm text-slate-100">{children}</p>
     </CardContent>
   </Card>
 );
