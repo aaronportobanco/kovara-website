@@ -25,12 +25,12 @@ const PageItem = ({ data }) => {
   return (
     <Card className="border border-foreground bg-background w-full flex flex-col md:flex-row gap-4 p-4 rounded-lg">
       {/* Imagen */}
-      <div className="w-full md:w-[200px] h-[200px] overflow-hidden rounded-md flex items-center justify-center bg-background">
+      <div className="w-full md:w-[150px] h-[150px] overflow-hidden rounded-md flex items-center justify-center bg-background">
         <Image
           src={imagen}
           alt={alt}
-          width={200}
-          height={200}
+          width={150}
+          height={150}
           className="object-cover rounded-md"
         />
       </div>
@@ -62,14 +62,14 @@ const PageItem = ({ data }) => {
         <div className="flex flex-row justify-between items-start sm:items-center gap-3">
           <Button
             variant="outline"
-            className="flex items-center gap-2 text-destructive border-destructive hover:bg-destructive hover:text-white transition"
+            className="flex items-center gap-2 text-red-400 border-destructive hover:bg-destructive hover:text-white transition"
             onClick={() => removeFromCart(id)}
           >
-            <Trash2 className="w-4 h-4" />
+            <Trash2/>
             Eliminar
           </Button>
 
-          <div className="flex items-center border border-gray-400 rounded-md px-3 py-1 w-fit">
+          <div className="flex items-center gap-3 border border-gray-400 rounded-md px-3 py-1 w-fit">
             <Button
               variant="ghost"
               size="icon"
@@ -84,6 +84,7 @@ const PageItem = ({ data }) => {
               size="icon"
               className="h-6 w-6 p-0"
               onClick={handleIncrease}
+              disabled={quantity >= data.stock} // Deshabilitado si se alcanza el stock
             >
               <Plus className="w-4 h-4" />
             </Button>
