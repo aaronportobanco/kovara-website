@@ -47,7 +47,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
 
         <div className="flex flex-col md:flex-row gap-6 mt-4">
           {/* Sección: Imagen */}
-          <div className="w-full md:w-[300px] flex justify-center items-center">
+          <div className="w-full h-[350px] md:h-full md:w-[300px] flex justify-center items-center">
             <Image
               src={imagen}
               alt={alt}

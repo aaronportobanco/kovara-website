@@ -39,11 +39,11 @@ const CardVertical = ({ data }) => {
   return (
     <Card className="w-full max-w-sm flex flex-col justify-between rounded-[10px] border-foreground border bg-background">
       {/* Sección: Imagen */}
-      <div className="w-full h-[250px] p-4 md:p-1 rounded-md overflow-hidden flex justify-center items-center">
+      <div className="w-full h-[250px] md:h-[270px] p-4 md:p-1 rounded-md overflow-hidden flex justify-center items-center">
         <Image
           src={imagen}
           alt={alt}
-          width={350}
+          width={250}
           height={200}
           className="object-cover rounded-md"
         />
