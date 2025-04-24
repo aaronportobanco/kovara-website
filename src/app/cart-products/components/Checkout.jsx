@@ -20,11 +20,11 @@ const Checkout = () => {
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
           <span className="text-muted-foreground">Subtotal</span>
-          <span className="font-medium">${subtotal.toFixed(2)}</span>
+          <span className="font-medium">C${subtotal.toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Impuestos (16%)</span>
-          <span className="font-medium">${impuestos.toFixed(2)}</span>
+          <span className="font-medium">C${impuestos.toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Envío</span>
@@ -36,7 +36,7 @@ const Checkout = () => {
 
       <div className="flex justify-between text-base font-bold">
         <span>Total</span>
-        <span>${total.toFixed(2)}</span>
+        <span>C${total.toFixed(2)}</span>
       </div>
 
       <div className="flex flex-col py-3 gap-2">
@@ -53,7 +53,7 @@ const Checkout = () => {
       </div>
 
       <div className="text-sm text-muted-foreground pt-2">
-        Total de productos: {getCartItemsCount()}
+        Productos en el carrito: {getCartItemsCount()}
       </div>
     </div>
   );
