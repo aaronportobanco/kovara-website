@@ -27,6 +27,7 @@ export default function ProductsPage() {
     brand: null,
   });
   const [sortBy, setSortBy] = useState("destacados");
+  const [searchTerm, setSearchTerm] = useState("");
 
   // --------------------------------------------------------------------
   // Función para actualizar filtros y reiniciar la paginación
@@ -47,19 +48,22 @@ export default function ProductsPage() {
       !filters.availability ||
       (filters.availability === "inStock" && product.stock > 0);
     const matchesBrand = !filters.brand || product.marca === filters.brand;
-
     return matchesCategory && matchesAvailability && matchesBrand;
   });
 
   // --------------------------------------------------------------------
   // Ordenamiento usando el helper
+  // --------------------------------------------------------------------
   const sortedProducts = sortProducts(filteredProducts, sortBy);
-
-  // --------------------------------------------------------------------
-  // Cálculo y selección de productos para la página actual (paginación)
-  // --------------------------------------------------------------------
-  const totalPages = Math.ceil(sortedProducts.length / pageSize);
-  const paginatedProducts = sortedProducts.slice(
+  
+  // Nuevo: Buscar en todos los productos ordenados si hay término de búsqueda
+  const searchResults = sortedProducts.filter((product) =>
+    product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  // Determinar la base para paginación siempre
+  const baseProducts = searchTerm.trim() ? searchResults : sortedProducts;
+  const totalPages = Math.ceil(baseProducts.length / pageSize);
+  const displayedProducts = baseProducts.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   );
@@ -93,12 +97,13 @@ export default function ProductsPage() {
               <Input
                 placeholder="Buscar productos..."
                 className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setCurrentPage(1);
+                }}
               />
               <div className="md:hidden">
-                <FiltersMobile
-                  filters={filters}
-                  setFilters={handleFilterChange}
-                />
+                <FiltersMobile filters={filters} setFilters={handleFilterChange} />
               </div>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
@@ -145,20 +150,19 @@ export default function ProductsPage() {
 
           {/* Información de paginación */}
           <p className="text-sm text-muted-foreground pt-4">
-            Mostrando {paginatedProducts.length} de {DataProducts.length}{" "}
-            productos
+            Mostrando {displayedProducts.length} de {baseProducts.length} productos
           </p>
 
           {/* Renderizado de productos */}
           {view === "grid" ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {paginatedProducts.map((product) => (
+              {displayedProducts.map((product) => (
                 <CardVertical key={product.id} data={product} />
               ))}
             </div>
           ) : (
             <div className="flex flex-col gap-6">
-              {paginatedProducts.map((product) => (
+              {displayedProducts.map((product) => (
                 <CardHorizontal key={product.id} data={product} />
               ))}
             </div>
