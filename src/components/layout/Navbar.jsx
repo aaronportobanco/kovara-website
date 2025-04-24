@@ -2,12 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ShoppingCart,
-  ArrowUpRight,
-  Search,
-  Menu,
-} from "lucide-react";
+import { ShoppingCart, ArrowUpRight, Search, Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -64,13 +59,15 @@ const NavBar = () => {
       </nav>
       <Separator className="bg-foreground/10 mt-1" />
     </>
-  );;
+  );
 };
-
 
 const NavLinks = () => {
   return (
-    <div className="flex items-center gap-3 w-full justify-center z-10" aria-label="Main navigation">
+    <div
+      className="flex items-center gap-3 w-full justify-center z-10"
+      aria-label="Main navigation"
+    >
       {Datalinks.map((link) => {
         if (link.label === "Contacto") {
           return (
@@ -115,16 +112,6 @@ const NavLinks = () => {
 const ActionIcons = () => {
   return (
     <div className="flex items-center z-10">
-      <Button
-        variant="with-icon"
-        aria-label="Buscar"
-        className="group hover:text-[#3B82F6] hover:bg-foreground/10 flex items-center gap-1 transition-all duration-300"
-      >
-        <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300">
-          Buscar
-        </span>
-        <Search strokeWidth={3} />
-      </Button>
       <Link href="/cart-products">
         <Button
           variant="icon"
@@ -169,12 +156,6 @@ const MobileMenu = () => {
               </Button>
             </Link>
           ))}
-
-          <Button variant="ghost" className="justify-start">
-            <Search className="mr-2" strokeWidth={3} />
-            Buscar
-          </Button>
-
           <Link href="/cart-products">
             <Button variant="ghost" className="justify-start">
               <ShoppingCart className="mr-2" strokeWidth={3} />
