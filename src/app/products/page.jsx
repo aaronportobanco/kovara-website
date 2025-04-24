@@ -69,7 +69,7 @@ export default function ProductsPage() {
   );
 
   return (
-    <section className="flex flex-col p-6 md:px-6 gap-8 md:gap-11 text-foreground bg-background">
+    <section className="flex flex-col p-6 px-4 md:px-6 gap-8 md:gap-11 text-foreground bg-background">
       {/* Breadcrumb y encabezado */}
       <BreadcrumbComp page={"Productos"} />
       <div>
