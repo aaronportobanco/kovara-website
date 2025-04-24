@@ -18,13 +18,17 @@ import CardDetails from "./CardDetails";
 
 const CardVertical = ({ data }) => {
   const { nombre, descripcion, precio, stock, imagen, alt } = data;
-  const { cart, addToCart } = useCart(); // Hook para añadir al carrito
+  const { cart, addToCart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
   const inCart = cart.some((item) => item.id === data.id);
-
   const [open, setOpen] = useState(false);
 
   const handleAddToCart = () => {
+    const currentProduct = cart.find((item) => item.id === data.id);
+    if (currentProduct && currentProduct.quantity >= stock) {
+      addToCart(data, 1);
+      return;
+    }
     setIsAdding(true);
     setTimeout(() => {
       addToCart(data, 1);

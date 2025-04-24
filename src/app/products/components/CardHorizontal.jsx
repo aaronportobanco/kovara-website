@@ -17,15 +17,18 @@ import { Badge } from "@/components/ui/badge";
 import CardDetails from "./CardDetails";
 
 const CardHorizontal = ({ data }) => {
-  const { nombre, descripcion, precio, stock, imagen, alt, especificaciones } =
-    data;
-  const { cart, addToCart } = useCart(); // Hook para añadir al carrito
+  const { nombre, descripcion, precio, stock, imagen, alt, especificaciones } = data;
+  const { cart, addToCart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
-  // Added state for modal open control
   const [open, setOpen] = useState(false);
   const inCart = cart.some((item) => item.id === data.id);
 
   const handleAddToCart = () => {
+    const currentProduct = cart.find((item) => item.id === data.id);
+    if (currentProduct && currentProduct.quantity >= stock) {
+      addToCart(data, 1);
+      return;
+    }
     setIsAdding(true);
     setTimeout(() => {
       addToCart(data, 1);
