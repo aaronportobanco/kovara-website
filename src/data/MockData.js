@@ -348,8 +348,8 @@ export const Datalinks = [
     Icon: <Boxes className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "/cart-products",
-    label: "Carrito de compras",
+    href: "/",
+    label: "Contacto",
     Icon: <Phone className="mr-2" strokeWidth={3} />,
   },
 ];

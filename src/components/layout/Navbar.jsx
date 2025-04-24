@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   ShoppingCart,
-  ArrowDownRight,
+  ArrowUpRight,
   Search,
   Menu,
 } from "lucide-react";
@@ -88,7 +88,7 @@ const NavLinks = () => {
                 className="hover:text-[#3B82F6] font-medium group flex items-center gap-2 transition-all duration-300"
               >
                 {link.label}
-                <ArrowDownRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
+                <ArrowUpRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
               </Button>
             </a>
           );
@@ -101,7 +101,7 @@ const NavLinks = () => {
                 className="hover:text-[#3B82F6] font-medium group flex items-center gap-2 transition-all duration-300"
               >
                 {link.label}
-                <ArrowDownRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
+                <ArrowUpRight className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300" />
               </Button>
             </Link>
           );
