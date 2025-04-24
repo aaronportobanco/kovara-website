@@ -76,7 +76,7 @@ const CustomersTestimonials = () => {
                 {DataTestimonials.map((testimonial, index) => (
                   <CarouselItem
                     key={index}
-                    className="px-2 basis-full sm:px-4 md:basis-2/3 lg:basis-1/3"
+                    className="basis-full sm:px-4 md:basis-1/2 lg:basis-1/3"
                   >
                     <Card className="bg-slate-800 relative p-6 min-h-[380px] sm:min-h-[420px] lg:h-[370px] rounded-2xl shadow-xl flex flex-col justify-between">
                       <Quote
