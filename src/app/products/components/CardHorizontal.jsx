@@ -71,9 +71,13 @@ const CardHorizontal = ({ data }) => {
           </div>
           <Badge
             variant="outline"
-            className="text-xs text-gray-400 px-3 py-1 h-fit rounded-full whitespace-nowrap border-foreground border-[0.5px]"
+            className={
+              stock === 0
+                ? "text-xs bg-red-600 text-white px-3 py-1 h-fit rounded-full whitespace-nowrap border-foreground border-[0.5px]"
+                : "text-xs text-gray-400 px-3 py-1 h-fit rounded-full whitespace-nowrap border-foreground border-[0.5px]"
+            }
           >
-            {stock} en Stock
+            {stock === 0 ? "Agotado" : `${stock} en Stock`}
           </Badge>
         </div>
 
@@ -96,6 +100,7 @@ const CardHorizontal = ({ data }) => {
             <Button
               className="w-full sm:w-auto gap-2"
               onClick={handleAddToCart}
+              disabled={stock === 0} // added
             >
               {isAdding ? (
                 <span className="flex items-center">

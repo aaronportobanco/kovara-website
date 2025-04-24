@@ -59,9 +59,13 @@ const CardVertical = ({ data }) => {
           </CardTitle>
           <Badge
             variant="outline"
-            className="text-xs text-gray-400 px-2 py-1 rounded-full whitespace-nowrap border-foreground border-[0.5px]"
+            className={
+              stock === 0
+                ? "text-xs bg-red-600 text-white px-2 py-1 rounded-full whitespace-nowrap border-foreground border-[0.5px]"
+                : "text-xs text-gray-400 px-2 py-1 rounded-full whitespace-nowrap border-foreground border-[0.5px]"
+            }
           >
-            {stock} en Stock
+            {stock === 0 ? "Agotado" : `${stock} en Stock`}
           </Badge>
         </div>
 
@@ -77,7 +81,11 @@ const CardVertical = ({ data }) => {
 
         {/* Sección: Botones */}
         <CardFooter className="p-0 mt-3 flex flex-col sm:flex-row justify-between gap-2">
-          <Button className="w-full sm:flex-1 gap-2" onClick={handleAddToCart}>
+          <Button
+            className="w-full sm:flex-1 gap-2"
+            onClick={handleAddToCart}
+            disabled={stock === 0} // added
+          >
             {isAdding ? (
               <span className="flex items-center">
                 <ShoppingCart className="mr-2 h-4 w-4 animate-bounce" />

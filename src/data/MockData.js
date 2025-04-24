@@ -81,7 +81,7 @@ export const DataProducts = [
     id: 5,
     nombre: "Audífonos Sony WH-CH520",
     precio: 915.61,
-    stock: 2,
+    stock: 0,
     descripcion: "Auriculares inalámbricos ligeros con sonido estéreo.",
     especificaciones: [
       "Conexión: Bluetooth",
@@ -119,7 +119,7 @@ export const DataProducts = [
     id: 7,
     nombre: "Cargador Dell 65W",
     precio: 1464.97,
-    stock: 5,
+    stock: 0,
     descripcion: "Cargador original Dell de 65W con conector USB-C.",
     especificaciones: [
       "Entrada: 100-240V",
@@ -176,7 +176,7 @@ export const DataProducts = [
     id: 10,
     nombre: "Laptop Lenovo Ideapad (82XF001TUS)",
     precio: 44864.77,
-    stock: 1,
+    stock: 0,
     descripcion: "Laptop de alto rendimiento con procesador Intel Core i7.",
     especificaciones: [
       "Procesador: Intel Core i7",

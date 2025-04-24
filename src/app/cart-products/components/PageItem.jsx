@@ -62,7 +62,7 @@ const PageItem = ({ data }) => {
         <div className="flex flex-row justify-between items-start sm:items-center gap-3">
           <Button
             variant="outline"
-            className="flex items-center gap-2 text-red-400 border-destructive hover:bg-destructive hover:text-white transition"
+            className="flex items-center gap-2 text-red-400 border-destructive hover:bg-red-500 hover:text-white transition"
             onClick={() => removeFromCart(id)}
           >
             <Trash2/>

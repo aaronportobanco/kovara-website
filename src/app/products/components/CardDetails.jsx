@@ -16,7 +16,8 @@ import { useState } from "react";
 
 const CardDetails = ({ open, onOpenChange, product }) => {
   if (!product) return null;
-  const { nombre, descripcion, stock, precio, imagen, alt, especificaciones } = product;
+  const { nombre, descripcion, stock, precio, imagen, alt, especificaciones } =
+    product;
   const { cart, addToCart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
   const inCart = cart.some((item) => item.id === product.id);
@@ -69,7 +70,15 @@ const CardDetails = ({ open, onOpenChange, product }) => {
               <h4 className="font-semibold text-sm sm:text-base">
                 Disponibilidad:
               </h4>
-              <Badge className="text-xs w-fit">{stock} en stock</Badge>
+              <Badge
+                className={
+                  stock === 0
+                    ? "text-xs bg-red-600 text-white w-fit"
+                    : "text-xs w-fit"
+                }
+              >
+                {stock === 0 ? "Agotado" : `${stock} en stock`}
+              </Badge>
             </div>
 
             <p className="text-sm text-muted-foreground">{descripcion}</p>
@@ -102,6 +111,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
               <Button
                 className="w-full md:w-auto gap-2"
                 onClick={handleAddToCart}
+                disabled={stock === 0} // added
               >
                 {isAdding ? (
                   <span className="flex items-center">
