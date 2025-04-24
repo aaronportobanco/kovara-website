@@ -16,15 +16,15 @@ export default function HeroSection() {
         alt="Decoración abstracta"
         width={650}
         height={650}
-        className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 blur-sm"
+        className="absolute rotate-45 left-1/2 -translate-x-1/2 top-[40px] md:top-[10px] z-0 opacity-10 blur-sm scale-125 md:scale-100"
       />
-
       <Image
         src="/assets/bg-4.webp"
         alt="Decoración abstracta"
         width={650}
         height={650}
-        className="absolute rotate-6 right-[-50px] top-[40px] z-0 opacity-10"
+        // On mobile: aligned with main image; on larger screens: original positioning
+        className="absolute rotate-6 z-0 opacity-10 right-0 bottom-10 scale-150 sm:scale-100"
       />
 
       <div className="flex flex-col gap-7 z-10">
@@ -63,7 +63,7 @@ export default function HeroSection() {
           alt="Ilustración principal"
           width={950}
           height={800}
-          className="relative z-10"
+          className="relative z-10 scale-110 md:scale-100"
         />
       </div>
     </section>
