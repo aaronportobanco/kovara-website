@@ -18,18 +18,27 @@ const AboutUs = () => {
         title="¿Quiénes Somos?"
         subtitle="Conoce más acerca de nuestra filosofía institucional"
       />
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative">
-        {/* Imagen decorativa posicionada cerca del texto */}
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 md:gap-12 items-center relative">
+        {/* BG imagen para desktop */}
         <Image
           src="/assets/bg-4.webp"
           alt="Decoración abstracta"
           width={700}
           height={700}
-          className="absolute -rotate-6 left-[-70px] top-[40px] z-0 opacity-10"
+          className="absolute -rotate-6 scale-150 md:scale-100 left-1/2 -translate-x-1/2 md:left-[-70px] md:translate-x-0 top-[40px] z-0 opacity-10 hidden lg:block"
         />
 
-        {/* Imagen principal */}
+        {/* Imagen principal con BG imagen para mobile */}
         <div className="relative flex items-center justify-center z-10">
+          {/* BG imagen para mobile */}
+          <Image
+            src="/assets/bg-4.webp"
+            alt="Decoración abstracta"
+            width={700}
+            height={700}
+            className="absolute -rotate-6 scale-150 left-1/2 -translate-x-1/2 top-[60px] z-0 opacity-10 lg:hidden"
+          />
+          {/* Imagen principal */}
           <Image
             priority
             src="/assets/about-us-main.webp"
