@@ -15,7 +15,7 @@ function CheckList() {
         alt="Decoración abstracta"
         width={650}
         height={650}
-        className="absolute -rotate-6 left-[-10px] top-[70px] z-0 opacity-10"
+        className="absolute -rotate-6 left-[-10px] top-[70px] z-0 opacity-10 scale-125 md:scale-100" // Added responsive scaling on mobile
       />
 
       <Image
@@ -35,7 +35,7 @@ function CheckList() {
             alt="Imagen ilustrativa de la propuesta de valor"
             width={500}
             height={500}
-            className="relative z-10"
+            className="relative z-10 scale-125 md:scale-100" // Added scaling on mobile
           />
         </div>
 

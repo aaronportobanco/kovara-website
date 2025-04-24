@@ -36,7 +36,7 @@ const AboutUs = () => {
             alt="Decoración abstracta"
             width={700}
             height={700}
-            className="absolute -rotate-6 scale-150 left-1/2 -translate-x-1/2 top-[60px] z-0 opacity-10 lg:hidden"
+            className="absolute -rotate-6 scale-150 md:scale-120 left-1/2 -translate-x-1/2 top-[60px] z-0 opacity-10 lg:hidden"
           />
           {/* Imagen principal */}
           <Image
@@ -45,13 +45,13 @@ const AboutUs = () => {
             alt="Ilustración sobre nosotros"
             width={800}
             height={800}
-            className="relative z-10"
+            className="relative z-10 scale-125 md:scale-100"
           />
         </div>
 
         {/* Contenido textual */}
         <div className="z-10">
-          <div className="mt-8 space-y-6">
+          <div className="md:mt-8 space-y-6">
             <div>
               <h3 className="text-foreground text-2xl font-bold leading-snug tracking-tight">
                 Nuestra Visión
