@@ -7,29 +7,37 @@ const ManualMarca = () => {
   const portadaUrl = './images/Manual/ManualMarca.webp'; 
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">Manual de Marca</h2>
+    <div className="bg-slate-300 px-4 py-10 w-full flex flex-col items-center">
+      <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">
+        Manual de Marca
+      </h2>
 
-      <div className="w-full max-w-md shadow-lg rounded-xl overflow-hidden mb-8">
+      {/* Imagen de portada */}
+      <div className="w-full max-w-sm sm:max-w-md shadow-lg rounded-xl overflow-hidden mb-8">
         <img
           src={portadaUrl}
           alt="Portada del Manual"
-          className="w-full object-cover"
+          className="w-full h-auto object-cover"
         />
       </div>
 
-      <div className="flex gap-4">
+      {/* Botones */}
+      <div className="flex flex-col sm:flex-row gap-4 w-full sm:justify-center items-center">
         <button
           onClick={() => window.open(pdfUrl, '_blank')}
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition"
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition w-full sm:w-auto"
         >
           Ver Manual en PDF
         </button>
 
-        <a href={pdfUrl} download="ManualMarca.pdf">
-          <button className="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition">
+        <a
+          href={pdfUrl}
+          download="ManualMarca.pdf"
+          className="w-full sm:w-auto"
+        >
+          <div className="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition text-center">
             Descargar Manual
-          </button>
+          </div>
         </a>
       </div>
     </div>
