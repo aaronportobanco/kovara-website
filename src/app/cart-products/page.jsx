@@ -34,6 +34,7 @@ const CartPage = () => {
               variant="outline"
               className="flex items-center gap-2"
               onClick={clearCart} // Vaciar carrito
+              disabled={cart.length === 0} // Deshabilitado si el carrito está vacío
             >
               <Trash2 className="w-4 h-4" />
               Vaciar carrito

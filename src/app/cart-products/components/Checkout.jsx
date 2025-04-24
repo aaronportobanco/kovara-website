@@ -40,7 +40,7 @@ const Checkout = () => {
       </div>
 
       <div className="flex flex-col py-3 gap-2">
-        <Button className="w-full">
+        <Button className="w-full" disabled={getCartItemsCount() === 0}>
           Proceder al Pago
           <ArrowRight />
         </Button>
