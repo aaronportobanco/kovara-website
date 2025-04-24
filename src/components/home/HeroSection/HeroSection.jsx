@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { scrollToSection } from "@/lib/scroll-utils";
 
 export default function HeroSection() {
   return (
@@ -50,8 +53,12 @@ export default function HeroSection() {
               />
             </Button>
           </Link>
-
-          <Button className="rounded-full">Contáctanos</Button>
+          <Button
+            className="rounded-full"
+            onClick={() => scrollToSection("contact")} // added onClick to scroll to contact section
+          >
+            Contáctanos
+          </Button>
         </div>
       </div>
 
