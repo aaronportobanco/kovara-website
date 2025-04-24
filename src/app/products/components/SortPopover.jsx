@@ -1,4 +1,8 @@
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { Command, CommandGroup, CommandItem } from "@/components/ui/command";
 import { ChevronDown } from "lucide-react";
@@ -22,7 +26,10 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="w-full md:w-36 border border-gray-400">
+        <Button
+          variant="outline"
+          className="w-full md:w-auto border border-gray-400"
+        >
           {getLabel()}
           <ChevronDown />
         </Button>
@@ -30,16 +37,36 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
       <PopoverContent className="p-0 w-56">
         <Command>
           <CommandGroup>
-            <CommandItem onSelect={() => { setSortBy("precioAsc"); setCurrentPage(1); }}>
+            <CommandItem
+              onSelect={() => {
+                setSortBy("precioAsc");
+                setCurrentPage(1);
+              }}
+            >
               Precio: Menor a mayor
             </CommandItem>
-            <CommandItem onSelect={() => { setSortBy("precioDesc"); setCurrentPage(1); }}>
+            <CommandItem
+              onSelect={() => {
+                setSortBy("precioDesc");
+                setCurrentPage(1);
+              }}
+            >
               Precio: Mayor a menor
             </CommandItem>
-            <CommandItem onSelect={() => { setSortBy("nombreAsc"); setCurrentPage(1); }}>
+            <CommandItem
+              onSelect={() => {
+                setSortBy("nombreAsc");
+                setCurrentPage(1);
+              }}
+            >
               Nombre: A-Z
             </CommandItem>
-            <CommandItem onSelect={() => { setSortBy("nombreDesc"); setCurrentPage(1); }}>
+            <CommandItem
+              onSelect={() => {
+                setSortBy("nombreDesc");
+                setCurrentPage(1);
+              }}
+            >
               Nombre: Z-A
             </CommandItem>
           </CommandGroup>

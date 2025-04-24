@@ -16,14 +16,17 @@ import { useState } from "react";
 
 const CardDetails = ({ open, onOpenChange, product }) => {
   if (!product) return null;
-
-  const { nombre, descripcion, especificaciones, precio, stock, imagen, alt } =
-    product;
-  const { cart, addToCart } = useCart(); // Hook para añadir al carrito y obtener el carrito
+  const { nombre, descripcion, stock, precio, imagen, alt, especificaciones } = product;
+  const { cart, addToCart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
-  const inCart = cart.some((item) => item.id === product.id); // Determinar si el producto ya está en el carrito
+  const inCart = cart.some((item) => item.id === product.id);
 
   const handleAddToCart = () => {
+    const currentProduct = cart.find((item) => item.id === product.id);
+    if (currentProduct && currentProduct.quantity >= stock) {
+      addToCart(product, 1);
+      return;
+    }
     setIsAdding(true);
     setTimeout(() => {
       addToCart(product, 1);

@@ -3,7 +3,7 @@
 import React from 'react';
 
 const ManualMarca = () => {
-  const pdfUrl = '/assets/docs/ManualMarca.pdf';
+  const pdfUrl = '/docs/ManualMarca.pdf';
   const portadaUrl = './images/Manual/ManualMarca.webp'; 
 
   return (

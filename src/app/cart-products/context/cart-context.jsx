@@ -7,8 +7,28 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
+  // Updated addToCart to receive quantity parameter and check against product.stock
+  const addToCart = (product, quantity = 1) => {
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find(item => item.id === product.id);
+      if (existingProduct) {
+        const currentQuantity = existingProduct.quantity || 1;
+        const newQuantity = currentQuantity + quantity;
+        if (newQuantity > product.stock) {
+          console.log("No se puede agregar más elementos, stock insuficiente");
+          return prevCart;
+        }
+        return prevCart.map(item =>
+          item.id === product.id ? { ...item, quantity: newQuantity } : item
+        );
+      } else {
+        if (quantity > product.stock) {
+          console.log("No se puede agregar la cantidad deseada, stock insuficiente");
+          return prevCart;
+        }
+        return [...prevCart, { ...product, quantity: quantity }];
+      }
+    });
     console.log("Producto agregado al carrito");
   };
 
@@ -22,17 +42,23 @@ export const CartProvider = ({ children }) => {
     console.log("Carrito vaciado");
   };
 
-  // Nueva función para actualizar la cantidad de un producto
+  // Updated updateQuantity to ensure newQuantity does not exceed stock
   const updateQuantity = (productId, newQuantity) => {
     setCart((prevCart) =>
-      prevCart.map(item =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
-      )
+      prevCart.map(item => {
+        if (item.id === productId) {
+          if (newQuantity > item.stock) {
+            console.log(`No se puede actualizar la cantidad, excede el stock (${item.stock})`);
+            return item;
+          }
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      })
     );
     console.log(`Cantidad actualizada para ${productId}: ${newQuantity}`);
   };
 
-  // Actualizar getCartTotal para usar la cantidad de cada producto
   const getCartTotal = () => {
     return cart.reduce((sum, item) => sum + item.precio * (item.quantity || 1), 0);
   };
@@ -48,7 +74,7 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         clearCart,
-        updateQuantity,      // Nueva función agregada
+        updateQuantity,      // Función actualizada
         getCartTotal,        // Actualizada
         getCartItemsCount,
       }}
