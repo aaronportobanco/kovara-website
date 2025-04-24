@@ -7,7 +7,7 @@ const ManualMarca = () => {
   const portadaUrl = './images/Manual/ManualMarca.webp'; 
 
   return (
-    <div className="bg-slate-300 px-4 py-10 w-full flex flex-col items-center">
+    <div className="bg-slate-800 px-4 py-10 w-full flex flex-col items-center">
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">
         Manual de Marca
       </h2>
