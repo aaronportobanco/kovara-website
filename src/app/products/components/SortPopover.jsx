@@ -3,11 +3,15 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Command, CommandGroup, CommandItem } from "@/components/ui/command";
 import { ChevronDown } from "lucide-react";
 
 export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
+  // Estado para controlar la apertura del Popover
+  const [open, setOpen] = useState(false);
+
   const getLabel = () => {
     switch (sortBy) {
       case "precioAsc":
@@ -24,7 +28,7 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
   };
 
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
@@ -41,6 +45,7 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
               onSelect={() => {
                 setSortBy("precioAsc");
                 setCurrentPage(1);
+                setOpen(false);
               }}
             >
               Precio: Menor a mayor
@@ -49,6 +54,7 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
               onSelect={() => {
                 setSortBy("precioDesc");
                 setCurrentPage(1);
+                setOpen(false);
               }}
             >
               Precio: Mayor a menor
@@ -57,6 +63,7 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
               onSelect={() => {
                 setSortBy("nombreAsc");
                 setCurrentPage(1);
+                setOpen(false);
               }}
             >
               Nombre: A-Z
@@ -65,6 +72,7 @@ export default function SortPopover({ sortBy, setSortBy, setCurrentPage }) {
               onSelect={() => {
                 setSortBy("nombreDesc");
                 setCurrentPage(1);
+                setOpen(false);
               }}
             >
               Nombre: Z-A
