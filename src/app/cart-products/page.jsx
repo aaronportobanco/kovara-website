@@ -16,7 +16,7 @@ const CartPage = () => {
   }
 
   return (
-    <section className="flex flex-col p-6 md:px-6 gap-8 text-foreground bg-background">
+    <section className="flex flex-col p-4 md:px-6 gap-8 text-foreground bg-background">
       {/* Breadcrumb y encabezado */}
       <BreadcrumbComp page="Carrito" />
 
@@ -30,9 +30,7 @@ const CartPage = () => {
       <div className="flex flex-col lg:flex-row gap-7 w-full">
         <div className="flex flex-col gap-6 flex-1 w-full">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-bold">
-              Productos ({cart.length})
-            </h2>
+            <h2 className="text-base font-bold">Productos ({cart.length})</h2>
             <Button
               variant="outline"
               className="flex items-center gap-2"

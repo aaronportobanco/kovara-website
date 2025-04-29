@@ -55,7 +55,7 @@ export default function ProductsPage() {
   // Ordenamiento usando el helper
   // --------------------------------------------------------------------
   const sortedProducts = sortProducts(filteredProducts, sortBy);
-  
+
   // Nuevo: Buscar en todos los productos ordenados si hay término de búsqueda
   const searchResults = sortedProducts.filter((product) =>
     product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
@@ -69,7 +69,10 @@ export default function ProductsPage() {
   );
 
   return (
-    <section id="top" className="flex flex-col p-6 px-4 md:px-6 gap-8 md:gap-11 text-foreground bg-background">
+    <section
+      id="top"
+      className="flex flex-col p-4 md:px-6 gap-8 md:gap-11 text-foreground bg-background"
+    >
       {/* Breadcrumb y encabezado */}
       <BreadcrumbComp page={"Productos"} />
       <div>
@@ -103,13 +106,20 @@ export default function ProductsPage() {
                 }}
               />
               <div className="md:hidden">
-                <FiltersMobile filters={filters} setFilters={handleFilterChange} />
+                <FiltersMobile
+                  filters={filters}
+                  setFilters={handleFilterChange}
+                />
               </div>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-3">
               {/* SortPopover se muestra primero en móvil */}
               <div className="order-1 md:order-1 w-full">
-                <SortPopover sortBy={sortBy} setSortBy={setSortBy} setCurrentPage={setCurrentPage} />
+                <SortPopover
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  setCurrentPage={setCurrentPage}
+                />
               </div>
               <div className="order-2 md:order-2 flex flex-row items-center gap-2 w-full md:w-auto">
                 <PageSizeSelector
@@ -150,7 +160,8 @@ export default function ProductsPage() {
 
           {/* Información de paginación */}
           <p className="text-sm text-muted-foreground pt-4">
-            Mostrando {displayedProducts.length} de {baseProducts.length} productos
+            Mostrando {displayedProducts.length} de {baseProducts.length}{" "}
+            productos
           </p>
 
           {/* Renderizado de productos */}
@@ -165,7 +176,8 @@ export default function ProductsPage() {
                     No se encontraron productos
                   </h1>
                   <p className="text-muted-foreground">
-                    No hay productos que coincidan con tus criterios de búsqueda.
+                    No hay productos que coincidan con tus criterios de
+                    búsqueda.
                   </p>
                 </div>
               </div>
