@@ -84,7 +84,7 @@ const CardHorizontal = ({ data }) => {
         {/* Sección: Lista de especificaciones */}
         <CardContent className="flex-1 py-0 px-0">
           <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-            {especificaciones.map((item, index) => (
+            {especificaciones.slice(0, 3).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
