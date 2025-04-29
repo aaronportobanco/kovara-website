@@ -28,31 +28,41 @@ const defaultValues = {
 /// Componente FilterGroup: maneja el cambio de filtro para cada grupo.
 // --------------------------------------------------------------------
 const FilterGroup = ({ title, options, type, filters, setFilters }) => {
-  // Actualizamos la función para asignar null cuando se seleccione "Todas las marcas"
   const handleFilterChange = (value) => {
-    const newValue = type === "brand" && value === "Todas las marcas" ? null : value;
+    const mappedValue =
+      type === "availability" && value === "Solo productos en stock"
+        ? "inStock"
+        : type === "brand" && value === "Todas las marcas"
+        ? null
+        : value;
     setFilters((prev) => ({
       ...prev,
-      [type]: prev[type] === newValue ? defaultValues[type] : newValue,
+      [type]: prev[type] === mappedValue ? defaultValues[type] : mappedValue,
     }));
   };
+
   return (
     <AccordionItem value={title}>
       <AccordionTrigger>{title}</AccordionTrigger>
       <AccordionContent>
         <div className="space-y-2">
-          {options.map((item, i) => (
-            <Label
-              key={i}
-              className="flex items-center gap-2 text-sm text-muted-foreground"
-            >
-              <Checkbox
-                checked={filters[type] === (type === "brand" && item === "Todas las marcas" ? null : item)}
-                onCheckedChange={() => handleFilterChange(item)}
-              />
-              {item}
-            </Label>
-          ))}
+          {options.map((item, i) => {
+            const isChecked =
+              type === "availability"
+                ? filters[type] === "inStock"
+                : type === "brand"
+                ? filters[type] === (item === "Todas las marcas" ? null : item)
+                : filters[type] === item;
+            return (
+              <Label key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Checkbox
+                  checked={isChecked}
+                  onCheckedChange={() => handleFilterChange(item)}
+                />
+                {item}
+              </Label>
+            );
+          })}
         </div>
       </AccordionContent>
     </AccordionItem>
