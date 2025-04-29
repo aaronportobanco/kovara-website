@@ -27,6 +27,7 @@ const PageItem = ({ data }) => {
       {/* Imagen */}
       <div className="w-full md:w-[150px] h-[150px] overflow-hidden rounded-md flex items-center justify-center bg-background">
         <Image
+          priority
           src={imagen}
           alt={alt}
           width={150}

@@ -50,6 +50,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
           {/* Sección: Imagen */}
           <div className="w-full h-[350px] md:h-full md:w-[300px] flex justify-center items-center">
             <Image
+              priority
               src={imagen}
               alt={alt}
               width={300}

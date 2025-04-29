@@ -41,6 +41,7 @@ const CardVertical = ({ data }) => {
       {/* Sección: Imagen */}
       <div className="w-full h-[250px] md:h-[270px] p-4 md:p-1 rounded-md overflow-hidden flex justify-center items-center">
         <Image
+          priority
           src={imagen}
           alt={alt}
           width={250}
