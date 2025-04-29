@@ -42,7 +42,9 @@ const NavBar = () => {
   return (
     <>
       <nav
-        className={`border border-b fixed top-0 left-0 right-0 p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${show ? "translate-y-0" : "-translate-y-full"}`}
+        className={`border-b fixed top-0 left-0 right-0 px-0 py-4 md:p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${
+          show ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
         {/* Mobile navbar: hamburger and Logo on left, cart on right */}
         <div className="md:hidden flex items-center justify-between w-full">
@@ -75,7 +77,7 @@ const NavBar = () => {
 const NavLinks = () => {
   return (
     <div
-      className="flex items-center gap-3 w-full justify-center z-10"
+      className="flex items-center gap-3 w-full justify-center"
       aria-label="Main navigation"
     >
       {Datalinks.map((link) => {
@@ -121,7 +123,7 @@ const NavLinks = () => {
 // Action icons component
 const ActionIcons = () => {
   return (
-    <div className="flex items-center z-10">
+    <div className="flex items-center">
       <Link href="/cart-products">
         <Button
           variant="icon"
