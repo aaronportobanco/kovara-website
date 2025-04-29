@@ -5,13 +5,24 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useCart } from "../context/cart-context";
 import Link from "next/link";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const Checkout = () => {
   const { clearCart, getCartTotal, getCartItemsCount } = useCart();
-
+  const [loading, setLoading] = useState(false);
+  
   const subtotal = getCartTotal();
   const impuestos = subtotal * 0.16; // 16% de impuestos
   const total = subtotal + impuestos;
+
+  const handlePaymentClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      clearCart();
+      setLoading(false);
+    }, 2000);
+  };
 
   return (
     <div className="w-full h-fit max-w-sm rounded-lg border border-foreground p-5 bg-background space-y-4">
@@ -40,9 +51,22 @@ const Checkout = () => {
       </div>
 
       <div className="flex flex-col py-3 gap-2">
-        <Button className="w-full" disabled={getCartItemsCount() === 0}>
-          Proceder al Pago
-          <ArrowRight />
+        <Button
+          className="w-full"
+          onClick={handlePaymentClick}
+          disabled={getCartItemsCount() === 0 || loading}
+        >
+          {loading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Procesando...
+            </>
+          ) : (
+            <>
+              Proceder al Pago
+              <ArrowRight />
+            </>
+          )}
         </Button>
         <Link href="/products">
           <Button variant="outline" className="w-full gap-2">
