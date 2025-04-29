@@ -3,12 +3,17 @@
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
 import PageItem from "./components/PageItem";
 import Checkout from "./components/Checkout";
+import EmptyCart from "./components/EmptyCart"; // Nuevo import
 import { useCart } from "./context/cart-context";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 
 const CartPage = () => {
   const { cart, clearCart } = useCart(); // Obtener productos del carrito
+
+  if (cart.length === 0) {
+    return <EmptyCart />;
+  }
 
   return (
     <section className="flex flex-col p-6 md:px-6 gap-8 text-foreground bg-background">
@@ -22,9 +27,7 @@ const CartPage = () => {
         </p>
       </div>
 
-      {/* Layout principal: Items + Checkout */}
       <div className="flex flex-col lg:flex-row gap-7 w-full">
-        {/* Lista de productos */}
         <div className="flex flex-col gap-6 flex-1 w-full">
           <div className="flex items-center justify-between">
             <h2 className="text-base font-bold">
@@ -33,8 +36,8 @@ const CartPage = () => {
             <Button
               variant="outline"
               className="flex items-center gap-2"
-              onClick={clearCart} // Vaciar carrito
-              disabled={cart.length === 0} // Deshabilitado si el carrito está vacío
+              onClick={clearCart}
+              disabled={cart.length === 0}
             >
               <Trash2 className="w-4 h-4" />
               Vaciar carrito
@@ -45,7 +48,6 @@ const CartPage = () => {
           ))}
         </div>
 
-        {/* Checkout (Resumen de compra) */}
         <div className="w-full lg:w-[350px] shrink-0">
           <Checkout />
         </div>
