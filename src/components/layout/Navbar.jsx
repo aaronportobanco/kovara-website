@@ -42,17 +42,27 @@ const NavBar = () => {
   return (
     <>
       <nav
-        className={`border border-b fixed top-0 left-0 right-0 p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${
-          show ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`border border-b fixed top-0 left-0 right-0 p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${show ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <Logo />
-        {/* Mobile menu (hamburger) */}
-        <div className="md:hidden">
-          <MobileMenu />
+        {/* Mobile navbar: hamburger and Logo on left, cart on right */}
+        <div className="md:hidden flex items-center justify-between w-full">
+          <div className="flex items-center gap-2">
+            <MobileMenu />
+            <Logo />
+          </div>
+          <Link href="/cart-products">
+            <Button
+              variant="icon"
+              aria-label="Carrito de compras"
+              className="group hover:text-[#3B82F6] hover:bg-foreground/10 flex items-center gap-2 transition-all duration-300"
+            >
+              <ShoppingCart strokeWidth={3} />
+            </Button>
+          </Link>
         </div>
-        {/* Desktop nav */}
-        <div className="hidden md:flex w-full">
+        {/* Desktop navbar: Logo, nav links and action icons */}
+        <div className="hidden md:flex w-full items-center">
+          <Logo />
           <NavLinks />
           <ActionIcons />
         </div>
