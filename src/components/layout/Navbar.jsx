@@ -142,8 +142,10 @@ const ActionIcons = () => {
 
 // Mobile menu component
 const MobileMenu = () => {
+  const [open, setOpen] = useState(false); // Added state to control sidebar
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button variant="icon" aria-label="Abrir menú">
           <Menu />
@@ -161,7 +163,11 @@ const MobileMenu = () => {
         <div className="flex flex-col gap-4 mt-6">
           <Separator className="my-2" />
           {Datalinks.map((link) => (
-            <Link key={link.label} href={link.href}>
+            <Link
+              key={link.label}
+              href={link.href}
+              onClick={() => setOpen(false)}
+            >
               <Button variant="ghost" className="w-full justify-start">
                 {link.Icon}
                 {link.label}
