@@ -174,7 +174,7 @@ const MobileMenu = () => {
               </Button>
             </Link>
           ))}
-          <Link href="/cart-products">
+          <Link href="/cart-products" onClick={() => setOpen(false)}>
             <Button variant="ghost" className="justify-start">
               <ShoppingCart className="mr-2" strokeWidth={3} />
               Ver carrito
