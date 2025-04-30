@@ -15,7 +15,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import { Datalinks } from "@/data/MockData";
 import { Separator } from "../ui/separator";
-import { scrollToSection } from "@/lib/scroll-utils";
+import { scrollToSection } from "@/utils/scroll-utils";
 
 // Main Navbar component
 const NavBar = () => {
