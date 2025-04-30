@@ -1,5 +1,5 @@
 // Utility function to handle smooth scrolling to sections
-export function scrollToSection(sectionId) {
+function scrollToSection(sectionId) {
   setTimeout(() => { // Retardo añadido para permitir la actualización del DOM
     const element = document.getElementById(sectionId);
     if (element) {
@@ -16,3 +16,5 @@ export function scrollToSection(sectionId) {
     }
   }, 100);
 }
+
+export default scrollToSection;

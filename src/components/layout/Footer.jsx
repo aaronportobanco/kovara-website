@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
 import { Datalinks } from "@/data/MockData"; // added import
-import { scrollToSection } from "@/utils/scroll-utils";
+import scrollToSection from "@/utils/scroll-utils";
 
 export const socialLinks = [
   { icon: <Facebook />, href: "#" },
