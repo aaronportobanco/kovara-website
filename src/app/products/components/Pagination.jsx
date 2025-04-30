@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { scrollToSection } from "@/lib/scroll-utils";
+import scrollToSection from "@/utils/scroll-utils";
 
 // Componente para la paginación
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
