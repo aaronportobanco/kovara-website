@@ -98,7 +98,7 @@ a {
 
 /* Estilo personalizado para el scrollbar */
 .scrollbar-custom::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {

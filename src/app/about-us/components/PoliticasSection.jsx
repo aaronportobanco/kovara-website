@@ -41,8 +41,9 @@ const Section = ({ title, children }) => (
 );
 
 const CardItem = ({ icon, title, children }) => (
-    <Card className="bg-slate-800 text-white border border-slate-600">
-        <CardContent className="p-5 space-y-4">
+    <Card className="hover:shadow-[5px_5px_0_rgba(103,128,159,1)] transition-shadow duration-150 ease-linear cursor-pointer
+    bg-slate-800 text-white border border-slate-600">
+        <CardContent className="p-5 space-y-4 ">
             <div className="flex items-center gap-3">
                 <div className="bg-slate-600 p-2 rounded-full">{icon}</div>
                 <h3 className="text-lg font-semibold">{title}</h3>
