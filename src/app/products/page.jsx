@@ -15,6 +15,7 @@ import PageSizeSelector from "./components/PageSizeSelector";
 import Pagination from "./components/Pagination";
 import { sortProducts } from "./utils/sortProducts";
 import SortPopover from "./components/SortPopover";
+import NoProductsFound from "./components/NoProductsFound";
 
 export default function ProductsPage() {
   // Estados de vista, página, filtros y ordenamiento
@@ -166,22 +167,7 @@ export default function ProductsPage() {
 
           {/* Renderizado de productos */}
           {baseProducts.length === 0 ? (
-            <div className="container px-4 py-16 pt-20 md:px-6">
-              <div className="flex flex-col items-center justify-center space-y-6 text-center">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
-                  <Search className="h-10 w-10 text-muted-foreground" />
-                </div>
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter">
-                    No se encontraron productos
-                  </h1>
-                  <p className="text-muted-foreground">
-                    No hay productos que coincidan con tus criterios de
-                    búsqueda.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <NoProductsFound />
           ) : view === "grid" ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {displayedProducts.map((product) => (
