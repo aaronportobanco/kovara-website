@@ -14,7 +14,7 @@ import {
   Twitter,
   Instagram,
   Linkedin,
-  ChevronRight,
+  Send,
 } from "lucide-react";
 import Header from "../../layout/Header";
 
@@ -90,8 +90,7 @@ const ContactForm = () => {
         <div className="group w-full flex justify-end">
           <Button type="button" className="rounded-full z-10">
             Enviar Mensaje
-            <ChevronRight
-              strokeWidth={3}
+            <Send
               className="transition-transform duration-300 group-hover:translate-x-1"
             />
           </Button>
