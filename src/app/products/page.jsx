@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
-import { Search, Grid, List } from "lucide-react";
+import { Grid, List } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import CardHorizontal from "./components/CardHorizontal";
 import CardVertical from "./components/CardVertical";
