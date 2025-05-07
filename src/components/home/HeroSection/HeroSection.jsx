@@ -15,6 +15,7 @@ export default function HeroSection() {
     >
       {/* Imagen decorativa posicionada en el fondo */}
       <Image
+        priority
         src="/assets/bg-9.webp"
         alt="Decoración abstracta"
         width={650}
@@ -22,6 +23,7 @@ export default function HeroSection() {
         className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 blur-sm"
       />
       <Image
+        priority
         src="/assets/bg-4.webp"
         alt="Decoración abstracta"
         width={650}
