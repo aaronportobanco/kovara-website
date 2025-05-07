@@ -11,7 +11,7 @@ import { Loader2 } from "lucide-react";
 const Checkout = () => {
   const { clearCart, getCartTotal, getCartItemsCount } = useCart();
   const [loading, setLoading] = useState(false);
-  
+
   const subtotal = getCartTotal();
   const impuestos = subtotal * 0.16; // 16% de impuestos
   const total = subtotal + impuestos;
@@ -52,7 +52,7 @@ const Checkout = () => {
 
       <div className="flex flex-col py-3 gap-2">
         <Button
-          className="w-full"
+          className="w-full group"
           onClick={handlePaymentClick}
           disabled={getCartItemsCount() === 0 || loading}
         >
@@ -64,13 +64,13 @@ const Checkout = () => {
           ) : (
             <>
               Proceder al Pago
-              <ArrowRight />
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
             </>
           )}
         </Button>
         <Link href="/products">
-          <Button variant="outline" className="w-full gap-2">
-            <ArrowLeft />
+          <Button variant="outline" className="w-full gap-2 group">
+            <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
             Seguir comprando
           </Button>
         </Link>
