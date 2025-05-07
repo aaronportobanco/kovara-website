@@ -6,9 +6,7 @@ const EmptyCart = () => {
   return (
     <div className="container px-4 py-16 pt-20 md:px-6">
       <div className="flex flex-col items-center justify-center space-y-6 text-center">
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
-          <ShoppingBag className="h-10 w-10 text-muted-foreground" />
-        </div>
+          <ShoppingBag className="h-10 w-10 text-gray-400" />
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tighter">
             Tu carrito está vacío
