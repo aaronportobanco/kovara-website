@@ -47,6 +47,7 @@ const CardHorizontal = ({ data }) => {
           width={250}
           height={250}
           className="object-cover rounded-md"
+          style={{ width: "auto", height: "auto" }} // added to maintain aspect ratio
         />
       </div>
 
