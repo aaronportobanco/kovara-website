@@ -68,9 +68,9 @@ const CardDetails = ({ open, onOpenChange, product }) => {
           {/* Sección: Contenido del modal */}
           <div className="flex-1 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-              <h4 className="font-semibold text-sm sm:text-base">
+              <h3 className="font-semibold text-sm sm:text-base">
                 Disponibilidad:
-              </h4>
+              </h3>
               <Badge
                 className={
                   stock === 0
@@ -87,7 +87,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
             <Separator className="bg-gray-700" />
 
             <div>
-              <h4 className="font-semibold mb-2">Especificaciones:</h4>
+              <h3 className="font-semibold mb-2">Especificaciones:</h3>
               <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
                 {especificaciones.map((item, idx) => (
                   <li key={idx}>{item}</li>
@@ -100,7 +100,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
             {/* Sección: Precio y acción */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-2">
               <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                <h4 className="font-semibold text-sm sm:text-base">Precio:</h4>
+                <h3 className="font-semibold text-sm sm:text-base">Precio:</h3>
                 <p className="text-lg font-bold text-foreground">
                   C$
                   {precio.toLocaleString("es-NI", {

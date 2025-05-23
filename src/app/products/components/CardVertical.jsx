@@ -76,9 +76,9 @@ const CardVertical = ({ data }) => {
         </CardDescription>
 
         <div className="p-0 mt-4">
-          <h4 className="text-lg md:text-lg font-bold text-foreground">
+          <h3 className="text-lg md:text-lg font-bold text-foreground">
             C${precio.toLocaleString("es-NI", { minimumFractionDigits: 2 })}
-          </h4>
+          </h3>
         </div>
 
         {/* Sección: Botones */}
