@@ -125,6 +125,8 @@ const CustomersTestimonials = () => {
                 {Array.from({ length: DataTestimonials.length }).map(
                   (_, index) => (
                     <button
+                      type="button"
+                      aria-label={`Ir al testimonio ${index + 1}`}
                       key={index}
                       onClick={() => api?.scrollTo(index)}
                       className={`h-2 w-2 rounded-full transition-colors duration-300 ${
