@@ -16,6 +16,7 @@ function CheckList() {
         width={650}
         height={650}
         className="absolute -rotate-6 left-[-10px] top-[70px] z-0 opacity-10 scale-125 md:scale-100" // Added responsive scaling on mobile
+        loading="lazy" // added
       />
 
       <Image
@@ -24,6 +25,7 @@ function CheckList() {
         width={900}
         height={900}
         className="absolute -rotate-6 right-[20px] top-[70px] z-0 opacity-10 blur-sm"
+        loading="lazy" // added
       />
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative">
