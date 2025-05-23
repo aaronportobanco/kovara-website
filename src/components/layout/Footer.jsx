@@ -118,7 +118,7 @@ function SocialLinks() {
 function FooterLinks() {
   return (
     <div>
-      <h4 className="text-lg font-heading font-semibold mb-6">Acceso Rápido</h4>
+      <h3 className="text-lg font-heading font-semibold mb-6">Acceso Rápido</h3>
       <ul className="space-y-3">
         {Datalinks.map((link) =>
           link.label === "Contacto" ? (
@@ -151,7 +151,7 @@ function FooterLinks() {
 function FooterSupport() {
   return (
     <div>
-      <h4 className="text-lg font-heading font-semibold mb-6">Soporte</h4>
+      <h3 className="text-lg font-heading font-semibold mb-6">Soporte</h3>
       <ul className="space-y-3">
         {supportLinks.map((text, idx) => (
           <li key={idx}>
@@ -173,9 +173,9 @@ function FooterSupport() {
 function FooterStoreInfo() {
   return (
     <div>
-      <h4 className="text-lg font-heading font-semibold mb-6">
+      <h3 className="text-lg font-heading font-semibold mb-6">
         Información de la Tienda
-      </h4>
+      </h3>
       <ul className="space-y-4">
         {storeInfo.map((info, idx) => (
           <li key={idx} className="flex items-start">
