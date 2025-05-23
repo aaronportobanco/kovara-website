@@ -7,10 +7,10 @@ import { Datalinks } from "@/data/MockData"; // added import
 import scrollToSection from "@/utils/scroll-utils";
 
 export const socialLinks = [
-  { icon: <Facebook />, href: "#" },
-  { icon: <Twitter />, href: "#" },
-  { icon: <Instagram />, href: "#" },
-  { icon: <Linkedin />, href: "#" },
+  { icon: <Facebook />, href: "#", ariaLabel: "Facebook" },
+  { icon: <Twitter />, href: "#", ariaLabel: "Twitter" },
+  { icon: <Instagram />, href: "#", ariaLabel: "Instagram" },
+  { icon: <Linkedin />, href: "#", ariaLabel: "Linkedin" },
 ];
 
 export const supportLinks = [
@@ -78,7 +78,11 @@ function Footer() {
 function FooterBrand() {
   return (
     <div>
-      <Link href="/" className="flex items-center mb-6">
+      <Link
+        aria-label="Ir a la página de inicio"
+        href="/"
+        className="flex items-center mb-6"
+      >
         <Logo />
       </Link>
       <p className="text-gray-300 mb-6">
@@ -97,6 +101,7 @@ function SocialLinks() {
     <div className="flex space-x-4">
       {socialLinks.map((link, idx) => (
         <a
+          aria-label={`Visitanos en ${link.ariaLabel}`}
           key={idx}
           href={link.href}
           className="text-gray-400 hover:text-[#3B82F6] transition-colors"
