@@ -32,7 +32,6 @@ function CheckList() {
         {/* Imagen principal */}
         <div className="relative flex items-center justify-center z-10">
           <Image
-            priority
             src="/assets/checklist-main.webp"
             alt="Imagen ilustrativa de la propuesta de valor"
             width={500}
