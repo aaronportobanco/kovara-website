@@ -121,7 +121,7 @@ const CustomersTestimonials = () => {
               </CarouselContent>
 
               {/* Dots */}
-              <div className="flex justify-center mt-6 gap-2">
+              <div className="flex justify-center mt-6 gap-3">
                 {Array.from({ length: DataTestimonials.length }).map(
                   (_, index) => (
                     <button
