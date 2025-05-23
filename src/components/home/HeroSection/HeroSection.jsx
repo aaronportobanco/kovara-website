@@ -20,7 +20,6 @@ export default function HeroSection() {
         alt="Decoración abstracta"
         width={650}
         height={650}
-        style={{ width: "auto", height: "100%" }} // Maintain aspect ratio
         className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 blur-sm"
       />
       <Image
@@ -29,7 +28,6 @@ export default function HeroSection() {
         alt="Decoración abstracta"
         width={650}
         height={650}
-        style={{ width: "auto", height: "100%" }} // Maintain aspect ratio
         className="absolute rotate-6 z-0 opacity-10 top-[80%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-125 lg:scale-100 lg:right-[-50px] lg:top-[40px] lg:left-auto lg:translate-x-0 lg:translate-y-0"
       />
 
