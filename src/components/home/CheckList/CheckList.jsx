@@ -14,7 +14,7 @@ function CheckList() {
         src="/assets/bg-4.webp"
         alt="Decoración abstracta"
         width={650}
-        height={650}
+        height={487} // Adjusted to maintain natural aspect ratio
         className="absolute -rotate-6 left-[-10px] top-[70px] z-0 opacity-10 scale-125 md:scale-100" // Added responsive scaling on mobile
         loading="lazy" // added
       />
@@ -23,7 +23,7 @@ function CheckList() {
         src="/assets/bg-8.webp"
         alt="Decoración abstracta"
         width={900}
-        height={900}
+        height={675} // Adjusted to maintain natural aspect ratio
         className="absolute -rotate-6 right-[20px] top-[70px] z-0 opacity-10 blur-sm"
         loading="lazy" // added
       />
@@ -35,7 +35,7 @@ function CheckList() {
             src="/assets/checklist-main.webp"
             alt="Imagen ilustrativa de la propuesta de valor"
             width={500}
-            height={500}
+            height={375} // Adjusted to maintain natural aspect ratio
             className="relative z-10 scale-125 md:scale-100" // Added scaling on mobile
             loading="lazy" // added
           />
