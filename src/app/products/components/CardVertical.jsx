@@ -46,7 +46,8 @@ const CardVertical = ({ data }) => {
           alt={alt}
           width={250}
           height={200}
-          className="object-cover rounded-md"
+          className="object-contain rounded-md"
+          style={{ width: "auto", height: "100%" }} // Maintain aspect ratio
         />
       </div>
 
