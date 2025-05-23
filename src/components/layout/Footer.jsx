@@ -83,7 +83,9 @@ function FooterBrand() {
         href="/"
         className="flex items-center mb-6"
       >
-        <Logo />
+        <Link href="/" aria-label="Ir a la página de inicio">
+          <Logo />
+        </Link>
       </Link>
       <p className="text-gray-300 mb-6">
         Tu tienda de computación de confianza. Productos de calidad,

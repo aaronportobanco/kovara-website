@@ -50,7 +50,9 @@ const NavBar = () => {
         <div className="md:hidden flex items-center justify-between w-full">
           <div className="flex items-center gap-2">
             <MobileMenu />
-            <Logo />
+            <Link href="/" aria-label="Ir a la página de inicio">
+              <Logo />
+            </Link>
           </div>
           <Link href="/cart-products">
             <Button
@@ -64,7 +66,9 @@ const NavBar = () => {
         </div>
         {/* Desktop navbar: Logo, nav links and action icons */}
         <div className="hidden md:flex w-full items-center">
-          <Logo />
+          <Link href="/" aria-label="Ir a la página de inicio">
+            <Logo />
+          </Link>
           <NavLinks />
           <ActionIcons />
         </div>
