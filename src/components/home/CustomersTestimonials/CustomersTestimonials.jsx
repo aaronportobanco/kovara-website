@@ -98,6 +98,7 @@ const CustomersTestimonials = () => {
                           <AvatarImage
                             src={testimonial.image}
                             alt={`Foto de ${testimonial.name}`}
+                            loading="lazy"
                           />
                           <AvatarFallback>
                             {testimonial.name
