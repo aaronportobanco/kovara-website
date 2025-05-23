@@ -38,6 +38,7 @@ function CheckList() {
             width={500}
             height={500}
             className="relative z-10 scale-125 md:scale-100" // Added scaling on mobile
+            loading="lazy" // added
           />
         </div>
 
