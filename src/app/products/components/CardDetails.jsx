@@ -37,7 +37,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="max-w-4xl w-full bg-slate-800/40 backdrop-blur-md rounded-md 
+        className="max-w-4xl w-full bg-slate-800/50 backdrop-blur-md rounded-md 
         px-4 pt-10 md:py-6 sm:px-6 md:p-8 
         h-full sm:h-auto overflow-y-auto"
       >
