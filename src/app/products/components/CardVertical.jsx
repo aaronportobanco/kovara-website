@@ -20,8 +20,11 @@ const CardVertical = ({ data }) => {
   const { nombre, descripcion, precio, stock, imagen, alt } = data;
   const { cart, addToCart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
-  const inCart = cart.some((item) => item.id === data.id);
   const [open, setOpen] = useState(false);
+
+  const cartItem = cart.find((item) => item.id === data.id);
+  const inCart = !!cartItem;
+  const isStockLimitReachedInCart = cartItem && cartItem.quantity >= stock;
 
   const handleAddToCart = () => {
     setIsAdding(true);
@@ -81,12 +84,17 @@ const CardVertical = ({ data }) => {
           <Button
             className="w-full sm:flex-1 gap-2"
             onClick={handleAddToCart}
-            disabled={stock === 0 || isAdding} // Disable if out of stock OR if adding
+            disabled={stock === 0 || isAdding || isStockLimitReachedInCart}
           >
             {isAdding ? (
               <span className="flex items-center">
                 <ShoppingCart className="mr-2 h-4 w-4 animate-bounce" />
                 Añadiendo...
+              </span>
+            ) : isStockLimitReachedInCart ? (
+              <span className="flex items-center">
+                <Check className="mr-2 h-4 w-4" />
+                Límite alcanzado
               </span>
             ) : inCart ? (
               <span className="flex items-center">
