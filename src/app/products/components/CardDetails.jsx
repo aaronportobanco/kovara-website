@@ -23,16 +23,11 @@ const CardDetails = ({ open, onOpenChange, product }) => {
   const inCart = cart.some((item) => item.id === product.id);
 
   const handleAddToCart = () => {
-    const currentProduct = cart.find((item) => item.id === product.id);
-    if (currentProduct && currentProduct.quantity >= stock) {
-      addToCart(product, 1);
-      return;
-    }
     setIsAdding(true);
+    addToCart(product, 1); // Call context's addToCart directly
     setTimeout(() => {
-      addToCart(product, 1);
       setIsAdding(false);
-    }, 500);
+    }, 700); // Adjust delay if needed
   };
 
   return (
@@ -112,7 +107,7 @@ const CardDetails = ({ open, onOpenChange, product }) => {
               <Button
                 className="w-full md:w-auto gap-2"
                 onClick={handleAddToCart}
-                disabled={stock === 0} // added
+                disabled={stock === 0 || isAdding} // Disable if out of stock OR if adding
               >
                 {isAdding ? (
                   <span className="flex items-center">
