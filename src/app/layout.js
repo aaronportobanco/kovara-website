@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         <NavBar />
         <main className="pt-16">
           <CartProvider>
-            <Toaster richColors position="top-right" /> {/* Add Toaster here */}
+            <Toaster richColors position="bottom-right" /> {/* Add Toaster here */}
             {children}
           </CartProvider>
           <Analytics />
