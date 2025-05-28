@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
+import { toast } from "sonner";
 
 // Create a context for the cart
 const CartContext = createContext();
@@ -14,29 +15,85 @@ export const CartProvider = ({ children }) => {
   // - Updates the quantity if it exists, or adds a new product if it doesn't
   // - Ensures the quantity does not exceed the product's stock
   const addToCart = (product, quantity = 1) => {
-    setCart((prevCart) => {
-      const existingProduct = prevCart.find(item => item.id === product.id);
-      if (existingProduct) {
-        const currentQuantity = existingProduct.quantity || 1;
-        const newQuantity = currentQuantity + quantity;
-        if (newQuantity > product.stock) {
-          console.log("No se puede agregar más elementos, stock insuficiente");
-          return prevCart; // Return the cart unchanged if stock is insufficient
-        }
-        // Update the quantity of the existing product
-        return prevCart.map(item =>
-          item.id === product.id ? { ...item, quantity: newQuantity } : item
-        );
-      } else {
-        if (quantity > product.stock) {
-          console.log("No se puede agregar la cantidad deseada, stock insuficiente");
-          return prevCart; // Return the cart unchanged if stock is insufficient
-        }
-        // Add the new product to the cart
-        return [...prevCart, { ...product, quantity: quantity }];
+    // Perform initial checks using the current `cart` state from the provider's scope.
+    const existingProduct = cart.find(item => item.id === product.id);
+
+    if (existingProduct) {
+      const currentQuantity = existingProduct.quantity || 1;
+      const newQuantity = currentQuantity + quantity;
+
+      if (newQuantity > product.stock) {
+        toast.error("No se puede agregar más, stock insuficiente");
+        return; // Exit early
       }
-    });
-    console.log("Producto agregado al carrito");
+
+      // Simulate loading time
+      setTimeout(() => {
+        // If initial checks pass, call setCart and then show the success toast.
+        setCart(prevCart => {
+          // Re-evaluate based on prevCart for robust state update.
+          const productInPrev = prevCart.find(p => p.id === product.id);
+          const prevQty = productInPrev ? (productInPrev.quantity || 1) : 0;
+          const finalNewQty = prevQty + quantity;
+
+          // Defensive check with prevCart's data.
+          if (finalNewQty > product.stock) {
+            // If stock issue detected with prevCart, rely on the earlier toast.error.
+            // This specific toast.error might not be necessary here if the outer check is sufficient
+            // but kept for robustness if state changes between initial check and setCart execution.
+            // toast.error("No se puede agregar más, stock insuficiente (actualizado)");
+            return prevCart;
+          }
+          
+          if (productInPrev) {
+            return prevCart.map(item =>
+              item.id === product.id ? { ...item, quantity: finalNewQty } : item
+            );
+          } else {
+            // This case (product existed in `cart` but not in `prevCart`) implies
+            // it might have been removed and re-added, or a race condition.
+            // For simplicity, if outer check said "existing", we try to update.
+            // If not found in prevCart, it might be safer to add it as new if logic allows,
+            // or handle as an edge case. Here, we proceed with update logic based on `finalNewQty`.
+            // A more robust handling might be to add it if not `productInPrev`.
+            // However, to align with the outer check's intent (update existing):
+            return prevCart.map(item =>
+              item.id === product.id ? { ...item, quantity: finalNewQty } : item
+            );
+          }
+        });
+        toast.success("Producto agregado al carrito");
+      }, 1000); // Simulate 1 second delay
+
+    } else { // Product is new based on initial check against `cart`
+      if (quantity > product.stock) {
+        toast.error("Cantidad deseada excede el stock");
+        return; // Exit early
+      }
+
+      // Simulate loading time
+      setTimeout(() => {
+        setCart(prevCart => {
+          // Check if it was added by a concurrent call that updated prevCart
+          const productInPrev = prevCart.find(p => p.id === product.id);
+          if (productInPrev) { // Already added by another call, treat as update
+              const prevQty = productInPrev.quantity || 1;
+              const finalNewQty = prevQty + quantity;
+              if (finalNewQty > product.stock) {
+                  // Rely on earlier toast.error if initial check failed.
+                  // toast.error("Cantidad deseada excede el stock (actualizado)");
+                  return prevCart;
+              }
+              return prevCart.map(item =>
+                  item.id === product.id ? { ...item, quantity: finalNewQty } : item
+              );
+          }
+          // If truly new to prevCart, add it.
+          return [...prevCart, { ...product, quantity: quantity }];
+        });
+        toast.success("Producto agregado al carrito");
+      }, 1000); // Simulate 1 second delay
+    }
   };
 
   // Function to remove a product from the cart by its ID
