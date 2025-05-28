@@ -7,10 +7,10 @@ import { Datalinks } from "@/data/MockData"; // added import
 import scrollToSection from "@/utils/scroll-utils";
 
 export const socialLinks = [
-  { icon: <Facebook />, href: "#" },
-  { icon: <Twitter />, href: "#" },
-  { icon: <Instagram />, href: "#" },
-  { icon: <Linkedin />, href: "#" },
+  { icon: <Facebook />, href: "#", ariaLabel: "Facebook" },
+  { icon: <Twitter />, href: "#", ariaLabel: "Twitter" },
+  { icon: <Instagram />, href: "#", ariaLabel: "Instagram" },
+  { icon: <Linkedin />, href: "#", ariaLabel: "Linkedin" },
 ];
 
 export const supportLinks = [
@@ -78,7 +78,11 @@ function Footer() {
 function FooterBrand() {
   return (
     <div>
-      <Link href="/" className="flex items-center mb-6">
+      <Link
+        className="flex items-center mb-6"
+        href="/"
+        aria-label="Ir a la página de inicio"
+      >
         <Logo />
       </Link>
       <p className="text-gray-300 mb-6">
@@ -97,6 +101,7 @@ function SocialLinks() {
     <div className="flex space-x-4">
       {socialLinks.map((link, idx) => (
         <a
+          aria-label={`Visitanos en ${link.ariaLabel}`}
           key={idx}
           href={link.href}
           className="text-gray-400 hover:text-[#3B82F6] transition-colors"
@@ -113,7 +118,7 @@ function SocialLinks() {
 function FooterLinks() {
   return (
     <div>
-      <h4 className="text-lg font-heading font-semibold mb-6">Acceso Rápido</h4>
+      <h3 className="text-lg font-heading font-semibold mb-6">Acceso Rápido</h3>
       <ul className="space-y-3">
         {Datalinks.map((link) =>
           link.label === "Contacto" ? (
@@ -146,7 +151,7 @@ function FooterLinks() {
 function FooterSupport() {
   return (
     <div>
-      <h4 className="text-lg font-heading font-semibold mb-6">Soporte</h4>
+      <h3 className="text-lg font-heading font-semibold mb-6">Soporte</h3>
       <ul className="space-y-3">
         {supportLinks.map((text, idx) => (
           <li key={idx}>
@@ -168,9 +173,9 @@ function FooterSupport() {
 function FooterStoreInfo() {
   return (
     <div>
-      <h4 className="text-lg font-heading font-semibold mb-6">
+      <h3 className="text-lg font-heading font-semibold mb-6">
         Información de la Tienda
-      </h4>
+      </h3>
       <ul className="space-y-4">
         {storeInfo.map((info, idx) => (
           <li key={idx} className="flex items-start">

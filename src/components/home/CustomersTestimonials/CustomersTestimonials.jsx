@@ -98,6 +98,7 @@ const CustomersTestimonials = () => {
                           <AvatarImage
                             src={testimonial.image}
                             alt={`Foto de ${testimonial.name}`}
+                            loading="lazy"
                           />
                           <AvatarFallback>
                             {testimonial.name
@@ -121,10 +122,12 @@ const CustomersTestimonials = () => {
               </CarouselContent>
 
               {/* Dots */}
-              <div className="flex justify-center mt-6 gap-2">
+              <div className="flex justify-center mt-6 gap-3">
                 {Array.from({ length: DataTestimonials.length }).map(
                   (_, index) => (
                     <button
+                      type="button"
+                      aria-label={`Ir al testimonio ${index + 1}`}
                       key={index}
                       onClick={() => api?.scrollTo(index)}
                       className={`h-2 w-2 rounded-full transition-colors duration-300 ${

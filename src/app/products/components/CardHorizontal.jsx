@@ -41,12 +41,13 @@ const CardHorizontal = ({ data }) => {
       {/* Sección: Imagen */}
       <div className="w-full md:w-[250px] flex justify-center items-center overflow-hidden rounded-md">
         <Image
-          priority
           src={imagen}
           alt={alt}
           width={250}
           height={250}
           className="object-cover rounded-md"
+          style={{ width: "auto", height: "auto" }} // added to maintain aspect ratio
+          loading="lazy" // added
         />
       </div>
 
@@ -92,9 +93,9 @@ const CardHorizontal = ({ data }) => {
 
         {/* Sección: Precio y botones */}
         <CardFooter className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 px-0 py-0">
-          <h4 className="text-lg md:text-lg font-bold text-foreground">
+          <h3 className="text-lg md:text-lg font-bold text-foreground">
             C${precio.toLocaleString("es-NI", { minimumFractionDigits: 2 })}
-          </h4>
+          </h3>
 
           <div className="flex gap-2 w-full sm:w-auto">
             <Button

@@ -41,12 +41,13 @@ const CardVertical = ({ data }) => {
       {/* Sección: Imagen */}
       <div className="w-full h-[250px] md:h-[270px] p-4 md:p-1 rounded-md overflow-hidden flex justify-center items-center">
         <Image
-          priority
           src={imagen}
           alt={alt}
           width={250}
           height={200}
-          className="object-cover rounded-md"
+          className="object-contain rounded-md"
+          style={{ width: "auto", height: "100%" }} // Maintain aspect ratio
+          loading="lazy" // added
         />
       </div>
 
@@ -75,9 +76,9 @@ const CardVertical = ({ data }) => {
         </CardDescription>
 
         <div className="p-0 mt-4">
-          <h4 className="text-lg md:text-lg font-bold text-foreground">
+          <h3 className="text-lg md:text-lg font-bold text-foreground">
             C${precio.toLocaleString("es-NI", { minimumFractionDigits: 2 })}
-          </h4>
+          </h3>
         </div>
 
         {/* Sección: Botones */}
