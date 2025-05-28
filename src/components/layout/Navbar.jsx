@@ -84,7 +84,7 @@ const NavLinks = () => {
       className="flex items-center gap-3 w-full justify-center"
       aria-label="Main navigation"
     >
-      {Datalinks.map((link) => {
+      {Datalinks.slice(0, 4).map((link) => {
         if (link.label === "Contacto") {
           return (
             <a
@@ -166,7 +166,7 @@ const MobileMenu = () => {
 
         <div className="flex flex-col gap-4 mt-6">
           <Separator className="my-2" />
-          {Datalinks.map((link) => (
+          {Datalinks.slice(0, 4).map((link) => (
             <Link
               key={link.label}
               href={link.href}
