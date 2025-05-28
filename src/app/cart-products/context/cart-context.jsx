@@ -58,6 +58,11 @@ export const CartProvider = ({ children }) => {
           }
         });
         toast.success("Producto agregado al carrito", {
+          style: {
+            backgroundColor: "#052e16",
+            color: "white",
+            borderColor: "#6b7280",
+          },
           description: `${product.nombre} ha sido añadido.`,
         });
       }, 1000); // Simulate 1 second delay
@@ -91,6 +96,11 @@ export const CartProvider = ({ children }) => {
         });
         toast.success("Producto agregado al carrito", {
           // Changed from toast.success
+          style: {
+            backgroundColor: "#052e16",
+            color: "white",
+            borderColor: "#6b7280",
+          },
           description: `${product.nombre} ha sido añadido.`,
         });
       }, 1000); // Simulate 1 second delay
@@ -104,6 +114,11 @@ export const CartProvider = ({ children }) => {
     if (productToRemove) {
       toast.success("Producto eliminado del carrito", {
         // Changed from toast.success
+        style: {
+          backgroundColor: "#052e16",
+          color: "white",
+          borderColor: "#6b7280",
+        },
         description: `${productToRemove.nombre} ha sido eliminado.`,
       });
     } else {
@@ -125,7 +140,13 @@ export const CartProvider = ({ children }) => {
   // Function to execute the cart clearing action
   const executeClearCart = () => {
     setCart([]);
-    toast.success("El carrito ha sido vaciado"); // Changed from toast.success
+    toast.success("El carrito ha sido vaciado", {
+      style: {
+        backgroundColor: "#052e16",
+        color: "white",
+        borderColor: "#6b7280",
+      },
+    }); // Changed from toast.success
     setIsClearCartDialogOpen(false);
   };
 
