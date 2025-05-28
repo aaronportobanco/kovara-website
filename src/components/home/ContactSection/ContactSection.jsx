@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Mail,
   MapPin,
@@ -90,9 +91,7 @@ const ContactForm = () => {
         <div className="group w-full flex justify-end">
           <Button type="button" className="rounded-full z-10">
             Enviar Mensaje
-            <Send
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
+            <Send className="transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
         </div>
       </form>
@@ -109,7 +108,15 @@ const ContactInfo = () => {
         <ContactItem
           icon={<Phone className="h-5 w-5 text-[#3B82F6]" />}
           label="Teléfono"
-          value="+505 5848-4317"
+          value={
+            <Link
+              href="https://wa.me/+50558484317"
+              target="_blank"
+              className="underline"
+            >
+              Contacta por WhatsApp
+            </Link>
+          }
         />
         <ContactItem
           icon={<MapPin className="h-5 w-5 text-[#3B82F6]" />}
