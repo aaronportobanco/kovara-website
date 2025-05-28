@@ -50,7 +50,7 @@ const CartPage = () => {
               <h2 className="text-base font-bold">Productos ({cart.length})</h2>
               <Button
                 variant="outline"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 text-white hover:bg-red-500 hover:text-white transition"
                 onClick={clearCart} // This will now open the dialog
                 disabled={cart.length === 0}
               >
