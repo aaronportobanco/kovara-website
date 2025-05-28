@@ -330,7 +330,7 @@ export const DataTestimonials = [
 
 // Navigation links component for navbar
 // This data is used to populate the navigation links in the navbar component.
-import { House, Users, Boxes, Phone } from "lucide-react";
+import { House, Users, Boxes, Phone, ShoppingCart } from "lucide-react";
 export const Datalinks = [
   {
     href: "/", 
@@ -352,6 +352,55 @@ export const Datalinks = [
     label: "Contacto",
     Icon: <Phone className="mr-2" strokeWidth={3} />,
   },
+  {
+    href: "/cart-products", 
+    label: "Carrito",
+    Icon: <ShoppingCart className="mr-2" strokeWidth={3} />,
+  },
+];
+
+// Store information data for the footer
+// This data is used to display the store's contact information in the footer.
+import { MapPin, Mail, Clock } from "lucide-react";
+import Link from "next/link";
+export const storeInfo = [
+  {
+    icon: <MapPin className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: "123 Tech Plaza, Silicon Valley, CA 94043",
+  },
+  {
+    icon: <Phone className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: (
+      <Link href="https://wa.me/+50558484317" target="_blank" className="underline">
+        Contacta por WhatsApp
+      </Link>
+    ),
+  },
+  {
+    icon: <Mail className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: "soporte@kovara.com",
+  },
+  {
+    icon: <Clock className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: (
+      <>
+        Lunes-Viernes: 9AM - 6PM
+        <br />
+        Sábado: 10AM - 4PM
+      </>
+    ),
+  },
+];
+
+// Support links data for the footer
+// This data is used to display the support links in the footer.
+export const supportLinks = [
+  "FAQ",
+  "Política de devoluciones",
+  "Información de garantía",
+  "Soporte de productos",
+  "Política de privacidad",
+  "Términos y condiciones",
 ];
 
 export const DataAbout = [{}];
