@@ -45,7 +45,7 @@ const CartPage = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-7 w-full">
-          <div className="flex flex-col gap-6 flex-1 w-full">
+          <div className="flex flex-col gap-6 flex-1 w-full lg:order-1">
             <div className="flex items-center justify-between">
               <h2 className="text-base font-bold">Productos ({cart.length})</h2>
               <Button
@@ -63,7 +63,7 @@ const CartPage = () => {
             ))}
           </div>
 
-          <div className="w-full lg:w-[350px] shrink-0">
+          <div className="w-full lg:w-[350px] shrink-0 lg:sticky lg:top-24 h-fit lg:order-2">
             <Checkout />
           </div>
         </div>
