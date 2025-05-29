@@ -6,190 +6,203 @@ import { toast } from "sonner";
 // Create a context for the cart
 const CartContext = createContext();
 
+// Common style for success toast notifications
+const successToastStyle = {
+  backgroundColor: "#052e16",
+  color: "white",
+  borderColor: "#6b7280",
+};
+
+/**
+ * Provides cart state and actions to its children components.
+ * Manages cart items, quantities, and related operations like adding, removing, and clearing items.
+ */
 export const CartProvider = ({ children }) => {
-  // State to store the cart items
+  // State to store the cart items. Each item should have at least id, nombre, precio, stock, quantity.
   const [cart, setCart] = useState([]);
+  // State to manage the visibility of the clear cart confirmation dialog.
   const [isClearCartDialogOpen, setIsClearCartDialogOpen] = useState(false);
 
-  // Function to add a product to the cart
-  // - Checks if the product already exists in the cart
-  // - Updates the quantity if it exists, or adds a new product if it doesn't
-  // - Ensures the quantity does not exceed the product's stock
+  /**
+   * Adds a product to the cart or updates its quantity if it already exists.
+   * - Performs stock checks before adding/updating.
+   * - Simulates a delay for asynchronous operations.
+   * - Uses `prevCart` in `setCart` for robust state updates against concurrent changes.
+   * @param {object} product - The product object to add.
+   * @param {number} [quantity=1] - The quantity of the product to add.
+   */
   const addToCart = (product, quantity = 1) => {
-    // Perform initial checks using the current `cart` state from the provider's scope.
+    // Initial check against the current `cart` state.
     const existingProduct = cart.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      const currentQuantity = existingProduct.quantity || 1;
-
-      // Simulate loading time
-      setTimeout(() => {
-        // If initial checks pass, call setCart and then show the success toast.
-        setCart((prevCart) => {
-          // Re-evaluate based on prevCart for robust state update.
-          const productInPrev = prevCart.find((p) => p.id === product.id);
-          const prevQty = productInPrev ? productInPrev.quantity || 1 : 0;
-          const finalNewQty = prevQty + quantity;
-
-          // Defensive check with prevCart's data.
-          if (finalNewQty > product.stock) {
-            // If stock issue detected with prevCart, rely on the earlier toast.error.
-            // This specific toast.error might not be necessary here if the outer check is sufficient
-            // but kept for robustness if state changes between initial check and setCart execution.
-            // toast.error("No se puede agregar más, stock insuficiente (actualizado)");
-            return prevCart;
-          }
-
-          if (productInPrev) {
-            return prevCart.map((item) =>
-              item.id === product.id ? { ...item, quantity: finalNewQty } : item
-            );
-          } else {
-            // This case (product existed in `cart` but not in `prevCart`) implies
-            // it might have been removed and re-added, or a race condition.
-            // For simplicity, if outer check said "existing", we try to update.
-            // If not found in prevCart, it might be safer to add it as new if logic allows,
-            // or handle as an edge case. Here, we proceed with update logic based on `finalNewQty`.
-            // A more robust handling might be to add it if not `productInPrev`.
-            // However, to align with the outer check's intent (update existing):
-            return prevCart.map((item) =>
-              item.id === product.id ? { ...item, quantity: finalNewQty } : item
-            );
-          }
-        });
-        toast.success("Producto agregado al carrito", {
-          style: {
-            backgroundColor: "#052e16",
-            color: "white",
-            borderColor: "#6b7280",
-          },
-          description: `${product.nombre} ha sido añadido.`,
-        });
-      }, 1000); // Simulate 1 second delay
-    } else {
-      // Product is new based on initial check against `cart`
-      if (quantity > product.stock) {
-        toast.error("Cantidad deseada excede el stock");
-        return; // Exit early
+      // Product already in cart, check if updating quantity exceeds stock.
+      const currentQuantity = existingProduct.quantity || 0; // Default to 0 if quantity is somehow undefined
+      if (currentQuantity + quantity > product.stock) {
+        toast.error(
+          `No se puede agregar más de "${product.nombre}". Stock insuficiente.`
+        );
+        return; // Stop if stock is exceeded
       }
-
-      // Simulate loading time
-      setTimeout(() => {
-        setCart((prevCart) => {
-          // Check if it was added by a concurrent call that updated prevCart
-          const productInPrev = prevCart.find((p) => p.id === product.id);
-          if (productInPrev) {
-            // Already added by another call, treat as update
-            const prevQty = productInPrev.quantity || 1;
-            const finalNewQty = prevQty + quantity;
-            if (finalNewQty > product.stock) {
-              // Rely on earlier toast.error if initial check failed.
-              // toast.error("Cantidad deseada excede el stock (actualizado)");
-              return prevCart;
-            }
-            return prevCart.map((item) =>
-              item.id === product.id ? { ...item, quantity: finalNewQty } : item
-            );
-          }
-          // If truly new to prevCart, add it.
-          return [...prevCart, { ...product, quantity: quantity }];
-        });
-        toast.success("Producto agregado al carrito", {
-          // Changed from toast.success
-          style: {
-            backgroundColor: "#052e16",
-            color: "white",
-            borderColor: "#6b7280",
-          },
-          description: `${product.nombre} ha sido añadido.`,
-        });
-      }, 1000); // Simulate 1 second delay
+    } else {
+      // New product, check if initial quantity exceeds stock.
+      if (quantity > product.stock) {
+        toast.error(`Cantidad deseada de "${product.nombre}" excede el stock.`);
+        return; // Stop if stock is exceeded
+      }
     }
+
+    // Simulate loading time before updating the cart and showing success.
+    setTimeout(() => {
+      setCart((prevCart) => {
+        // Re-evaluate based on `prevCart` for robust state update,
+        // handling potential concurrent modifications to the cart.
+        const productInPrevCart = prevCart.find((p) => p.id === product.id);
+
+        if (productInPrevCart) {
+          // Product exists in prevCart: update its quantity.
+          const newQuantity = (productInPrevCart.quantity || 0) + quantity;
+
+          // Defensive stock check with prevCart's data.
+          // If newQuantity exceeds stock (e.g. stock changed server-side, or concurrent cart modification),
+          // cap at stock or return prevCart. Here, we map and update.
+          // The primary stock check is done before setTimeout.
+          if (newQuantity > product.stock) {
+            // Si el stock cambió, limitamos la cantidad al stock disponible.
+          }
+
+          return prevCart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: Math.min(newQuantity, product.stock) } // Ensure not to exceed stock
+              : item
+          );
+        } else {
+          // Product is new to prevCart (or was removed concurrently and is being re-added): add it.
+          // Stock for a new product was already checked outside setTimeout.
+          return [
+            ...prevCart,
+            { ...product, quantity: Math.min(quantity, product.stock) },
+          ]; // Ensure not to exceed stock
+        }
+      });
+
+      toast.success("Producto agregado al carrito", {
+        style: successToastStyle,
+        description: `${product.nombre} ha sido añadido.`,
+      });
+    }, 1000); // Simulate 1 second delay
   };
 
-  // Function to remove a product from the cart by its ID
+  /**
+   * Removes a product from the cart by its ID.
+   * @param {string|number} productId - The ID of the product to remove.
+   */
   const removeFromCart = (productId) => {
     const productToRemove = cart.find((item) => item.id === productId);
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+
     if (productToRemove) {
       toast.success("Producto eliminado del carrito", {
-        // Changed from toast.success
-        style: {
-          backgroundColor: "#052e16",
-          color: "white",
-          borderColor: "#6b7280",
-        },
+        style: successToastStyle,
         description: `${productToRemove.nombre} ha sido eliminado.`,
       });
     } else {
-      // Fallback if product name can't be found, though ideally this case shouldn't happen
-      // if productToRemove is fetched from the cart state before filtering.
-      toast.success("Producto eliminado del carrito"); // Changed from toast.success
+      // Fallback if product name can't be found (e.g., if cart state was inconsistent).
+      // This case should ideally not happen if productToRemove is fetched from the cart state before filtering.
+      toast.success("Producto eliminado del carrito", {
+        style: successToastStyle,
+      });
     }
   };
 
-  // Function to open the clear cart confirmation dialog
+  /**
+   * Initiates the process of clearing the cart.
+   * Opens a confirmation dialog if the cart is not empty.
+   * Shows an info toast if the cart is already empty.
+   */
   const clearCart = () => {
     if (cart.length > 0) {
-      setIsClearCartDialogOpen(true);
+      setIsClearCartDialogOpen(true); // Open confirmation dialog
     } else {
       toast.info("El carrito ya está vacío.");
     }
   };
 
-  // Function to execute the cart clearing action
+  /**
+   * Executes the action of clearing all items from the cart.
+   * Resets the cart state to an empty array and shows a success toast.
+   * Closes the confirmation dialog.
+   */
   const executeClearCart = () => {
-    setCart([]);
+    setCart([]); // Empty the cart
     toast.success("El carrito ha sido vaciado", {
-      style: {
-        backgroundColor: "#052e16",
-        color: "white",
-        borderColor: "#6b7280",
-      },
-    }); // Changed from toast.success
-    setIsClearCartDialogOpen(false);
+      style: successToastStyle,
+    });
+    setIsClearCartDialogOpen(false); // Close confirmation dialog
   };
 
-  // Function to cancel the clear cart action
+  /**
+   * Cancels the cart clearing process.
+   * Closes the confirmation dialog.
+   */
   const cancelClearCart = () => {
-    setIsClearCartDialogOpen(false);
+    setIsClearCartDialogOpen(false); // Close confirmation dialog
   };
 
-  // Function to update the quantity of a product in the cart
-  // - Ensures the new quantity does not exceed the product's stock
+  /**
+   * Updates the quantity of a specific product in the cart.
+   * - Ensures the new quantity does not exceed the product's available stock.
+   * @param {string|number} productId - The ID of the product to update.
+   * @param {number} newQuantity - The new quantity for the product.
+   */
   const updateQuantity = (productId, newQuantity) => {
     setCart((prevCart) =>
       prevCart.map((item) => {
         if (item.id === productId) {
-          if (newQuantity > item.stock) {
-            console.log(
-              `No se puede actualizar la cantidad, excede el stock (${item.stock})`
+          // Ensure new quantity is at least 1 and does not exceed stock
+          const validatedQuantity = Math.max(1, newQuantity); // Quantity cannot be less than 1
+          if (validatedQuantity > item.stock) {
+            // Log for debugging; consider a user-facing toast for better UX
+            console.warn(
+              `No se puede actualizar la cantidad de "${item.nombre}" a ${validatedQuantity}. Stock disponible: ${item.stock}. Se mantendrá la cantidad máxima posible.`
             );
-            return item; // Return the item unchanged if stock is insufficient
+            toast.error(
+              `Stock insuficiente para "${item.nombre}". Solo ${item.stock} disponibles.`
+            );
+            return { ...item, quantity: item.stock }; // Set to max available stock
           }
           // Update the quantity of the product
-          return { ...item, quantity: newQuantity };
+          return { ...item, quantity: validatedQuantity };
         }
         return item; // Return other items unchanged
       })
     );
-    console.log(`Cantidad actualizada para ${productId}: ${newQuantity}`);
+    // Log for debugging purposes
+    // console.log(`Cantidad actualizada para ${productId}: ${newQuantity}`);
   };
 
-  // Function to calculate the total cost of items in the cart
+  /**
+   * Calculates the total monetary value of all items in the cart.
+   * @returns {number} The total cost.
+   */
   const getCartTotal = () => {
     return cart.reduce(
-      (sum, item) => sum + item.precio * (item.quantity || 1),
+      (sum, item) => sum + item.precio * (item.quantity || 1), // Use quantity, default to 1 if undefined
       0
     );
   };
 
-  // Function to get the total number of items in the cart
+  /**
+   * Gets the total number of unique product types in the cart.
+   * @returns {number} The count of items in the cart.
+   */
   const getCartItemsCount = () => {
+    // This counts unique product entries. If you need total number of individual units,
+    // you would sum item.quantity.
     return cart.length;
   };
 
-  // Provide the cart context to child components
+  // Provide the cart context values to child components
   return (
     <CartContext.Provider
       value={{
@@ -210,7 +223,11 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use the cart context
+// Custom hook to use the cart context, simplifying access in components.
 export const useCart = () => {
-  return useContext(CartContext);
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error("useCart must be used within a CartProvider");
+  }
+  return context;
 };
