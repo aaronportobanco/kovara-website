@@ -18,10 +18,14 @@ import {
   Send,
 } from "lucide-react";
 import Header from "../../layout/Header";
+import MapDisplay from "./MapDisplay";
 
 // ContactSection Component
 // This component is used to create a contact section with a form and contact information
 const ContactSection = () => {
+  const mapEmbedSrc =
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125195.85728429257!2d-86.35086368359375!3d12.114993300000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f73ffcf5e84c9b5%3A0x3d1b2c5e8f9a7b6c!2sManagua%2C%20Nicaragua!5e0!3m2!1sen!2sus!4v1635959000000!5m2!1sen!2sus";
+
   return (
     <section
       id="contact"
@@ -49,6 +53,10 @@ const ContactSection = () => {
         />
         <ContactInfo />
       </div>
+      <MapDisplay
+        mapSrc={mapEmbedSrc}
+        className="w-full mt-12 z-10 rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16"
+      />
     </section>
   );
 };
