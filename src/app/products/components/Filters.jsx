@@ -26,7 +26,7 @@ const Filters = ({ filters, setFilters }) => {
   };
 
   return (
-    <aside className="hidden md:block md:w-1/4">
+    <aside className="hidden md:block md:w-1/4 md:sticky md:top-5 h-fit">
       <h3 className="text-lg font-semibold mb-4">Filtros</h3>
       <Separator className="hidden md:block my-4 bg-gray-700" />
       <div className="space-y-6">
