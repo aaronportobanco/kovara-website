@@ -7,8 +7,10 @@ import { useCart } from "../context/cart-context";
 import Link from "next/link";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation"
 
 const Checkout = () => {
+   const router = useRouter()
   const { clearCart, getCartTotal, getCartItemsCount } = useCart();
   const [loading, setLoading] = useState(false);
 
@@ -19,8 +21,8 @@ const Checkout = () => {
   const handlePaymentClick = () => {
     setLoading(true);
     setTimeout(() => {
-      clearCart();
       setLoading(false);
+      router.push("/checkout-page")
     }, 2000);
   };
 
