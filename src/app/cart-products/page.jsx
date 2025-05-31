@@ -33,7 +33,7 @@ const CartPage = () => {
 
   return (
     <>
-      <section className="flex flex-col p-4 md:px-6 gap-8 text-foreground bg-background">
+      <section className="flex flex-col p-4 md:px-6 gap-8">
         {/* Breadcrumb y encabezado */}
         <BreadcrumbComp page="Carrito" />
 
