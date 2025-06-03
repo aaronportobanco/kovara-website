@@ -55,7 +55,7 @@ const ContactSection = () => {
       </div>
       <MapDisplay
         mapSrc={mapEmbedSrc}
-        className="w-full mt-12 z-10 rounded-xl bg-gray-800/30 p-5 md:px-8 lg:p-16"
+        className="w-full mt-12 z-10 rounded-xl py-4 md:p-6 lg:p-10 bg-gray-800/30"
       />
     </section>
   );

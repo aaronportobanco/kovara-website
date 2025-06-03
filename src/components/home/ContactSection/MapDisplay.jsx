@@ -10,7 +10,7 @@ const MapDisplay = ({ mapSrc, className }) => (
         </p>
       </div>
     </div>
-    <div className="max-w-6xl mx-auto px-4 pb-16">
+    <div className="max-w-6xl mx-auto px-4">
       <div className="bg-slate-800 rounded-lg overflow-hidden h-96 relative border border-slate-700">
         <iframe
           src={mapSrc}
