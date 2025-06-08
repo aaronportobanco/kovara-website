@@ -51,7 +51,7 @@ const OrderSummary = () => {
         <Input
           type="cupon"
           placeholder="Cupón de descuento"
-          className="hover:border-blue-600 transition-colors border-gray-500 bg-gray-700/40 h-10 pr-24 pl-10"
+          className="hover:border-blue-600 transition-colors bg-gray-700/40 h-11 border-gray-600 pr-24 pl-10"
         />
         <Button
           type="submit"
