@@ -1,13 +1,17 @@
 import React from "react";
-import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
 import { ShippingForm } from "./components/ShippingForm";
 import OrderSummary from "./components/OrderSummay";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft } from "lucide-react";
 
 const CheckOut = () => {
   return (
     <section className="flex flex-col p-4 md:px-6 gap-8">
       {/* Breadcrumb y encabezado */}
-      <BreadcrumbComp page="Checkout" />
+      <Button variant="Link" href="/cart" className="w-full flex justify-start px-0 text-muted-foreground">
+        <ChevronLeft />
+        Volver al carrito
+      </Button>
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Checkout</h2>
         <p className="text-base text-muted-foreground">
@@ -19,7 +23,7 @@ const CheckOut = () => {
           <ShippingForm />
         </div>
         <div className="lg:col-span-1 rounded-2xl">
-          <OrderSummary/>
+          <OrderSummary />
         </div>
       </div>
     </section>
