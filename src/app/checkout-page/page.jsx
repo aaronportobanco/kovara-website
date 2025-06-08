@@ -8,10 +8,17 @@ const CheckOut = () => {
   return (
     <section className="flex flex-col p-4 md:px-6 gap-8">
       {/* Breadcrumb y encabezado */}
-      <Button variant="Link" href="/cart" className="w-full flex justify-start px-0 text-muted-foreground">
-        <ChevronLeft />
-        Volver al carrito
-      </Button>
+      <div className="w-full flex justify-start">
+        <Button
+          variant="Link"
+          href="/cart-products"
+          className="p-0 text-muted-foreground hover:text-foreground"
+        >
+          <ChevronLeft />
+          Volver al carrito
+        </Button>
+      </div>
+
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Checkout</h2>
         <p className="text-base text-muted-foreground">
