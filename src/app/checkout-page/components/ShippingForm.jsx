@@ -139,24 +139,17 @@ export function ShippingForm() {
           />
         </div>
         <Separator className="my-2 bg-gray-600" />
-        <div className="flex justify-between ">
-          <div className="flex items-center space-x-2">
-            <Checkbox id="saveInfo" />
-            <Label htmlFor="saveInfo" className="text-sm">
-              Guardar esta información para futuras compras
-            </Label>
-          </div>
-          <div className="w-full flex justify-end gap-2">
-            <Button
-              type="submit"
-              variant="outlined"
-              className="transition-colors"
-            >
-              Volver
-            </Button>
-            <Button type="submit">Continuar al Pago</Button>
-          </div>
+
+        <div className="flex items-center space-x-2">
+          <Checkbox id="saveInfo" />
+          <Label htmlFor="saveInfo" className="text-sm">
+            Guardar esta información para futuras compras
+          </Label>
         </div>
+
+        <Button type="submit" className="w-full">
+          Continuar al Pago
+        </Button>
       </form>
     </section>
   );
