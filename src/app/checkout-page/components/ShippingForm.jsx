@@ -20,12 +20,13 @@ export function ShippingForm() {
   const [selectedOption, setSelectedOption] = useState("delivery"); // Initialize state
 
   return (
-    <section className="w-full flex flex-col gap-6 bg-slate-800/50 border border-foreground p-6 rounded-lg">
-      <header>
+    <section className="w-full flex flex-col gap-6">
+      <header className="flex flex-col items-start gap-2">
+        <p className="text-blue-400 text-sm">Paso 01</p>
         <h3 className="text-lg font-bold">Información de Envío</h3>
       </header>
-      <Separator className="bg-gray-600" />
-      <form className="space-y-6">
+      <Separator className="bg-gray-600" /> {/* Added mt-4 for spacing */}
+      <form className="space-y-6 bg-slate-800/50 border border-foreground p-6 rounded-lg">
         <Label htmlFor="shippingMethod">Método de Envío *</Label>
 
         <RadioGroup
@@ -107,7 +108,7 @@ export function ShippingForm() {
           <div className="flex flex-col items-start gap-4">
             <Label htmlFor="state">Estado *</Label>
             <Select>
-              <SelectTrigger>
+              <SelectTrigger className="hover:border-blue-600 transition-colors bg-gray-700/40 h-11 border-gray-600">
                 <SelectValue placeholder="Departamento de residencia" />
               </SelectTrigger>
               <SelectContent>
