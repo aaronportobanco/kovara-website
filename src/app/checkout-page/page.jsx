@@ -25,7 +25,7 @@ const CheckOut = () => {
           Complete su compra de forma segura.
         </p>
       </div>
-      <div className="grid gap-8 lg:grid-cols-3 rounded-2xl">
+      <div className="grid gap-8 lg:grid-cols-3 rounded-2xl pt-2">
         <div className="lg:col-span-2">
           <ShippingForm />
         </div>
