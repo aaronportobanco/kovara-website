@@ -16,6 +16,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Truck, Box, ArrowLeft, ArrowRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export function ShippingForm({ onNext }) {
   const [selectedOption, setSelectedOption] = useState("delivery"); // Initialize state
@@ -27,14 +28,15 @@ export function ShippingForm({ onNext }) {
           <p className="text-blue-400 text-sm">Paso 01</p>
           <h3 className="text-lg font-bold">Información de Envío</h3>
         </header>
-        <Button
-          variant="Link"
-          href="/cart-products"
-          className="p-0 text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft />
-          Volver al carrito
-        </Button>
+        <Link href="/cart-products">
+          <Button
+            variant="Link"
+            className="p-0 text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft />
+            Volver al carrito
+          </Button>
+        </Link>
       </div>
       <Separator className="bg-gray-600" /> {/* Added mt-4 for spacing */}
       <form className="space-y-6 bg-slate-800/50 border border-foreground p-6 rounded-lg">
