@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react"; // Import useState
+import { useState } from "react";
+import scrollToSection from "@/utils/scroll-utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -156,7 +157,14 @@ export function ShippingForm({ onNext }) {
           </Label>
         </div>
       </form>
-      <Button type="button" className="w-full rounded-lg" onClick={onNext}>
+      <Button
+        type="button"
+        className="w-full rounded-lg"
+        onClick={() => {
+          onNext();
+          scrollToSection("checkout");
+        }}
+      >
         Continuar al Pago
         <ArrowRight />
       </Button>
