@@ -31,9 +31,9 @@ export function ShippingForm({ onNext }) {
         <Link href="/cart-products">
           <Button
             variant="Link"
-            className="p-0 text-muted-foreground hover:text-foreground"
+            className="group p-0 text-muted-foreground hover:text-foreground"
           >
-            <ArrowLeft />
+            <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1"/>
             Volver al carrito
           </Button>
         </Link>
@@ -161,14 +161,14 @@ export function ShippingForm({ onNext }) {
       </form>
       <Button
         type="button"
-        className="w-full rounded-lg"
+        className="group w-full rounded-lg"
         onClick={() => {
           onNext();
           scrollToSection("checkout");
         }}
       >
         Continuar al Pago
-        <ArrowRight />
+        <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1"/>
       </Button>
     </section>
   );

@@ -43,9 +43,9 @@ export function PaymentForm({ onNext, onBack }) {
         <Link href="/cart-products">
           <Button
             variant="Link"
-            className="p-0 text-muted-foreground hover:text-foreground"
+            className="group p-0 text-muted-foreground hover:text-foreground"
           >
-            <ArrowLeft />
+            <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1"/>
             Volver al carrito
           </Button>
         </Link>
@@ -141,25 +141,25 @@ export function PaymentForm({ onNext, onBack }) {
         <Button
           type="button"
           variant="filled"
-          className="w-full rounded-lg"
+          className="group w-full rounded-lg"
           onClick={() => {
             onBack();
             scrollToSection("checkout");
           }}
         >
-          <ArrowLeft />
+          <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1"/>
           Volver al envío
         </Button>
         <Button
           type="button"
-          className="w-full rounded-lg"
+          className="group w-full rounded-lg"
           onClick={() => {
             onNext();
             scrollToSection("checkout");
           }}
         >
           Confirmar pedido
-          <ArrowRight />
+          <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1"/>
         </Button>
       </div>
     </section>
