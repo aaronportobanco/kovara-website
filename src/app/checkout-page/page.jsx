@@ -4,8 +4,7 @@ import React from "react";
 import { ShippingForm } from "./components/ShippingForm";
 import { PaymentForm } from "./components/PaymentForm";
 import OrderSummary from "./components/OrderSummay";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft } from "lucide-react";
+import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
 
 const CheckOut = () => {
 // Manage the current step in the checkout process
@@ -18,16 +17,7 @@ const handleBack = () => setStep((prev)=> prev - 1);
   return (
     <section className="flex flex-col p-4 md:px-6 gap-8">
       {/* Breadcrumb y encabezado */}
-      <div className="w-full flex justify-start">
-        <Button
-          variant="Link"
-          href="/cart-products"
-          className="p-0 text-muted-foreground hover:text-foreground"
-        >
-          <ChevronLeft />
-          Volver al carrito
-        </Button>
-      </div>
+      <BreadcrumbComp page="Checkout" />
 
       <div className="space-y-2">
         <h2 className="text-3xl font-bold">Checkout</h2>
