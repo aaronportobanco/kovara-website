@@ -1,10 +1,20 @@
+"use client";
+
 import React from "react";
 import { ShippingForm } from "./components/ShippingForm";
+import { PaymentForm } from "./components/PaymentForm";
 import OrderSummary from "./components/OrderSummay";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 
 const CheckOut = () => {
+// Manage the current step in the checkout process
+const [step, setStep] = React.useState(1); // 1: shipping, 2: payment, 3: summary
+
+// Function to handle step change
+const handleNext = () => setStep((prev)=> prev + 1);
+const handleBack = () => setStep((prev)=> prev - 1);
+
   return (
     <section className="flex flex-col p-4 md:px-6 gap-8">
       {/* Breadcrumb y encabezado */}
@@ -27,7 +37,9 @@ const CheckOut = () => {
       </div>
       <div className="grid gap-8 lg:grid-cols-3 rounded-2xl pt-2">
         <div className="lg:col-span-2">
-          <ShippingForm />
+          {step === 1 && <ShippingForm onNext={handleNext} />}
+          {step === 2 && <PaymentForm onNext={handleNext} onBack={handleBack} />}
+          {/* {step === 3 && <OrderSummary onBack={handleBack} />} */}
         </div>
         <div className="lg:col-span-1 rounded-2xl">
           <OrderSummary />
