@@ -13,22 +13,30 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Truck, Box } from "lucide-react";
+import { Truck, Box, ArrowLeft, ArrowRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
-export function ShippingForm() {
+export function ShippingForm({ onNext }) {
   const [selectedOption, setSelectedOption] = useState("delivery"); // Initialize state
 
   return (
     <section className="w-full flex flex-col gap-6">
-      <header className="flex flex-col items-start gap-2">
-        <p className="text-blue-400 text-sm">Paso 01</p>
-        <h3 className="text-lg font-bold">Información de Envío</h3>
-      </header>
+      <div className="flex items-end justify-between">
+        <header className="flex flex-col items-start gap-2">
+          <p className="text-blue-400 text-sm">Paso 01</p>
+          <h3 className="text-lg font-bold">Información de Envío</h3>
+        </header>
+        <Button
+          variant="Link"
+          href="/cart-products"
+          className="p-0 text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft />
+          Volver al carrito
+        </Button>
+      </div>
       <Separator className="bg-gray-600" /> {/* Added mt-4 for spacing */}
       <form className="space-y-6 bg-slate-800/50 border border-foreground p-6 rounded-lg">
-        <Label htmlFor="shippingMethod">Método de Envío *</Label>
-
         <RadioGroup
           id="shippingMethod"
           defaultValue="delivery"
@@ -147,11 +155,11 @@ export function ShippingForm() {
             Guardar esta información para futuras compras
           </Label>
         </div>
-
-        <Button type="submit" className="w-full">
-          Continuar al Pago
-        </Button>
       </form>
+      <Button type="button" className="w-full rounded-lg" onClick={onNext}>
+        Continuar al Pago
+        <ArrowRight />
+      </Button>
     </section>
   );
 }
