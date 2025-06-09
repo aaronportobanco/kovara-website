@@ -15,7 +15,7 @@ const handleNext = () => setStep((prev)=> prev + 1);
 const handleBack = () => setStep((prev)=> prev - 1);
 
   return (
-    <section className="flex flex-col p-4 md:px-6 gap-8">
+    <section id="checkout" className="flex flex-col p-4 md:px-6 gap-8">
       {/* Breadcrumb y encabezado */}
       <BreadcrumbComp page="Checkout" />
 
