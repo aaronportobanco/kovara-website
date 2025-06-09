@@ -16,7 +16,7 @@ const OrderSummary = () => {
 
   return (
     <div className="lg:sticky top-10 shadow-lg w-full h-fit border border-foreground max-w-lg rounded-lg p-5 bg-slate-800/50 space-y-4">
-      <h3 className="text-lg font-semibold">Resumen del pedido</h3>
+      <h3 className="text-lg font-semibold">Detalle del pedido</h3>
 
       <div className="text-sm text-muted-foreground">
         Productos a pagar: {getCartItemsCount()}
