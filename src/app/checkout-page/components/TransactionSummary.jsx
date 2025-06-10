@@ -1,80 +1,131 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle2 } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { ArrowLeft, ArrowRight, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useCart } from "../../cart-products/context/cart-context";
+import TransactionOrderSummary from "./TransactionOrderSummary";
+import scrollToSection from "@/utils/scroll-utils";
 
-const TransactionSummary = ({onNext, onBack}) => {
+export default function TransactionSummary({ onBack, onNext }) {
+  const { cart, getCartTotal, getCartItemsCount } = useCart();
+
+  const subtotal = getCartTotal();
+  const taxRate = 0.16; // Example tax rate (16%)
+  const tax = subtotal * taxRate;
+  const deliveryFee = 0; // Assuming free delivery as per the image
+  const total = subtotal + tax + deliveryFee;
+
+  // Placeholder data - replace with actual data source if available
+  const orderDetailsPlaceholders = {
+    orderId: "#0214582001",
+    userName: "Aaron", // Or fetch from user context
+    orderDate: "Mar 28, 2023",
+    deliveryDate: "Abril 01, 2023",
+    status: "En Progreso",
+    paymentStatus: "Pagado",
+    paymentMethod: "Contra Entrega", // Example: Cash on Delivery
+    address: "718 Robbyn Meadow, Springfield",
+  };
+
   return (
-    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-slate-800 rounded-lg">
-      
-      {/* Sección de confirmación */}
-      <Card className="flex flex-col justify-center items-center text-center gap-4 py-10 px-6 bg-slate-800 border-none">
-        <CheckCircle2 className="w-16 h-16 text-green-600" />
-        <div>
-          <h2 className="text-xl font-semibold">¡Tu pedido ha sido finalizado!</h2>
-          <p className="text-sm text-muted-foreground mt-2">
-            Hemos recibido tu orden y ya está en proceso. Te notificaremos cuando esté lista para ser enviada.
+    <div className="grid md:grid-cols-5 gap-x-8 gap-y-6">
+      {/* --- LEFT COLUMN --- */}
+      <div className="md:col-span-3 space-y-5">
+        <div className="flex justify-between items-end">
+          <header className="flex flex-col items-start gap-2">
+            <p className="text-blue-400 text-sm">Finalizar compra</p>
+              <h3 className="text-lg font-bold">Resumen General</h3>
+          </header>
+          <p className="text-sm text-muted-foreground">
+            ID del Pedido: {orderDetailsPlaceholders.orderId}
           </p>
         </div>
-        <div className="flex flex-col gap-3 w-full max-w-xs mt-4">
-          <Button className="w-full" onClick={onNext}>Confirmar pedido</Button>
-          <Button variant="outline" className="w-full" onClick={onBack}>Editar pedido</Button>
+        <Separator className="my-2 bg-gray-600" />
+
+        <Card className="bg-slate-800/50 border-foreground">
+          <CardHeader>
+            <CardTitle>Actualizaciones del Pedido</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Recibirás actualizaciones del pedido y envío por correo
+              electrónico.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-slate-800/50 border-foreground">
+          <CardHeader>
+            <CardTitle>Información del Pedido</CardTitle>
+          </CardHeader>
+          <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 text-sm">
+            <div>
+              <p className="text-muted-foreground">Fecha del Pedido</p>
+              <p className="text-foreground font-medium">
+                {orderDetailsPlaceholders.orderDate}
+              </p>
+            </div>
+            <div>
+              <p className="text-muted-foreground">Fecha de Entrega Estimada</p>
+              <p className="text-foreground font-medium">
+                {orderDetailsPlaceholders.deliveryDate}
+              </p>
+            </div>
+            <div>
+              <p className="text-muted-foreground">Estado</p>
+              <p className="text-foreground font-medium">
+                {orderDetailsPlaceholders.status}
+              </p>
+            </div>
+            <div>
+              <p className="text-muted-foreground">Estado del Pago</p>
+              <p className="text-foreground font-medium">
+                {orderDetailsPlaceholders.paymentStatus}
+              </p>
+            </div>
+            <div>
+              <p className="text-muted-foreground">Método de Pago</p>
+              <p className="text-foreground font-medium">
+                {orderDetailsPlaceholders.paymentMethod}
+              </p>
+            </div>
+            <div className="sm:col-span-2">
+              <p className="text-muted-foreground">Dirección de Envío</p>
+              <p className="text-foreground font-medium">
+                {orderDetailsPlaceholders.address}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+        <div className="flex flex-row gap-2">
+          <Button
+            className="w-full group"
+            variant="filled"
+            onClick={() => {
+              onBack();
+              scrollToSection("checkout");
+            }}
+          >
+            <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
+            Volver
+          </Button>
+          <Button className="w-full group" onClick={onNext}>
+            Confirmar pedido
+            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Button>
         </div>
-      </Card>
+      </div>
 
-      {/* Sección de resumen del pedido */}
-      <Card className="shadow-lg bg-slate-900">
-        <CardHeader>
-          <CardTitle className="text-lg">Resumen del Pedido</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4 text-sm text-muted-foreground">
-          <div>
-            <p className="text-muted-foreground">Cliente</p>
-            <p className="text-foreground font-medium">Aarón Martínez</p>
-          </div>
-
-          <div>
-            <p className="text-muted-foreground">Producto</p>
-            <p className="text-foreground font-medium">Laptop HP Envy 15 - Intel Core i7, 16GB RAM, 512GB SSD</p>
-          </div>
-
-          <div className="border rounded-lg p-4 space-y-2 bg-slate-800">
-            <div className="flex justify-between">
-              <span>Lunes, 7 Junio 2025</span>
-              <span>1 unidad</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Garantía extendida</span>
-              <span>1 año</span>
-            </div>
-            <div className="flex justify-between font-medium text-foreground pt-2 border-t">
-              <span>Total</span>
-              <span>1 artículo</span>
-            </div>
-          </div>
-
-          <div className="space-y-1 pt-2">
-            <div className="flex justify-between">
-              <span>Subtotal</span>
-              <span>$950.00</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Envío</span>
-              <span>$20.00</span>
-            </div>
-            <div className="flex justify-between ">
-              <span>Envío</span>
-              <span>Gratis</span>
-            </div>
-          </div>
-
-          <div className="flex justify-between items-center border-t pt-4 mt-4">
-            <span className="text-base font-semibold text-foreground">Total a pagar</span>
-            <span className="text-2xl font-bold text-green-600">$920.00</span>
-          </div>
-        </CardContent>
-      </Card>
+      {/* --- RIGHT COLUMN --- */}
+      <TransactionOrderSummary
+        cart={cart}
+        getCartItemsCount={getCartItemsCount}
+        subtotal={subtotal}
+        taxRate={taxRate}
+        tax={tax}
+        deliveryFee={deliveryFee}
+        total={total}
+      />
     </div>
-  )
+  );
 }
-
-export default TransactionSummary
