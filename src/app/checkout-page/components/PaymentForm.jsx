@@ -134,7 +134,7 @@ export function PaymentForm({ onNext, onBack }) {
 
         <div className="flex items-center justify-end">
           <h3>Total a pagar: &nbsp;</h3>
-          <span className="text-lg font-bold">C${total.toFixed(2)}</span>
+          <span className="text-lg font-bold">C$&nbsp;{total.toFixed(2)}</span>
         </div>
       </form>
       <div className="flex flex-row gap-4">
