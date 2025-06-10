@@ -5,6 +5,7 @@ import { ShippingForm } from "./components/ShippingForm";
 import { PaymentForm } from "./components/PaymentForm";
 import OrderSummary from "./components/OrderSummay";
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
+import TransactionSummary from "./components/TransactionSummary";
 
 const CheckOut = () => {
 // Manage the current step in the checkout process
@@ -29,10 +30,10 @@ const handleBack = () => setStep((prev)=> prev - 1);
         <div className="lg:col-span-2">
           {step === 1 && <ShippingForm onNext={handleNext} />}
           {step === 2 && <PaymentForm onNext={handleNext} onBack={handleBack} />}
-          {/* {step === 3 && <OrderSummary onBack={handleBack} />} */}
+          {step === 3 && <TransactionSummary onBack={handleBack} />}
         </div>
         <div className="lg:col-span-1 rounded-2xl">
-          <OrderSummary />
+          <OrderSummary step={step} />
         </div>
       </div>
     </section>

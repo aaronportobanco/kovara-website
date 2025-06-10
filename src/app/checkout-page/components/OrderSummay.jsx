@@ -7,12 +7,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductItem from "./ProductItem";
 
-const OrderSummary = () => {
+const OrderSummary = ({ step }) => {
   const { getCartTotal, getCartItemsCount, cart } = useCart();
 
   const subtotal = getCartTotal();
   const impuestos = subtotal * 0.16; // 16% de impuestos
   const total = subtotal + impuestos;
+
+  if (step !== 1 && step !== 2) {
+    return null;
+  }
 
   return (
     <div className="lg:sticky top-10 shadow-lg w-full h-fit border border-foreground max-w-lg rounded-lg p-5 bg-slate-800/50 space-y-4">
