@@ -37,11 +37,11 @@ const OrderSummary = ({ step }) => {
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
           <span className="text-muted-foreground">Subtotal</span>
-          <span className="font-medium">C${subtotal.toFixed(2)}</span>
+          <span className="font-medium">C$&nbsp;{subtotal.toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Impuestos (16%)</span>
-          <span className="font-medium">C${impuestos.toFixed(2)}</span>
+          <span className="font-medium">C$&nbsp;{impuestos.toFixed(2)}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Envío</span>
@@ -69,7 +69,7 @@ const OrderSummary = ({ step }) => {
 
       <div className="flex justify-between text-base font-bold">
         <span>Total</span>
-        <span>C${total.toFixed(2)}</span>
+        <span>C$&nbsp;{total.toFixed(2)}</span>
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex flex-row gap-1">
