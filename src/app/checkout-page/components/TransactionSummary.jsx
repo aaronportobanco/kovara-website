@@ -69,7 +69,9 @@ export default function TransactionSummary({ onBack, onNext }) {
             </div>
             <div>
               <p>
-                <span className="text-muted-foreground">Fecha de Entrega Estimada:</span>{" "}
+                <span className="text-muted-foreground">
+                  Fecha de Entrega Estimada:
+                </span>{" "}
                 <span className="text-foreground font-medium">
                   {orderDetailsPlaceholders.deliveryDate}
                 </span>
@@ -77,7 +79,9 @@ export default function TransactionSummary({ onBack, onNext }) {
             </div>
             <div>
               <p>
-                <span className="text-muted-foreground">Estado del Pedido:</span>{" "}
+                <span className="text-muted-foreground">
+                  Estado del Pedido:
+                </span>{" "}
                 <span className="text-foreground font-medium">
                   {orderDetailsPlaceholders.status}
                 </span>
@@ -89,25 +93,29 @@ export default function TransactionSummary({ onBack, onNext }) {
 
           {/* Shipping Information */}
           <div>
-            <h4 className="text-md font-semibold mb-2">
-              Información de Envío
-            </h4>
+            <h4 className="text-md font-semibold mb-2">Información de Envío</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm">
               <div className="space-y-2">
                 <p>
-                  <span className="font-medium text-muted-foreground">Nombre:</span>{" "}
+                  <span className="font-medium text-muted-foreground">
+                    Nombre:
+                  </span>{" "}
                   <span className="text-foreground">
                     {orderDetailsPlaceholders.shippingDetails.fullName}
                   </span>
                 </p>
                 <p>
-                  <span className="font-medium text-muted-foreground">Dirección:</span>{" "}
+                  <span className="font-medium text-muted-foreground">
+                    Dirección:
+                  </span>{" "}
                   <span className="text-foreground">
                     {orderDetailsPlaceholders.shippingDetails.address}
                   </span>
                 </p>
                 <p>
-                  <span className="font-medium text-muted-foreground">Ciudad/Depto/CP:</span>{" "}
+                  <span className="font-medium text-muted-foreground">
+                    Ciudad/Depto/CP:
+                  </span>{" "}
                   <span className="text-foreground">
                     {orderDetailsPlaceholders.shippingDetails.cityStateZip}
                   </span>
@@ -115,19 +123,25 @@ export default function TransactionSummary({ onBack, onNext }) {
               </div>
               <div className="space-y-2">
                 <p>
-                  <span className="font-medium text-muted-foreground">Email:</span>{" "}
+                  <span className="font-medium text-muted-foreground">
+                    Email:
+                  </span>{" "}
                   <span className="text-foreground">
                     {orderDetailsPlaceholders.shippingDetails.email}
                   </span>
                 </p>
                 <p>
-                  <span className="font-medium text-muted-foreground">Teléfono:</span>{" "}
+                  <span className="font-medium text-muted-foreground">
+                    Teléfono:
+                  </span>{" "}
                   <span className="text-foreground">
                     {orderDetailsPlaceholders.shippingDetails.phone}
                   </span>
                 </p>
                 <p>
-                  <span className="font-medium text-muted-foreground">Método de envío:</span>{" "}
+                  <span className="font-medium text-muted-foreground">
+                    Método de envío:
+                  </span>{" "}
                   <span className="text-foreground">
                     {orderDetailsPlaceholders.shippingDetails.shippingMethod}
                   </span>
@@ -140,28 +154,35 @@ export default function TransactionSummary({ onBack, onNext }) {
 
           {/* Payment Information */}
           <div>
-            <h4 className="text-md font-semibold mb-2">
-              Información de Pago
-            </h4>
+            <h4 className="text-md font-semibold mb-2">Información de Pago</h4>
             <div className="space-y-1">
               <p>
-                <span className="font-medium text-muted-foreground">Método de pago:</span>{" "}
+                <span className="font-medium text-muted-foreground">
+                  Método de pago:
+                </span>{" "}
                 {orderDetailsPlaceholders.paymentDetails.paymentMethod}
               </p>
-              {orderDetailsPlaceholders.paymentDetails.paymentMethod !== "Contra Entrega" && (
+              {orderDetailsPlaceholders.paymentDetails.paymentMethod !==
+                "Contra Entrega" && (
                 <>
                   <p>
-                    <span className="font-medium text-muted-foreground">Info Tarjeta:</span>{" "}
+                    <span className="font-medium text-muted-foreground">
+                      Info Tarjeta:
+                    </span>{" "}
                     {orderDetailsPlaceholders.paymentDetails.cardInfo}
                   </p>
                   <p>
-                    <span className="font-medium text-muted-foreground">Nombre en tarjeta:</span>{" "}
+                    <span className="font-medium text-muted-foreground">
+                      Nombre en tarjeta:
+                    </span>{" "}
                     {orderDetailsPlaceholders.paymentDetails.cardName}
                   </p>
                 </>
               )}
               <p>
-                <span className="font-medium text-muted-foreground">Estado del Pago:</span>{" "}
+                <span className="font-medium text-muted-foreground">
+                  Estado del Pago:
+                </span>{" "}
                 {orderDetailsPlaceholders.paymentDetails.paymentStatus}
               </p>
             </div>
@@ -180,7 +201,13 @@ export default function TransactionSummary({ onBack, onNext }) {
           <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
           Volver al método de pago
         </Button>
-        <Button className="w-full group" onClick={onNext}>
+        <Button
+          className="w-full group"
+          onClick={() => {
+            onNext();
+            scrollToSection("checkout");
+          }}
+        >
           Confirmar pedido
           <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
         </Button>
