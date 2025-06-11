@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import BreadcrumbComp from "@/components/layout/BreadcrumbComp";
-import { Grid, List } from "lucide-react";
+import { Grid, List, Search } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import CardHorizontal from "./components/CardHorizontal";
 import CardVertical from "./components/CardVertical";
@@ -72,7 +72,7 @@ export default function ProductsPage() {
   return (
     <section
       id="top"
-      className="flex flex-col p-4 md:px-6 gap-8 md:gap-11 text-foreground bg-background"
+      className="flex flex-col p-4 md:px-6 gap-8 md:gap-11"
     >
       {/* Breadcrumb y encabezado */}
       <BreadcrumbComp page={"Productos"} />
@@ -98,14 +98,18 @@ export default function ProductsPage() {
           {/* Barra de búsqueda y controles */}
           <div className="flex flex-col gap-3 md:flex-row md:items-center justify-between">
             <div className="flex items-center gap-2">
-              <Input
-                placeholder="Buscar productos..."
-                className="border border-gray-400 hover:border-[#3B82F6] transition-colors"
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                  setCurrentPage(1);
-                }}
-              />
+              {/* Wrap Input and Search icon */}
+              <div className="relative w-full">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                  placeholder="Buscar productos..."
+                  className="border border-gray-400 hover:border-[#3B82F6] transition-colors pl-10" // Added pl-10
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    setCurrentPage(1);
+                  }}
+                />
+              </div>
               <div className="md:hidden">
                 <FiltersMobile
                   filters={filters}

@@ -1,9 +1,8 @@
 "use client";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
-import { Datalinks } from "@/data/MockData"; // added import
+import { Datalinks, storeInfo, supportLinks } from "@/data/MockData";
 import scrollToSection from "@/utils/scroll-utils";
 
 export const socialLinks = [
@@ -11,40 +10,6 @@ export const socialLinks = [
   { icon: <Twitter />, href: "#", ariaLabel: "Twitter" },
   { icon: <Instagram />, href: "#", ariaLabel: "Instagram" },
   { icon: <Linkedin />, href: "#", ariaLabel: "Linkedin" },
-];
-
-export const supportLinks = [
-  "FAQ",
-  "Política de devoluciones",
-  "Información de garantía",
-  "Soporte de productos",
-  "Política de privacidad",
-  "Términos y condiciones",
-];
-
-export const storeInfo = [
-  {
-    icon: <MapPin className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
-    text: "123 Tech Plaza, Silicon Valley, CA 94043",
-  },
-  {
-    icon: <Phone className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
-    text: "+555 5848-4317",
-  },
-  {
-    icon: <Mail className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
-    text: "soporte@kovara.com",
-  },
-  {
-    icon: <Clock className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
-    text: (
-      <>
-        Lunes-Viernes: 9AM - 6PM
-        <br />
-        Sábado: 10AM - 4PM
-      </>
-    ),
-  },
 ];
 
 // Main Footer Component

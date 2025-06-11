@@ -330,7 +330,7 @@ export const DataTestimonials = [
 
 // Navigation links component for navbar
 // This data is used to populate the navigation links in the navbar component.
-import { House, Users, Boxes, Phone } from "lucide-react";
+import { House, Users, Boxes, Phone, ShoppingCart } from "lucide-react";
 export const Datalinks = [
   {
     href: "/", 
@@ -348,10 +348,214 @@ export const Datalinks = [
     Icon: <Boxes className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "#contact",
-    label: "Contacto",
-    Icon: <Phone className="mr-2" strokeWidth={3} />,
+    href: "/cart-products", 
+    label: "Carrito",
+    Icon: <ShoppingCart className="mr-2" strokeWidth={3} />,
   },
 ];
 
-export const DataAbout = [{}];
+// Store information data for the footer
+// This data is used to display the store's contact information in the footer.
+import { MapPin, Mail, Clock } from "lucide-react";
+import Link from "next/link";
+export const storeInfo = [
+  {
+    icon: <MapPin className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: "123 Tech Plaza, Silicon Valley, CA 94043",
+  },
+  {
+    icon: <Phone className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: (
+      <Link href="https://wa.me/+50558484317" target="_blank" className="underline">
+        Contacta por WhatsApp
+      </Link>
+    ),
+  },
+  {
+    icon: <Mail className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: "soporte@kovara.com",
+  },
+  {
+    icon: <Clock className="h-5 w-5 text-[#3B82F6] mt-1 mr-3" />,
+    text: (
+      <>
+        Lunes-Viernes: 9AM - 6PM
+        <br />
+        Sábado: 10AM - 4PM
+      </>
+    ),
+  },
+];
+
+// Support links data for the footer
+// This data is used to display the support links in the footer.
+export const supportLinks = [
+  "FAQ",
+  "Política de devoluciones",
+  "Información de garantía",
+  "Soporte de productos",
+  "Política de privacidad",
+  "Términos y condiciones",
+];
+
+
+// Mock data for job listings
+// Mock data for job listings (same as in careers-page-content.jsx)
+export const JobData = [
+  {
+    id: "1",
+    title: "Desarrollador Frontend",
+    department: "Desarrollo",
+    description:
+      "Buscamos un desarrollador frontend con experiencia en React y Next.js para unirse a nuestro equipo de desarrollo web. Serás responsable de crear interfaces de usuario atractivas y funcionales para nuestros productos.",
+    location: "Ciudad de México",
+    type: "Tiempo Completo",
+    hours: "40h/semana",
+    posted: "15 mayo, 2023",
+    applicants: 24,
+    requirements: [
+      "Experiencia mínima de 3 años en desarrollo frontend",
+      "Dominio de React, Next.js, y Tailwind CSS",
+      "Conocimientos de TypeScript",
+      "Experiencia con sistemas de control de versiones (Git)",
+      "Capacidad para trabajar en equipo y comunicarse efectivamente",
+    ],
+    responsibilities: [
+      "Desarrollar interfaces de usuario responsivas y accesibles",
+      "Colaborar con diseñadores UX/UI para implementar diseños",
+      "Optimizar aplicaciones para máxima velocidad y escalabilidad",
+      "Participar en revisiones de código y mentorías",
+      "Mantenerse actualizado con las últimas tendencias y mejores prácticas",
+    ],
+  },
+  {
+    id: "2",
+    title: "Especialista en Soporte Técnico",
+    department: "Soporte",
+    description:
+      "Estamos buscando un especialista en soporte técnico para ayudar a nuestros clientes con problemas de hardware y software. Deberás proporcionar asistencia técnica de alta calidad y resolver problemas complejos.",
+    location: "Guadalajara",
+    type: "Tiempo Completo",
+    hours: "40h/semana",
+    posted: "20 mayo, 2023",
+    applicants: 18,
+    requirements: [
+      "Experiencia mínima de 2 años en soporte técnico",
+      "Conocimientos avanzados en hardware de computadoras",
+      "Familiaridad con sistemas operativos Windows y Linux",
+      "Excelentes habilidades de comunicación y servicio al cliente",
+      "Capacidad para trabajar bajo presión y resolver problemas rápidamente",
+    ],
+    responsibilities: [
+      "Proporcionar soporte técnico a clientes por teléfono, email y chat",
+      "Diagnosticar y resolver problemas de hardware y software",
+      "Documentar soluciones y mantener una base de conocimientos",
+      "Seguir procedimientos de escalamiento cuando sea necesario",
+      "Mantener altos niveles de satisfacción del cliente",
+    ],
+  },
+  {
+    id: "3",
+    title: "Diseñador UX/UI",
+    department: "Diseño",
+    description:
+      "Buscamos un diseñador UX/UI creativo y orientado a detalles para diseñar experiencias de usuario excepcionales para nuestros productos digitales. Trabajarás en estrecha colaboración con equipos de producto y desarrollo.",
+    location: "Remoto",
+    type: "Tiempo Completo",
+    hours: "40h/semana",
+    posted: "10 mayo, 2023",
+    applicants: 32,
+    requirements: [
+      "Experiencia mínima de 3 años en diseño UX/UI",
+      "Portafolio que demuestre habilidades en diseño de interfaces",
+      "Dominio de herramientas como Figma, Adobe XD o Sketch",
+      "Conocimientos de principios de usabilidad y accesibilidad",
+      "Capacidad para crear wireframes, prototipos y mockups",
+    ],
+    responsibilities: [
+      "Diseñar interfaces intuitivas y atractivas para aplicaciones web y móviles",
+      "Realizar investigación de usuarios y pruebas de usabilidad",
+      "Crear y mantener sistemas de diseño y bibliotecas de componentes",
+      "Colaborar con desarrolladores para implementar diseños",
+      "Iterar diseños basados en feedback de usuarios y stakeholders",
+    ],
+  },
+  {
+    id: "4",
+    title: "Gerente de Marketing Digital",
+    department: "Marketing",
+    description:
+      "Estamos buscando un Gerente de Marketing Digital experimentado para liderar nuestras estrategias de marketing online. Serás responsable de aumentar la visibilidad de la marca y generar leads de calidad.",
+    location: "Monterrey",
+    type: "Tiempo Completo",
+    hours: "40h/semana",
+    posted: "5 mayo, 2023",
+    applicants: 15,
+    requirements: [
+      "Experiencia mínima de 5 años en marketing digital",
+      "Conocimientos avanzados en SEO, SEM, email marketing y redes sociales",
+      "Experiencia en análisis de datos y herramientas como Google Analytics",
+      "Capacidad para desarrollar y ejecutar campañas de marketing integradas",
+      "Habilidades de liderazgo y gestión de equipos",
+    ],
+    responsibilities: [
+      "Desarrollar e implementar estrategias de marketing digital",
+      "Gestionar campañas de publicidad online y optimizar el ROI",
+      "Analizar métricas de marketing y preparar informes de rendimiento",
+      "Supervisar el contenido del sitio web y las redes sociales",
+      "Colaborar con equipos de ventas para alinear estrategias",
+    ],
+  },
+  {
+    id: "5",
+    title: "Ingeniero DevOps",
+    department: "Operaciones",
+    description:
+      "Buscamos un Ingeniero DevOps para optimizar nuestros procesos de desarrollo y despliegue. Serás responsable de mantener nuestra infraestructura y automatizar procesos para mejorar la eficiencia.",
+    location: "Remoto",
+    type: "Tiempo Completo",
+    hours: "40h/semana",
+    posted: "25 mayo, 2023",
+    applicants: 10,
+    requirements: [
+      "Experiencia mínima de 4 años en roles DevOps",
+      "Conocimientos avanzados en AWS, Docker y Kubernetes",
+      "Experiencia con herramientas de CI/CD como Jenkins o GitHub Actions",
+      "Familiaridad con lenguajes de scripting como Python o Bash",
+      "Conocimientos de seguridad informática y mejores prácticas",
+    ],
+    responsibilities: [
+      "Diseñar y mantener infraestructura en la nube",
+      "Implementar y gestionar pipelines de CI/CD",
+      "Automatizar procesos de desarrollo y despliegue",
+      "Monitorear sistemas y resolver problemas de infraestructura",
+      "Colaborar con equipos de desarrollo para mejorar procesos",
+    ],
+  },
+  {
+    id: "6",
+    title: "Representante de Ventas",
+    department: "Ventas",
+    description:
+      "Estamos buscando un Representante de Ventas entusiasta para promover nuestros productos y servicios. Serás responsable de generar nuevos negocios y mantener relaciones con clientes existentes.",
+    location: "Ciudad de México",
+    type: "Tiempo Completo",
+    hours: "40h/semana",
+    posted: "18 mayo, 2023",
+    applicants: 20,
+    requirements: [
+      "Experiencia mínima de 2 años en ventas B2B",
+      "Excelentes habilidades de comunicación y negociación",
+      "Capacidad para entender necesidades técnicas de clientes",
+      "Orientación a resultados y cumplimiento de metas",
+      "Disponibilidad para viajar ocasionalmente",
+    ],
+    responsibilities: [
+      "Identificar y contactar potenciales clientes",
+      "Realizar demostraciones de productos y presentaciones de ventas",
+      "Negociar contratos y cerrar ventas",
+      "Mantener relaciones con clientes existentes",
+      "Alcanzar y superar metas de ventas mensuales y trimestrales",
+    ],
+  },
+]

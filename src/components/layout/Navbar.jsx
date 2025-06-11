@@ -42,6 +42,8 @@ const NavBar = () => {
   return (
     <>
       <nav
+        id="navbar"
+        aria-label="Main navigation"
         className={`border-b fixed top-0 left-0 right-0 px-0 py-4 md:p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${
           show ? "translate-y-0" : "-translate-y-full"
         }`}
@@ -84,7 +86,7 @@ const NavLinks = () => {
       className="flex items-center gap-3 w-full justify-center"
       aria-label="Main navigation"
     >
-      {Datalinks.map((link) => {
+      {Datalinks.slice(0, 4).map((link) => {
         if (link.label === "Contacto") {
           return (
             <a
@@ -166,7 +168,7 @@ const MobileMenu = () => {
 
         <div className="flex flex-col gap-4 mt-6">
           <Separator className="my-2" />
-          {Datalinks.map((link) => (
+          {Datalinks.slice(0, 4).map((link) => (
             <Link
               key={link.label}
               href={link.href}

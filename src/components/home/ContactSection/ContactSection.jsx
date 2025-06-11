@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Mail,
   MapPin,
@@ -17,10 +18,14 @@ import {
   Send,
 } from "lucide-react";
 import Header from "../../layout/Header";
+import MapDisplay from "./MapDisplay";
 
 // ContactSection Component
 // This component is used to create a contact section with a form and contact information
 const ContactSection = () => {
+  const mapEmbedSrc =
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125195.85728429257!2d-86.35086368359375!3d12.114993300000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f73ffcf5e84c9b5%3A0x3d1b2c5e8f9a7b6c!2sManagua%2C%20Nicaragua!5e0!3m2!1sen!2sus!4v1635959000000!5m2!1sen!2sus";
+
   return (
     <section
       id="contact"
@@ -48,6 +53,10 @@ const ContactSection = () => {
         />
         <ContactInfo />
       </div>
+      <MapDisplay
+        mapSrc={mapEmbedSrc}
+        className="w-full mt-12 z-10 rounded-xl py-4 md:p-6 lg:p-10 bg-gray-800/30"
+      />
     </section>
   );
 };
@@ -90,9 +99,7 @@ const ContactForm = () => {
         <div className="group w-full flex justify-end">
           <Button type="button" className="rounded-full z-10">
             Enviar Mensaje
-            <Send
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
+            <Send className="transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
         </div>
       </form>
@@ -109,7 +116,15 @@ const ContactInfo = () => {
         <ContactItem
           icon={<Phone className="h-5 w-5 text-[#3B82F6]" />}
           label="Teléfono"
-          value="+505 5848-4317"
+          value={
+            <Link
+              href="https://wa.me/+50558484317"
+              target="_blank"
+              className="underline"
+            >
+              Contacta por WhatsApp
+            </Link>
+          }
         />
         <ContactItem
           icon={<MapPin className="h-5 w-5 text-[#3B82F6]" />}

@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { CartProvider } from "./cart-products/context/cart-context";
 import NavBar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Toaster } from "@/components/ui/sonner"; // Import Toaster
 import "./globals.css";
 
 export const metadata = {
@@ -31,7 +32,10 @@ export default function RootLayout({ children }) {
       <body className={montserrat.className}>
         <NavBar />
         <main className="pt-16">
-          <CartProvider>{children}</CartProvider>
+          <CartProvider>
+            <Toaster richColors position="bottom-right" /> {/* Add Toaster here */}
+            {children}
+          </CartProvider>
           <Analytics />
         </main>
         <Footer />
