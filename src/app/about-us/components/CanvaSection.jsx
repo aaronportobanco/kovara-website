@@ -3,14 +3,25 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import {
-  Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 import { Card, CardContent } from "@/components/ui/card";
 
-import { motion } from "framer-motion";
-
-import { Zap, Users, Gauge, BrainCog, HandHeart, Truck, PiggyBank, Landmark } from "lucide-react";
+import {
+  Zap,
+  Users,
+  Gauge,
+  BrainCog,
+  HandHeart,
+  Truck,
+  PiggyBank,
+  Landmark,
+} from "lucide-react";
 
 const canvasData = [
   {
@@ -101,48 +112,47 @@ const canvasData = [
       "Adicionalmente, se genera ingreso a través de la comercialización de periféricos y componentes informáticos como audífonos, cargadores, monitores y otros accesorios.",
     ],
   },
-]
+];
 
 export default function Canva() {
   const plugin = React.useRef(
-    Autoplay({ delay: 10000, stopOnInteraction: false, stopOnMouseEnter: false })
+    Autoplay({
+      delay: 10000,
+      stopOnInteraction: false,
+      stopOnMouseEnter: false,
+    })
   );
 
   return (
-  <section className="w-full mx-auto py-12 px-6 bg-[#0f172a] rounded-xl overflow-visible">
-    <div>
-      <h2 className="text-3xl font-bold text-center text-white mb-10">
-        Modelo de Negocio: <span className="text-sky-400">KOVARA</span>
-      </h2>
-    </div>
+    <section className="w-full mx-auto py-12 px-6 bg-[#0f172a] rounded-xl overflow-visible">
+      <div>
+        <h2 className="text-3xl font-bold text-center text-white mb-10">
+          Modelo de Negocio: <span className="text-sky-400">KOVARA</span>
+        </h2>
+      </div>
       <Carousel
-      opts={{ loop: true }}
-      plugins={[plugin.current]}
-      className="w-full"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
-      <CarouselContent className="-ml-6">
-        {canvasData.map((item, index) => (
-          <CarouselItem
-            key={index}
-            className="md:basis-1/1 lg:basis-1/3 flex-shrink-0 pl-10"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.1 }}
-              viewport={{ once: true }}
+        opts={{ loop: true }}
+        plugins={[plugin.current]}
+        className="w-full"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
+      >
+        <CarouselContent className="-ml-6">
+          {canvasData.map((item, index) => (
+            <CarouselItem
+              key={index}
+              className="md:basis-1/1 lg:basis-1/3 flex-shrink-0 pl-10"
             >
-              <Card className="min-h-[22rem] bg-slate-900 text-white shadow-xl rounded-2xl border-slate-500 
-                flex flex-col items-center justify-start mr-2">
-                
+              <Card
+                className="min-h-[22rem] bg-slate-900 text-white shadow-xl rounded-2xl border-slate-500 
+                flex flex-col items-center justify-start mr-2"
+              >
                 <item.icon className="w-6 h-6 text-sky-400 mb-2 mt-4" />
-                
+
                 <h3 className="text-sm font-semibold text-sky-400 uppercase mb-2 text-center">
                   {item.label}
                 </h3>
-          
+
                 <CardContent className="overflow-y-auto max-h-[17rem] scrollbar-custom w-full">
                   <ul className="list-disc list-inside text-sm space-y-2 text-slate-300 text-center">
                     {item.content.map((text, idx) => (
@@ -151,13 +161,12 @@ export default function Canva() {
                   </ul>
                 </CardContent>
               </Card>
-            </motion.div>
-          </CarouselItem>        
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  </section>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </section>
   );
 }

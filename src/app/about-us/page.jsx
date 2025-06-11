@@ -15,6 +15,7 @@ import Valores from "./components/ValorSection";
 import Politica from "./components/PoliticasSection";
 import ReglamentosNormativas from "./components/ReglamentosNormativasSection";
 import Canva from "./components/CanvaSection";
+import Organigrama from './components/SectionOrganigrama';
 
 // Main Page
 const AboutUsPage = () => {
@@ -52,6 +53,9 @@ const AboutUsPage = () => {
         <Politica />
         <Section title="Manual de marca">
           <ManualMarca />
+        </Section>
+        <Section title="Estructura organizacional">
+          <Organigrama />
         </Section>
         <Canva />
         <ReglamentosNormativas />

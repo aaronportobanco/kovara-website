@@ -8,8 +8,6 @@ import {
   HandCoins, ShieldCheck, EarthLock
 } from "lucide-react";
 
-// Comentario agregado para forzar commit XD
-
 const Politica = () => {
     return (
         <Section title="Políticas Internas">
