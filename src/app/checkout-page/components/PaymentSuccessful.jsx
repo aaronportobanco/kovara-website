@@ -1,8 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react"; // X icon removed as it's not needed for order confirmation
+import { CheckCircle, ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator"; // Added Separator
 
 const PaymentSuccessful = () => {
   // Mock data for a successful order
@@ -52,16 +51,20 @@ const PaymentSuccessful = () => {
           Gracias por tu compra. Recibirás un correo electrónico de confirmación
           en breve con los detalles de tu pedido.
         </p>
-        <div className="text-sm">
-          Número de Pedido:{" "}
+        <div className="text-sm text-muted-foreground">
+          Número de Pedido:&nbsp;
           <span className="font-semibold">{orderData.orderNumber}</span>
         </div>
         <div className="w-full flex flex-col gap-3 max-w-xs mt-6">
           <Link href="/products" passHref>
-            <Button className="w-full">Continuar comprando</Button>
+            <Button className="w-full group">
+              Continuar comprando
+              <ArrowRight className="transition-transform duration-300 group-hover:-translate-x-1" />
+            </Button>
           </Link>
           <Link href="/" passHref>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full group">
+              <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
               Volver al sitio web
             </Button>
           </Link>
