@@ -8,13 +8,24 @@ export default function TransactionSummary({ onBack, onNext }) {
   // Placeholder data - replace with actual data source if available
   const orderDetailsPlaceholders = {
     orderId: "#0214582001",
-    userName: "Aaron", // Or fetch from user context
     orderDate: "Mar 28, 2023",
-    deliveryDate: "Abril 01, 2023",
-    status: "En Progreso",
-    paymentStatus: "Pagado",
-    paymentMethod: "Contra Entrega", // Example: Cash on Delivery
-    address: "718 Robbyn Meadow, Springfield",
+    deliveryDate: "Abril 01, 2023", // This can be part of shipping or general info
+    status: "En Progreso", // General order status
+    // shippingDetails, paymentDetails, orderItems, and totals will be added
+    shippingDetails: {
+      email: "aaron.portobanco@example.com",
+      fullName: "Aarón Portobanco",
+      address: "718 Robbyn Meadow, Springfield", // Kept original for consistency
+      cityStateZip: "Managua, Managua, 11001",
+      phone: "+505 8765 4321",
+      shippingMethod: "Delivery Estándar",
+    },
+    paymentDetails: {
+      paymentMethod: "Contra Entrega", // Kept original
+      cardInfo: "N/A para Contra Entrega", // Example for COD
+      cardName: "N/A",
+      paymentStatus: "Pendiente", // More specific payment status
+    },
   };
 
   return (
@@ -45,42 +56,115 @@ export default function TransactionSummary({ onBack, onNext }) {
         <CardHeader>
           <CardTitle>Información del Pedido</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 text-sm">
-          <div>
-            <p className="text-muted-foreground">Fecha del Pedido</p>
-            <p className="text-foreground font-medium">
-              {orderDetailsPlaceholders.orderDate}
-            </p>
+        <CardContent className="space-y-6 text-sm">
+          {/* General Order Info */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+            <div>
+              <p>
+                <span className="text-muted-foreground">Fecha del Pedido:</span>{" "}
+                <span className="text-foreground font-medium">
+                  {orderDetailsPlaceholders.orderDate}
+                </span>
+              </p>
+            </div>
+            <div>
+              <p>
+                <span className="text-muted-foreground">Fecha de Entrega Estimada:</span>{" "}
+                <span className="text-foreground font-medium">
+                  {orderDetailsPlaceholders.deliveryDate}
+                </span>
+              </p>
+            </div>
+            <div>
+              <p>
+                <span className="text-muted-foreground">Estado del Pedido:</span>{" "}
+                <span className="text-foreground font-medium">
+                  {orderDetailsPlaceholders.status}
+                </span>
+              </p>
+            </div>
           </div>
+
+          <Separator className="my-2 bg-gray-700" />
+
+          {/* Shipping Information */}
           <div>
-            <p className="text-muted-foreground">Fecha de Entrega Estimada</p>
-            <p className="text-foreground font-medium">
-              {orderDetailsPlaceholders.deliveryDate}
-            </p>
+            <h4 className="text-md font-semibold mb-2">
+              Información de Envío
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm">
+              <div className="space-y-2">
+                <p>
+                  <span className="font-medium text-muted-foreground">Nombre:</span>{" "}
+                  <span className="text-foreground">
+                    {orderDetailsPlaceholders.shippingDetails.fullName}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-medium text-muted-foreground">Dirección:</span>{" "}
+                  <span className="text-foreground">
+                    {orderDetailsPlaceholders.shippingDetails.address}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-medium text-muted-foreground">Ciudad/Depto/CP:</span>{" "}
+                  <span className="text-foreground">
+                    {orderDetailsPlaceholders.shippingDetails.cityStateZip}
+                  </span>
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p>
+                  <span className="font-medium text-muted-foreground">Email:</span>{" "}
+                  <span className="text-foreground">
+                    {orderDetailsPlaceholders.shippingDetails.email}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-medium text-muted-foreground">Teléfono:</span>{" "}
+                  <span className="text-foreground">
+                    {orderDetailsPlaceholders.shippingDetails.phone}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-medium text-muted-foreground">Método de envío:</span>{" "}
+                  <span className="text-foreground">
+                    {orderDetailsPlaceholders.shippingDetails.shippingMethod}
+                  </span>
+                </p>
+              </div>
+            </div>
           </div>
+
+          <Separator className="my-2 bg-gray-700" />
+
+          {/* Payment Information */}
           <div>
-            <p className="text-muted-foreground">Estado</p>
-            <p className="text-foreground font-medium">
-              {orderDetailsPlaceholders.status}
-            </p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Estado del Pago</p>
-            <p className="text-foreground font-medium">
-              {orderDetailsPlaceholders.paymentStatus}
-            </p>
-          </div>
-          <div>
-            <p className="text-muted-foreground">Método de Pago</p>
-            <p className="text-foreground font-medium">
-              {orderDetailsPlaceholders.paymentMethod}
-            </p>
-          </div>
-          <div className="sm:col-span-2">
-            <p className="text-muted-foreground">Dirección de Envío</p>
-            <p className="text-foreground font-medium">
-              {orderDetailsPlaceholders.address}
-            </p>
+            <h4 className="text-md font-semibold mb-2">
+              Información de Pago
+            </h4>
+            <div className="space-y-1">
+              <p>
+                <span className="font-medium text-muted-foreground">Método de pago:</span>{" "}
+                {orderDetailsPlaceholders.paymentDetails.paymentMethod}
+              </p>
+              {orderDetailsPlaceholders.paymentDetails.paymentMethod !== "Contra Entrega" && (
+                <>
+                  <p>
+                    <span className="font-medium text-muted-foreground">Info Tarjeta:</span>{" "}
+                    {orderDetailsPlaceholders.paymentDetails.cardInfo}
+                  </p>
+                  <p>
+                    <span className="font-medium text-muted-foreground">Nombre en tarjeta:</span>{" "}
+                    {orderDetailsPlaceholders.paymentDetails.cardName}
+                  </p>
+                </>
+              )}
+              <p>
+                <span className="font-medium text-muted-foreground">Estado del Pago:</span>{" "}
+                {orderDetailsPlaceholders.paymentDetails.paymentStatus}
+              </p>
+            </div>
           </div>
         </CardContent>
       </Card>
