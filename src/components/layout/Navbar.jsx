@@ -42,6 +42,8 @@ const NavBar = () => {
   return (
     <>
       <nav
+        id="navbar"
+        aria-label="Main navigation"
         className={`border-b fixed top-0 left-0 right-0 px-0 py-4 md:p-4 flex items-center justify-between z-50 backdrop-blur-md transition-transform duration-300 ${
           show ? "translate-y-0" : "-translate-y-full"
         }`}
