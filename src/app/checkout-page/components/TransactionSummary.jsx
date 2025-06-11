@@ -178,7 +178,7 @@ export default function TransactionSummary({ onBack, onNext }) {
           }}
         >
           <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
-          Volver
+          Volver al método de pago
         </Button>
         <Button className="w-full group" onClick={onNext}>
           Confirmar pedido
