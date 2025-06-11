@@ -19,14 +19,18 @@ const CheckOut = () => {
   return (
     <section id="checkout" className="flex flex-col p-4 md:px-6 gap-9">
       {/* Breadcrumb y encabezado */}
-      <BreadcrumbComp page="Checkout" />
+      {step !== 4 && (
+        <>
+          <BreadcrumbComp page="Checkout" />
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold">Checkout</h2>
+            <p className="text-base text-muted-foreground">
+              Complete su compra de forma segura.
+            </p>
+          </div>
+        </>
+      )}
 
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold">Checkout</h2>
-        <p className="text-base text-muted-foreground">
-          Complete su compra de forma segura.
-        </p>
-      </div>
       {step === 4 ? (
         <PaymentSuccessful />
       ) : (
