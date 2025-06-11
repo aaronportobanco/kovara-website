@@ -63,8 +63,8 @@ const OrderSummary = ({ step }) => {
         />
         <Button
           type="submit"
-          variant="filled"
-          className="absolute right-1 top-1 bottom-1 h-auto px-4 font-bold hover:bg-blue-600 transition-colors"
+          variant="ghost"
+          className="absolute right-1 top-1 bottom-1 h-auto px-4 font-bold"
         >
           Aplicar
         </Button>
