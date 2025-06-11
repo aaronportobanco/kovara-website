@@ -39,9 +39,9 @@ const PaymentSuccessful = () => {
   orderData.total = orderData.subtotal + orderData.impuestos;
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-start py-8 bg-slate-800/50 rounded-lg shadow-xl w-full max-w-4xl mx-auto my-10">
+    <div className="flex flex-col md:flex-row justify-center items-start  rounded-lg w-full max-w-4xl mx-auto">
       {/* Left Side: Success Message and Actions */}
-      <div className="p-6 md:p-8 w-full md:w-1/2 flex flex-col items-center justify-center text-center space-y-6">
+      <div className="py-6 md:py-8 w-full md:w-1/2 flex flex-col items-center justify-center text-center space-y-6">
         <div className="inline-block p-3 bg-green-700/30 rounded-full">
           <CheckCircle className="w-12 h-12 text-green-500 dark:text-green-400" />
         </div>
@@ -61,76 +61,10 @@ const PaymentSuccessful = () => {
             <Button className="w-full">Continuar comprando</Button>
           </Link>
           <Link href="/" passHref>
-            <Button variant="outline" className="w-full">Volver al sitio web</Button>
+            <Button variant="outline" className="w-full">
+              Volver al sitio web
+            </Button>
           </Link>
-        </div>
-      </div>
-
-      {/* Right Side: Order Details Summary */}
-      <div className="p-6 md:p-8 w-full md:w-1/2 space-y-6">
-        <h3 className="text-xl font-semibold mb-4 text-center md:text-left">
-          Detalles del Pedido
-        </h3>
-
-        {/* Shipping Information */}
-        <div className="space-y-2">
-          <h4 className="text-md font-semibold">Información de Envío</h4>
-          <div className="text-sm space-y-1">
-            <p>
-              <span className="font-medium">Nombre:</span>{" "}
-              {orderData.shippingDetails.fullName}
-            </p>
-            <p>
-              <span className="font-medium">Dirección:</span>{" "}
-              {orderData.shippingDetails.address}
-            </p>
-            <p>
-              <span className="font-medium">Ciudad/Depto/CP:</span>{" "}
-              {orderData.shippingDetails.cityStateZip}
-            </p>
-            <p>
-              <span className="font-medium">Email:</span>{" "}
-              {orderData.shippingDetails.email}
-            </p>
-            <p>
-              <span className="font-medium">Teléfono:</span>{" "}
-              {orderData.shippingDetails.phone}
-            </p>
-            <p>
-              <span className="font-medium">Método de envío:</span>{" "}
-              {orderData.shippingDetails.shippingMethod}
-            </p>
-          </div>
-        </div>
-
-        <Separator className="my-2 bg-gray-600" />
-
-        {/* Payment Information */}
-        <div className="space-y-2">
-          <h4 className="text-md font-semibold">Información de Pago</h4>
-          <div className="text-sm space-y-1">
-            <p>
-              <span className="font-medium">Método de pago:</span>{" "}
-              {orderData.paymentDetails.paymentMethod}
-            </p>
-            <p>
-              <span className="font-medium">Tarjeta:</span>{" "}
-              {orderData.paymentDetails.cardInfo}
-            </p>
-            <p>
-              <span className="font-medium">Nombre en tarjeta:</span>{" "}
-              {orderData.paymentDetails.cardName}
-            </p>
-          </div>
-        </div>
-
-        <Separator className="my-2 bg-gray-600" />
-        {/* Order Summary */}
-        <div className="space-y-1">
-          <div className="flex justify-between font-semibold text-md pt-1">
-            <span>Total:</span>
-            <span>C${orderData.total.toFixed(2)}</span>
-          </div>
         </div>
       </div>
     </div>
