@@ -59,7 +59,7 @@ const PaymentSuccessful = () => {
           <Link href="/products" passHref>
             <Button className="w-full group">
               Continuar comprando
-              <ArrowRight className="transition-transform duration-300 group-hover:-translate-x-1" />
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </Link>
           <Link href="/" passHref>
