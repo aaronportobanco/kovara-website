@@ -414,17 +414,16 @@ export const JobData = [
       "Buscamos un desarrollador frontend con experiencia en React y Next.js para unirse a nuestro equipo de desarrollo web. Serás responsable de crear interfaces de usuario atractivas y funcionales para nuestros productos.",
     descripcion:
       "En Kovara, estamos en la búsqueda de un Desarrollador Frontend talentoso y apasionado para integrarse a nuestro dinámico equipo de desarrollo. Como parte clave del equipo, tendrás la oportunidad de trabajar con tecnologías de vanguardia como React y Next.js, contribuyendo directamente a la creación de interfaces de usuario innovadoras, intuitivas y de alto rendimiento para nuestros productos digitales. Buscamos a alguien proactivo, con un ojo para el detalle y un fuerte deseo de construir experiencias web excepcionales que deleiten a nuestros usuarios.",
-    location: "Ciudad de México",
-    type: "Tiempo Completo", // Corresponds to Full-time
-    remote: true, // Added remote field
+    type: "Presencial",
+    shift: "Tiempo Completo",
     hours: "40h/semana",
     posted: "15 mayo, 2023",
     applicants: 24,
-    salaryRange: "$35,000 - $50,000 MXN mensuales",
+    salaryRange: "C$20,000 - C$35,000 NIO mensuales",
     requirements: [
       "Experiencia mínima de 3 años en desarrollo frontend",
       "Dominio de React, Next.js, y Tailwind CSS",
-      "Conocimientos de TypeScript",
+      "Conocimientos de shiftScript",
       "Experiencia con sistemas de control de versiones (Git)",
       "Capacidad para trabajar en equipo y comunicarse efectivamente",
     ],
@@ -436,7 +435,7 @@ export const JobData = [
       "Mantenerse actualizado con las últimas tendencias y mejores prácticas",
     ],
     skillsIntro: "Para tener éxito en este rol, necesitarás un sólido conjunto de habilidades técnicas y blandas. Las siguientes son algunas de las competencias clave que buscamos:",
-    skills: ["React", "Next.js", "TailwindCSS", "TypeScript", "Git"],
+    skills: ["React", "Next.js", "TailwindCSS", "shiftScript", "Git"],
   },
   {
     id: "2",
@@ -446,13 +445,12 @@ export const JobData = [
       "Estamos buscando un especialista en soporte técnico para ayudar a nuestros clientes con problemas de hardware y software. Deberás proporcionar asistencia técnica de alta calidad y resolver problemas complejos.",
     descripcion:
       "Kovara busca un Especialista en Soporte Técnico dedicado y con vocación de servicio para unirse a nuestro equipo en Guadalajara. Serás el primer punto de contacto para nuestros clientes, brindando asistencia experta y soluciones efectivas a una variedad de problemas de hardware y software. Tu rol será crucial para asegurar la satisfacción del cliente, diagnosticando incidencias, guiando a los usuarios y escalando casos complejos cuando sea necesario. Si te apasiona la tecnología y ayudar a otros, esta es tu oportunidad.",
-    location: "Guadalajara",
-    type: "Tiempo Completo",
-    remote: false, // Added remote field
+    type: "Híbrido",
+    shift: "Tiempo Completo",
     hours: "40h/semana",
     posted: "20 mayo, 2023",
     applicants: 18,
-    salaryRange: "$25,000 - $35,000 MXN mensuales",
+    salaryRange: "C$15,000 - C$25,000 NIO mensuales",
     requirements: [
       "Experiencia mínima de 2 años en soporte técnico",
       "Conocimientos avanzados en hardware de computadoras",
@@ -478,13 +476,12 @@ export const JobData = [
       "Buscamos un diseñador UX/UI creativo y orientado a detalles para diseñar experiencias de usuario excepcionales para nuestros productos digitales. Trabajarás en estrecha colaboración con equipos de producto y desarrollo.",
     descripcion:
       "Estamos en la búsqueda de un Diseñador UX/UI innovador y meticuloso para sumarse a nuestro equipo de Diseño. En este rol, serás fundamental para dar forma a la experiencia de usuario de nuestros productos digitales, desde la investigación inicial y la conceptualización hasta la creación de prototipos y el diseño final de interfaces. Colaborarás estrechamente con los equipos de producto y desarrollo para asegurar que nuestras soluciones no solo sean visualmente atractivas, sino también intuitivas, accesibles y centradas en el usuario. Buscamos a alguien con una fuerte pasión por resolver problemas complejos a través del diseño.",
-    location: "Remoto",
-    type: "Tiempo Completo",
-    remote: true, // Added remote field
+    type: "Presencial",
+    shift: "Tiempo Completo",
     hours: "40h/semana",
     posted: "10 mayo, 2023",
     applicants: 32,
-    salaryRange: "$40,000 - $55,000 MXN mensuales",
+    salaryRange: "C$18,000 - C$30,000 NIO mensuales",
     requirements: [
       "Experiencia mínima de 3 años en diseño UX/UI",
       "Portafolio que demuestre habilidades en diseño de interfaces",
@@ -510,13 +507,12 @@ export const JobData = [
       "Estamos buscando un Gerente de Marketing Digital experimentado para liderar nuestras estrategias de marketing online. Serás responsable de aumentar la visibilidad de la marca y generar leads de calidad.",
     descripcion:
       "Kovara busca un Gerente de Marketing Digital estratégico y con experiencia para liderar y ejecutar nuestras iniciativas de marketing online. Serás responsable de desarrollar e implementar estrategias integrales que aumenten la visibilidad de nuestra marca, atraigan tráfico cualificado y generen leads de alta calidad. Este rol requiere una profunda comprensión de SEO, SEM, marketing de contenidos, redes sociales y análisis de datos. Si eres un líder proactivo con una trayectoria demostrada en la creación y gestión de campañas exitosas, te invitamos a unirte a nuestro equipo en Monterrey.",
-    location: "Monterrey",
-    type: "Tiempo Completo",
-    remote: false, // Added remote field
+    type: "Híbrido",
+    shift: "Tiempo Completo",
     hours: "40h/semana",
     posted: "5 mayo, 2023",
     applicants: 15,
-    salaryRange: "$50,000 - $70,000 MXN mensuales",
+    salaryRange: "C$25,000 - C$40,000 NIO mensuales",
     requirements: [
       "Experiencia mínima de 5 años en marketing digital",
       "Conocimientos avanzados en SEO, SEM, email marketing y redes sociales",
@@ -548,13 +544,12 @@ export const JobData = [
       "Buscamos un Ingeniero DevOps para optimizar nuestros procesos de desarrollo y despliegue. Serás responsable de mantener nuestra infraestructura y automatizar procesos para mejorar la eficiencia.",
     descripcion:
       "Nos encontramos en la búsqueda de un Ingeniero DevOps altamente cualificado para unirse a nuestro equipo de Operaciones. En este puesto, serás clave para optimizar nuestros ciclos de desarrollo y despliegue, asegurando la estabilidad, escalabilidad y eficiencia de nuestra infraestructura. Trabajarás en la automatización de procesos, la implementación de CI/CD, la gestión de la nube (AWS) y la monitorización de sistemas. Si te apasiona la cultura DevOps y tienes experiencia en la construcción de sistemas robustos y automatizados, esta posición remota es ideal para ti.",
-    location: "Remoto",
-    type: "Tiempo Completo",
-    remote: true, // Added remote field
+    type: "Remoto",
+    shift: "Tiempo Completo",
     hours: "40h/semana",
     posted: "25 mayo, 2023",
     applicants: 10,
-    salaryRange: "$60,000 - $80,000 MXN mensuales",
+    salaryRange: "C$30,000 - C$45,000 NIO mensuales",
     requirements: [
       "Experiencia mínima de 4 años en roles DevOps",
       "Conocimientos avanzados en AWS, Docker y Kubernetes",
@@ -580,13 +575,12 @@ export const JobData = [
       "Estamos buscando un Representante de Ventas entusiasta para promover nuestros productos y servicios. Serás responsable de generar nuevos negocios y mantener relaciones con clientes existentes.",
     descripcion:
       "Kovara está buscando un Representante de Ventas dinámico y orientado a resultados para unirse a nuestro equipo comercial en Ciudad de México. Tu principal responsabilidad será impulsar el crecimiento de ingresos mediante la promoción y venta de nuestros productos y servicios tecnológicos. Esto incluye la prospección de nuevos clientes, la gestión de relaciones con la cartera existente, la realización de presentaciones efectivas y el cierre de negociaciones. Si eres una persona proactiva, con excelentes habilidades de comunicación y una pasión por las ventas, queremos conocerte.",
-    location: "Ciudad de México",
-    type: "Tiempo Completo",
-    remote: false, // Added remote field
+    type: "Remoto",
+    shift: "Tiempo Completo",
     hours: "40h/semana",
     posted: "18 mayo, 2023",
     applicants: 20,
-    salaryRange: "$30,000 - $45,000 MXN mensuales + comisiones",
+    salaryRange: "C$12,000 - C$20,000 NIO mensuales + comisiones",
     requirements: [
       "Experiencia mínima de 2 años en ventas B2B",
       "Excelentes habilidades de comunicación y negociación",
