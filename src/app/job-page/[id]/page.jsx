@@ -1,9 +1,10 @@
-import React from 'react'
+import JobDetail from "../components/JobDetail"
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
+export const metadata = {
+  title: "Vacantes - Kovara",
+  description: "Información detallada sobre la vacante y formulario de aplicación.",
 }
 
-export default page
+export default function JobDetailPage({ params }) {
+  return <JobDetail jobId={params.id} />
+}
