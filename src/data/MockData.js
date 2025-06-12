@@ -256,7 +256,7 @@ export const DataProducts = [
 import { Description } from "@radix-ui/react-dialog";
 // Data for the services section
 // This data is used to populate the services cards on the homepage and other sections of the website.
-import { Award, Headphones, Truck } from "lucide-react";
+import { Award, BriefcaseBusiness, Headphones, Truck } from "lucide-react";
 export const DataFeatures = [
   {
     Icon: Award,
@@ -331,7 +331,7 @@ export const DataTestimonials = [
 
 // Navigation links component for navbar
 // This data is used to populate the navigation links in the navbar component.
-import { House, Users, Boxes, Phone, ShoppingCart } from "lucide-react";
+import { House, Users, Boxes, Phone} from "lucide-react";
 export const Datalinks = [
   {
     href: "/",
@@ -349,9 +349,9 @@ export const Datalinks = [
     Icon: <Boxes className="mr-2" strokeWidth={3} />,
   },
   {
-    href: "/cart-products",
-    label: "Carrito",
-    Icon: <ShoppingCart className="mr-2" strokeWidth={3} />,
+    href: "/job-page",
+    label: "Ofertas de Trabajo",
+    Icon: <BriefcaseBusiness className="mr-2" strokeWidth={3} />,
   },
 ];
 
