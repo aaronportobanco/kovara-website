@@ -1,4 +1,4 @@
-import JobDetail from "../components/JobDetail"
+import JobDetail from "./JobDetail"
 
 export const metadata = {
   title: "Vacantes - Kovara",
