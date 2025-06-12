@@ -15,6 +15,7 @@ import Valores from "./components/ValorSection";
 import Politica from "./components/PoliticasSection";
 import ReglamentosNormativas from "./components/ReglamentosNormativasSection";
 import Canva from "./components/CanvaSection";
+import Organigrama from './components/SectionOrganigrama';
 
 // Main Page
 const AboutUsPage = () => {
@@ -25,8 +26,8 @@ const AboutUsPage = () => {
 
       {/* Encabezado */}
       <section className="flex flex-col md:flex-row justify-between items-start md:items-center w-full py-6 gap-6">
-        <div className="flex flex-col gap-4 flex-1">
-          <h1 className="text-white text-3xl font-bold">Sobre Nosotros</h1>
+        <div className="flex flex-col gap-7">
+          <h1 className="animate-typing overflow-hidden whitespace-nowrap pr-5 text-3xl text-white font-bold">Sobre Nosotros</h1>
           <p className="text-slate-400 text-base font-medium">
             Conoce más sobre Kovara y nuestra misión como empresa
           </p>
@@ -52,6 +53,9 @@ const AboutUsPage = () => {
         <Politica />
         <Section title="Manual de marca">
           <ManualMarca />
+        </Section>
+        <Section title="Estructura organizacional">
+          <Organigrama />
         </Section>
         <Canva />
         <ReglamentosNormativas />

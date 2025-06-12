@@ -82,11 +82,10 @@ const ReglamentosNormativas = () => {
           Normativas
         </Button>
       </div>
-
-      <Accordion type="single" collapsible className="w-full max-w-3xl space-y-3">
+      <Accordion type="single" collapsible className="w-full max-w-4xl space-y-3">
         {contentToRender.map((item, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-lg font-semibold text-slate-100 hover:text-sky-200 transition">
+            <AccordionTrigger className="text-lg font-semibold text-slate-100 hover:text-sky-200">
               {item.title}
             </AccordionTrigger>
             <AccordionContent className="text-slate-100 whitespace-pre-line">
