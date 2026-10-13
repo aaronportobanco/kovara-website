@@ -1,16 +1,16 @@
 "use client";
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+// import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
 import { Datalinks, storeInfo, supportLinks } from "@/data/MockData";
 import scrollToSection from "@/utils/scroll-utils";
 
-export const socialLinks = [
+/* export const socialLinks = [
   { icon: <Facebook />, href: "#", ariaLabel: "Facebook" },
   { icon: <Twitter />, href: "#", ariaLabel: "Twitter" },
   { icon: <Instagram />, href: "#", ariaLabel: "Instagram" },
   { icon: <Linkedin />, href: "#", ariaLabel: "Linkedin" },
-];
+]; */
 
 // Main Footer Component
 // This component is responsible for rendering the footer of the website.
@@ -54,7 +54,7 @@ function FooterBrand() {
         Tu tienda de computación de confianza. Productos de calidad,
         asesoramiento experto y servicio excepcional.
       </p>
-      <SocialLinks />
+      {/* <SocialLinks /> */}
     </div>
   );
 }

@@ -11,10 +11,10 @@ import {
   Mail,
   MapPin,
   Phone,
-  Facebook,
+  /* Facebook,
   Twitter,
   Instagram,
-  Linkedin,
+  Linkedin, */
   Send,
 } from "lucide-react";
 import Header from "../../layout/Header";
@@ -137,14 +137,14 @@ const ContactInfo = () => {
           value="soporte@kovara.com"
         />
       </div>
-      <SocialIcons />
+      {/* <SocialIcons /> */}
     </div>
   );
 };
 
 // SocialIcons Component
 // This component is used to display social media icons with a hover effect
-const SocialIcons = () => {
+/* const SocialIcons = () => {
   const socials = [
     { icon: <Facebook />, name: "Facebook" },
     { icon: <Instagram />, name: "Instagram" },
@@ -163,6 +163,7 @@ const SocialIcons = () => {
     </div>
   );
 };
+ */
 
 // ContactItem Component
 // This component is used to display contact information with an icon, label, and value
@@ -178,7 +179,7 @@ const ContactItem = ({ icon, label, value }) => (
 
 // SocialIcon Component
 // This component is used to display social media icons with a hover effect
-const SocialIcon = ({ icon, label }) => (
+/* const SocialIcon = ({ icon, label }) => (
   <Button
     variant="secondary"
     size="icon"
@@ -189,7 +190,7 @@ const SocialIcon = ({ icon, label }) => (
     {icon}
   </Button>
 );
-
+ */
 // FormField Component
 // This component is used to create a form field with a label and an input or textarea
 const FormField = ({ id, label, placeholder, isTextarea, rows = 3 }) => (
