@@ -38,7 +38,7 @@ const ContactSection = () => {
         alt="Decoración abstracta"
         width={700}
         height={700}
-        className="absolute rotate-6 left-[120px] top-[40px] z-0 opacity-10 scale-x-[-1] filter blur-sm"
+        className="absolute rotate-6 left-[120px] top-[40px] z-0 opacity-10 scale-x-[-1] filter blur-xs"
       />
       <Header
         title="Contáctanos"

@@ -20,7 +20,7 @@ export default function HeroSection() {
         alt="Decoración abstracta"
         width={650}
         height={650}
-        className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 blur-sm"
+        className="absolute rotate-45 left-[-20px] top-[10px] z-0 opacity-10 blur-xs"
       />
       <Image
         priority

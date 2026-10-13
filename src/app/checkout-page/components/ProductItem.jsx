@@ -9,7 +9,7 @@ const ProductItem = ({ data }) => {
 
   return (
     <div className="flex w-full h-full p-4 items-center gap-4 border border-gray-700 rounded-lg bg-slate-800/30">
-      <div className="relative w-20 h-20 rounded-md overflow-hidden flex-shrink-0">
+      <div className="relative w-20 h-20 rounded-md overflow-hidden shrink-0">
         <Image
           src={imagen}
           alt={alt || nombre || "Imagen del producto"}
@@ -25,7 +25,7 @@ const ProductItem = ({ data }) => {
           <p className="text-sm text-muted-foreground mt-0.5">{marca}</p>
         )}
       </div>
-      <div className="ml-auto text-right flex-shrink-0 flex flex-col items-end justify-between h-20">
+      <div className="ml-auto text-right shrink-0 flex flex-col items-end justify-between h-20">
         <span className="text-sm font-semibold text-foreground">
           C$&nbsp;{precio.toFixed(2)}
         </span>

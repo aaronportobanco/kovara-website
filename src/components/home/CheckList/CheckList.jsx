@@ -24,7 +24,7 @@ function CheckList() {
         alt="Decoración abstracta"
         width={900}
         height={675} // Adjusted to maintain natural aspect ratio
-        className="absolute -rotate-6 right-[20px] top-[70px] z-0 opacity-10 blur-sm"
+        className="absolute -rotate-6 right-[20px] top-[70px] z-0 opacity-10 blur-xs"
         loading="lazy" // added
       />
 

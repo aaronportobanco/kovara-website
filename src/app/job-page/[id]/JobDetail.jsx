@@ -199,7 +199,7 @@ const JobDetail = ({ jobId }) => {
         {/* This closes the lg:w-2/3 div (left column) */}
         {/* Right Column - Sidebar */}
         <aside className="lg:sticky top-10 flex flex-col gap-4 lg:w-1/3">
-          <div className="bg-slate-800/50 border-gray-700 p-6 rounded-lg shadow-sm">
+          <div className="bg-slate-800/50 border-gray-700 p-6 rounded-lg shadow-xs">
             <h3 className="text-lg text-center font-semibold mb-4">
               ¿Te gusta como suena?
             </h3>
@@ -217,7 +217,7 @@ const JobDetail = ({ jobId }) => {
           </div>
 
           {/* Contact Person */}
-          <div className="bg-slate-800/50 p-6 rounded-lg shadow-sm">
+          <div className="bg-slate-800/50 p-6 rounded-lg shadow-xs">
             <div className="flex flex-row gap-3 items-center mb-3">
               <Avatar className="border border-muted-foreground items-center justify-center">
                 <AvatarFallback>JP</AvatarFallback>
@@ -239,7 +239,7 @@ const JobDetail = ({ jobId }) => {
           </div>
 
           {/* Share Job Section */}
-          <div className="bg-slate-800/50 border-gray-700 p-6 rounded-lg shadow-sm">
+          <div className="bg-slate-800/50 border-gray-700 p-6 rounded-lg shadow-xs">
             <p className="text-sm font-semibold mb-3">Comparte esta vacante:</p>
 
             <div className="relative w-full mb-4">
@@ -247,7 +247,7 @@ const JobDetail = ({ jobId }) => {
                 type="text"
                 value={currentUrl}
                 readOnly
-                className="hover:border-blue-600 transition-colors bg-gray-700/40 h-11 border-gray-600 pr-28 pl-3 text-sm text-gray-300 select-none focus:ring-0 focus:outline-none"
+                className="hover:border-blue-600 transition-colors bg-gray-700/40 h-11 border-gray-600 pr-28 pl-3 text-sm text-gray-300 select-none focus:ring-0 focus:outline-hidden"
                 aria-label="URL de la vacante"
               />
               <Button

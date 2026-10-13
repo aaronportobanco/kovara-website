@@ -24,7 +24,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 			{Array.from({ length: totalPages }, (_, index) => (
 				<Button
 					key={index}
-					variant={index + 1 === currentPage ? "default" : "outline"}
+					variant={index + 1 === currentPage ? "default" : "outline-solid"}
 					onClick={() => { 
 						onPageChange(index + 1); 
 						scrollToSection("top"); // desplazamiento a la sección inicial

@@ -70,13 +70,13 @@ const ReglamentosNormativas = () => {
     <Section title="Reglamentos y Normativas">
       <div className="flex gap-4 mb-6">
         <Button
-          variant={activeGroup === 'Reglamentos' ? 'default' : 'outline'}
+          variant={activeGroup === 'Reglamentos' ? 'default' : 'outline-solid'}
           onClick={() => setActiveGroup('Reglamentos')}
         >
           Reglamentos
         </Button>
         <Button
-          variant={activeGroup === 'Normativas' ? 'default' : 'outline'}
+          variant={activeGroup === 'Normativas' ? 'default' : 'outline-solid'}
           onClick={() => setActiveGroup('Normativas')}
         >
           Normativas

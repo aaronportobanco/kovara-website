@@ -25,7 +25,7 @@ const ManualMarca = () => {
       <div className="flex flex-col sm:flex-row gap-4 w-full sm:justify-center items-center">
         <button
           onClick={() => window.open(pdfUrl, '_blank')}
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition w-full sm:w-auto"
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-sm hover:bg-blue-700 transition w-full sm:w-auto"
         >
           Ver Manual en PDF
         </button>
@@ -35,7 +35,7 @@ const ManualMarca = () => {
           download="ManualMarca.pdf"
           className="w-full sm:w-auto"
         >
-          <div className="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition text-center">
+          <div className="bg-green-600 text-white px-6 py-2 rounded-lg shadow-sm hover:bg-green-700 transition text-center">
             Descargar Manual
           </div>
         </a>

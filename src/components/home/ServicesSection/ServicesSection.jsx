@@ -15,7 +15,7 @@ function ServicesSection() {
         alt="Decoración abstracta"
         width={900}
         height={900}
-        className="absolute rotate-6 left-[60px] top-[-90px] z-0 opacity-10 filter blur-sm"
+        className="absolute rotate-6 left-[60px] top-[-90px] z-0 opacity-10 filter blur-xs"
       />
       <Header
         title="Servicios que Marcan la Diferencia"

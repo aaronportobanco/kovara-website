@@ -86,7 +86,7 @@ const CustomersTestimonials = () => {
                       />
 
                       {/* Contenido principal */}
-                      <CardContent className="p-5 flex-grow">
+                      <CardContent className="p-5 grow">
                         <blockquote className="text-sm sm:text-base text-gray-300 leading-relaxed text-left">
                           {testimonial.text}
                         </blockquote>

@@ -141,10 +141,10 @@ export default function Canva() {
           {canvasData.map((item, index) => (
             <CarouselItem
               key={index}
-              className="md:basis-1/1 lg:basis-1/3 flex-shrink-0 pl-10"
+              className="md:basis-1/1 lg:basis-1/3 shrink-0 pl-10"
             >
               <Card
-                className="min-h-[22rem] bg-slate-900 text-white shadow-xl rounded-2xl border-slate-500 
+                className="min-h-88 bg-slate-900 text-white shadow-xl rounded-2xl border-slate-500 
                 flex flex-col items-center justify-start mr-2"
               >
                 <item.icon className="w-6 h-6 text-sky-400 mb-2 mt-4" />
@@ -153,7 +153,7 @@ export default function Canva() {
                   {item.label}
                 </h3>
 
-                <CardContent className="overflow-y-auto max-h-[17rem] scrollbar-custom w-full">
+                <CardContent className="overflow-y-auto max-h-68 scrollbar-custom w-full">
                   <ul className="list-disc list-inside text-sm space-y-2 text-slate-300 text-center">
                     {item.content.map((text, idx) => (
                       <li key={idx}>{text}</li>

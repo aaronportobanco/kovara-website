@@ -14,10 +14,10 @@ const Cards = ({ jobs }) => (
     {jobs.map((job) => (
       <div
         key={job.id}
-        className="p-6 rounded-lg shadow-sm border border-gray-200"
+        className="p-6 rounded-lg shadow-xs border border-gray-200"
       >
         <div className="flex flex-col sm:flex-row justify-between items-start">
-          <div className="flex-grow mb-4 sm:mb-0 sm:mr-4">
+          <div className="grow mb-4 sm:mb-0 sm:mr-4">
             <h2 className="text-xl font-semibold">{job.title}</h2>
             <p className="mt-1 mb-3 text-sm">{job.description}</p>
             <div className="flex flex-wrap gap-2 items-center">
